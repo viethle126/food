@@ -28,16 +28,17 @@
       <p class="header-text">food</p>
     </div>
     <div class="container main centered">
-      <div class="row">
+      <div class="row" id="anchor">
         <!-- landing content is displayed until a search is initiated -->
         <div class="col-md-12" id="landing">
           <img class="landing-img" src="images/landing.jpg">
           <h1 class="subtitle"><i>50% more influential than the guy sitting next to you</i></h1>
         </div>
-        <!-- landing content is hidden while 'query-list' is populated with query results -->
+        <!-- 'landing' is hidden while 'query-list' is populated with query results -->
         <div class="col-md-12" id="query-list">
         </div>
-        <!-- 'query-list' is set to hidden, individual restaurant page is shown on click -->
+        <!-- 'query-list' is reset(cleared) every time a search is initiated -->
+        <!-- 'query-list' is hidden and individual restaurant page is shown on click -->
         <div class="col-md-12" id="restaraunt-content">
         </div>
       </div>

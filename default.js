@@ -1,124 +1,20 @@
 /*
 1. User can search for reviews.
-		a. DONE with code to search and return tag matches - currently using console.log to test, will modify later
+		a. DONE with code to search and return tag matches
+      i. DONE with system to check if a result is a dupe (multiple tags)
 2. User can view a list of reviews.
 		a. DONE with code for populating page with results
-      i. need to implement system to check if a result is a dupe (multiple tags)
-		b. Need to add ratings to restaurants and write code for converted ratings to stars(displayed)
+			i. Need to add ratings to restaurants and write code for converted ratings to stars(displayed)
+		b. Need to write code for displaying a restaurant page with reviews
 3. User can add a review.
 		a. Need to write code for creating and adding reviews
 */
 
-var queryRest = '';
-var queryImage = '';
-var queryDesc = '';
-var search = document.getElementById('submit-button');
-var searchInput = document.getElementById('search-input');
-
-search.addEventListener('click', searchRes);
-
-// converts search input into array by calling intoArray(), then cycles through each restaurant's tags against the search array to return matches
-function searchRes() {
-	return matchTags(restaurant, intoArray(searchInput.value.toLowerCase()));
-}
-
-// converts search input to array
-function intoArray(string) {
-	return string.toString().toLowerCase().split(' ');
-}
-
-// testing with checkDupe, trying to implement dupe checking condition
-var checkDupe = [];
-function denyDupe(obj, array) {
-  for (var i = 0; i < array.length; i++) {
-    if (array[i] = obj.name) {
-      return true;
-    }
-  }
-}
-
-// cycles through all .tags against given array and logs any matches
-function matchTags(obj, array) {
-  for (var prop in obj) {
-    for (var i = 0; i < obj[prop].tags.length; i++) {
-      for (var j = 0; j < array.length; j++) {
-        if (obj[prop].tags[i] === array[j]) {
-          queryRest = obj[prop].name;
-          queryImage = obj[prop].images[0];
-          queryDesc = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.'
-          queryPop(queryRest, queryImage, queryDesc);
-          checkDupe.push(obj[prop].name);
-        }
-      }
-    }
-  }
-}
-
-// queryPop will create and append media boxes per query result
-function queryPop(qName, qImage, qDesc) {
-  var landing = document.getElementById('landing');
-  landing.setAttribute('class', 'hidden');
-
-	var newMediaBox = document.createElement('div');
-	var toQueryList = document.getElementById('query-list');
-	newMediaBox.setAttribute('class', 'media');
-	newMediaBox.setAttribute('id', 'rest-box');
-	toQueryList.appendChild(newMediaBox);
-
-	var newImageBox = document.createElement('div');
-	var toRestBox = document.getElementById('rest-box');
-	newImageBox.setAttribute('class', 'media-left');
-	newImageBox.setAttribute('id', 'rest-thumb');
-	toRestBox.appendChild(newImageBox);
-
-	var newImageLink = document.createElement('a');
-	var toImageBox = document.getElementById('rest-thumb');
-	newImageLink.setAttribute('id', 'image-link');
-	newImageLink.setAttribute('href', '#');
-	toImageBox.appendChild(newImageLink);
-
-	var newImage = document.createElement('img');
-	var toImageLink = document.getElementById('image-link');
-	newImage.setAttribute('class', 'media-object');
-	newImage.setAttribute('src', qImage + '.jpg');
-	newImage.setAttribute('alt', 'image');
-	toImageLink.appendChild(newImage);
-
-	var newMediaBody = document.createElement('div');
-	newMediaBody.setAttribute('class', 'media-body');
-	newMediaBody.setAttribute('id', 'rest-body');
-	toRestBox.appendChild(newMediaBody);
-
-	var newHeading = document.createElement('h4');
-	var restName = document.createTextNode(qName);
-	var toRestBody = document.getElementById('rest-body');
-	newHeading.setAttribute('class', 'media-header');
-	newHeading.setAttribute('id', 'rest-name');
-	newHeading.appendChild(restName);
-	toRestBody.appendChild(newHeading);
-
-	var newRestDesc = document.createElement('p');
-	var restDesc = document.createTextNode(qDesc);
-	newRestDesc.setAttribute('class', 'description');
-	newRestDesc.setAttribute('id', 'rest-desc');
-	newRestDesc.appendChild(restDesc);
-	toRestBody.appendChild(newRestDesc);
-
-	// removing IDs for next loop
-	document.getElementById('rest-desc').removeAttribute('id');
-	document.getElementById('rest-name').removeAttribute('id');
-	document.getElementById('rest-body').removeAttribute('id');
-	document.getElementById('image-link').removeAttribute('id');
-	document.getElementById('rest-thumb').removeAttribute('id');
-	document.getElementById('rest-box').removeAttribute('id');
-}
-
+// each restaurant is created as an object within the restaurant object
 var restaurant = {
-  /* add restaurant Mogi Tacos */
+  // add restaurant Mogi Tacos
   mogitacos: {
-		findStreet: function() {
-			console.log(address[0]);
-		},
+		reference: 'mogitacos',
     name: 'Mogi Tacos',
     number: '714-824-2817',
     address: ['1726 Some Street','Irvine','CA','92780'],
@@ -133,6 +29,7 @@ var restaurant = {
     },
     tags: ['lunch','burritos','burrito','tacos','taco'],
     images: ['images/mogitacos/img001','images/mogitacos/img002','images/mogitacos/img003'],
+		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
     reviews: {
       id0001: {
         username: 'Fat Joe',
@@ -154,8 +51,9 @@ var restaurant = {
       }
     }
   },
-  /* add restaurant Mama's Taqueria */
+	// add restaurant Santana
   santana: {
+		reference: 'santana',
     name: 'Santana',
     number: '714-623-2674',
     address: ['100 Some Street','Irvine','CA','92780'],
@@ -170,6 +68,7 @@ var restaurant = {
     },
     tags: ['lunch','burritos','burrito','tacos','taco'],
     images: ['images/santana/img001','images/santana/img002','images/santana/img003'],
+		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
     reviews: {
       id0001: {
         username: 'ocEats',
@@ -191,8 +90,9 @@ var restaurant = {
       }
     }
   },
-  /* add restaurant Kate's Korner */
+  // add restaurant Jupiter Cafe
   jupitercafe: {
+		reference: 'jupitercafe',
     name: 'Jupiter Cafe',
     number: '714-112-2482',
     address: ['23 Some Street','Irvine','CA','92780'],
@@ -207,6 +107,7 @@ var restaurant = {
     },
     tags: ['lunch','burritos','burrito'],
     images: ['images/jupitercafe/img001','images/jupitercafe/img002','images/jupitercafe/img003'],
+		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
     reviews: {
       id0001: {
         username: 'Salty Chicken',
@@ -228,8 +129,9 @@ var restaurant = {
       }
     }
   },
-  /* add restaurant Pete's Burger Bar */
+	// add restaurant Burger Bar
   burgerbar: {
+		reference: 'burgerbar',
     name: 'Burger Bar',
     number: '714-712-2235',
     address: ['2223 Some Street','Irvine','CA','92780'],
@@ -244,6 +146,7 @@ var restaurant = {
     },
     tags: ['lunch','dinner','burgers','burger'],
     images: ['images/burgerbar/img001','images/burgerbar/img002','images/burgerbar/img003'],
+		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
     reviews: {
       id0001: {
         username: 'Get Money Eat Bacon',
@@ -265,8 +168,9 @@ var restaurant = {
       }
     }
   },
-  /* add restaurant Average Burgers */
+	// add restaurant Average Burgers
   averageburgers: {
+		reference: 'averageburgers',
     name: 'Average Burgers',
     number: '714-732-0033',
     address: ['1736 Some Street','Irvine','CA','92780'],
@@ -281,6 +185,7 @@ var restaurant = {
     },
     tags: ['lunch','burgers','burger'],
     images: ['images/averageburgers/img001','images/averageburgers/img002','images/averageburgers/img003'],
+		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
     reviews: {
       id0001: {
         username: 'Rose',
@@ -302,8 +207,9 @@ var restaurant = {
       }
     }
   },
-  /* add restaurant County */
+	// add restaurant County
   county: {
+		reference: 'county',
     name: 'County',
     number: '714-723-1123',
     address: ['736 Some Street','Irvine','CA','92780'],
@@ -318,6 +224,7 @@ var restaurant = {
     },
     tags: ['lunch','dinner'],
     images: ['images/county/img001','images/county/img002','images/county/img003'],
+		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
     reviews: {
       id0001: {
         username: 'codeMonkey',
@@ -339,8 +246,9 @@ var restaurant = {
       }
     }
   },
-  /* add restaurant Stone and Marble */
+	// add restaurant Stone and Marble
   stoneandmarble: {
+		reference: 'stoneandmarble',
     name: 'Stone and Marble',
     number: '714-591-1134',
     address: ['93 Some Street','Irvine','CA','92780'],
@@ -355,6 +263,7 @@ var restaurant = {
     },
     tags: ['dinner','steaks','steak'],
     images: ['images/stoneandmarble/img001','images/stoneandmarble/img002','images/stoneandmarble/img003'],
+		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
     reviews: {
       id0001: {
         username: 'Adam23',
@@ -377,3 +286,131 @@ var restaurant = {
     }
   }
 };
+
+// converts search input to array
+function intoArray(string) {
+	return string.toString().split(' ');
+}
+
+// cycles through each restaurant's tags against search array
+// calls function populate for all matches
+function matchTags(obj, array) {
+	var dupe = [];
+	// dupe array used to check for duplicate entries (multiple tag matches)
+  for (var prop in obj) {
+    // cycles through each restaurant
+    for (var i = 0; i < obj[prop].tags.length; i++) {
+      // cycles through each restaurant's tags
+      for (var j = 0; j < array.length; j++) {
+        // cycles all search array values against each restaurant tag
+        if (obj[prop].tags[i] === array[j]
+					&& obj[prop].name !== dupe[dupe.length - 1]) {
+					// first statement checks to see if tag value === search array value
+					// second statement checks if current iteration is the same as the last iteration (duplicate)
+					// prevents 'lunch tacos' search returning the same restaurant twice ('tacos' tag and 'lunch' tag)
+					queryRef = obj[prop].reference;
+          queryName = obj[prop].name;
+          queryImage = obj[prop].images[0];
+          queryDesc = obj[prop].description;
+          populate(queryRef, queryName, queryImage, queryDesc);
+					// pushes matching restaurant to dupe array before repeating loop
+          dupe.push(obj[prop].name);
+        }
+      }
+    }
+  }
+}
+
+// populate function will create and append media boxes per query result
+// working on function: display restaurant page when a user clicks on that restaurant
+// planning to change link ID to restaurant's name. when user clicks, a variable will be set = to that name and used to reference results
+function populate(reference, name, image, description) {
+  var landing = document.getElementById('landing');
+	landing.setAttribute('class', 'hidden');
+
+	var newMediaBox = document.createElement('div');
+	var toQueryList = document.getElementById('query-list');
+	newMediaBox.setAttribute('class', 'media');
+	newMediaBox.setAttribute('id', 'rest-box');
+	toQueryList.appendChild(newMediaBox);
+
+	var newImageBox = document.createElement('div');
+	var toRestBox = document.getElementById('rest-box');
+	newImageBox.setAttribute('class', 'media-left');
+	newImageBox.setAttribute('id', 'rest-thumb');
+	toRestBox.appendChild(newImageBox);
+
+	var newImageLink = document.createElement('a');
+	var toImageBox = document.getElementById('rest-thumb');
+	newImageLink.setAttribute('id', 'image-link');
+	newImageLink.setAttribute('href', '#');
+	toImageBox.appendChild(newImageLink);
+
+	var newImage = document.createElement('img');
+	var toImageLink = document.getElementById('image-link');
+	newImage.setAttribute('class', 'media-object');
+	newImage.setAttribute('src', image + '.jpg');
+	newImage.setAttribute('alt', 'image');
+	toImageLink.appendChild(newImage);
+
+	var newMediaBody = document.createElement('div');
+	newMediaBody.setAttribute('class', 'media-body');
+	newMediaBody.setAttribute('id', 'rest-body');
+	toRestBox.appendChild(newMediaBody);
+
+	var newHeading = document.createElement('h4');
+	var restName = document.createTextNode(name);
+	var toRestBody = document.getElementById('rest-body');
+	newHeading.setAttribute('class', 'media-header');
+	newHeading.setAttribute('id', 'rest-name');
+	newHeading.appendChild(restName);
+	toRestBody.appendChild(newHeading);
+
+	var newRestDesc = document.createElement('p');
+	var restDesc = document.createTextNode(description);
+	newRestDesc.setAttribute('class', 'description');
+	newRestDesc.setAttribute('id', 'rest-desc');
+	newRestDesc.appendChild(restDesc);
+	toRestBody.appendChild(newRestDesc);
+
+	// removing IDs for next iteration
+	document.getElementById('rest-desc').removeAttribute('id');
+	document.getElementById('rest-name').removeAttribute('id');
+	document.getElementById('rest-body').removeAttribute('id');
+	document.getElementById('rest-thumb').removeAttribute('id');
+	document.getElementById('rest-box').removeAttribute('id');
+	// setting reference to resaurant page link by replacing link ID with reference ID
+	toImageLink.setAttribute('id', reference);
+}
+
+// clears old results prior to new search:
+// removes current query-list div container
+// creates an empty query-list div container for new results
+function clearResults() {
+	var toAnchor = document.getElementById('anchor');
+	var toQueryList = document.getElementById('query-list');
+	toAnchor.removeChild(toQueryList);
+	// removed current query list container, creating new query list container
+	var newResults = document.createElement('div');
+	newResults.setAttribute('class', 'col-md-12');
+	newResults.setAttribute('id', 'query-list');
+	toAnchor.appendChild(newResults);
+}
+
+// converts search input into an array by calling function intoArray;
+// cycles through each restaurant's tags against the search array;
+// returns any matches and appends them via function populate;
+function searchFood() {
+	clearResults();
+	return matchTags(restaurant, intoArray(searchInput.value.toLowerCase()));
+}
+
+// variables for populating search results
+var queryName = '';
+var queryImage = '';
+var queryDesc = '';
+
+// search event listener
+var search = document.getElementById('submit-button');
+var searchInput = document.getElementById('search-input');
+search.addEventListener('click', searchFood);
