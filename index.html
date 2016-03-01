@@ -8,35 +8,41 @@
   <link rel="stylesheet" href="css/default.css">
 </head>
 <body>
-  <!-- begin fixed nav header -->
+  <!-- fixed nav header -->
   <div class="container-fluid header">
     <div class="header-container centered">
-      <div class="input-group">
+      <div class="input-group" id="search-group">
         <span class="input-group-addon" id="sizing-addon2">Find</span>
-        <input class="form-control" type="text" placeholder="breakfast burritos, burgers, cheap lunch">
+        <input class="form-control" id="search-input" type="text" placeholder="breakfast burritos, burgers, cheap lunch">
         <span class="input-group-btn">
-          <button class="btn btn-default" type="submit">
+          <button class="btn btn-default" type="submit" id="submit-button">
             <i class="fa fa-search"></i>
           </button>
         </span>
       </div>
     </div>
   </div>
-  <!-- end fixed nav header; begin main content -->
   <div class="page-wrapper">
+    <!-- main content header -->
     <div class="content-header">
       <p class="header-text">food</p>
     </div>
     <div class="container main centered">
       <div class="row">
-        <div class="col-md-12">
+        <!-- landing content is displayed until a search is initiated -->
+        <div class="col-md-12" id="landing">
           <img class="landing-img" src="images/landing.jpg">
           <h1 class="subtitle"><i>50% more influential than the guy sitting next to you</i></h1>
+        </div>
+        <!-- landing content is hidden while 'query-list' is populated with query results -->
+        <div class="col-md-12" id="query-list">
+        </div>
+        <!-- 'query-list' is set to hidden, individual restaurant page is shown on click -->
+        <div class="col-md-12" id="restaraunt-content">
         </div>
       </div>
     </div>
   </div>
   <script src="default.js"></script>
-
 </body>
 </html>

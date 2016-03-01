@@ -1,3 +1,7 @@
+.hidden {
+  display: none;
+}
+
 .centered {
   margin-left: auto;
   margin-right: auto;
@@ -55,4 +59,9 @@
   padding-left: 0;
   padding-right: 0;
   width: 1000px
+}
+
+.media-object {
+  height: 150px;
+  width: 150px;
 }
