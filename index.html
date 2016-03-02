@@ -30,7 +30,7 @@
     <div class="container main centered">
       <div class="row" id="anchor">
         <!-- landing content is displayed until a search is initiated -->
-        <div class="col-md-12" id="landing">
+        <div class="col-md-12 hidden" id="landing">
           <img class="landing-img" src="images/landing.jpg">
           <h1 class="subtitle"><i>50% more influential than the guy sitting next to you</i></h1>
         </div>
@@ -39,7 +39,52 @@
         </div>
         <!-- 'query-list' is reset(cleared) every time a search is initiated -->
         <!-- 'query-list' is hidden and individual restaurant page is shown on click -->
-        <div class="col-md-12" id="restaraunt-content">
+        <div class="col-md-12" id="restaurant-content">
+          <!-- begin testing on restaurant page -->
+
+          media object with title, contact and 3 pictures on right side
+          <div class="media" id="rest-header">
+            <div class="media-body" id="rest-heading">
+              <h4 class="media-heading" id="rest-name">Restaurant name</h4>
+              <p>tags: lunch dinners tacos</p>
+              <p>2727 Citrus</p>
+              <p>Irvine, CA 92708</p>
+              <p>Number</p>
+            </div>
+            <div class="media-right" id="rest-img">
+              <a id="img-link-one" href="#">
+                <img class="media-object review-img" id="img-one" src="..." alt="image">
+              </a>
+              <a id="img-link-two" href="#">
+                <img class="media-object review-img" id="img-two" src="..." alt="image">
+              </a>
+              <a id="img-link-three" href="#">
+                <img class="media-object review-img" id="img-three" src="..." alt="image">
+              </a>
+            </div>
+          </div>
+          <div class="reviews" id="review-box">
+            <div class="col-md-2 float-right" id="hours-box">hours on right col
+              <p id="hours"></p>
+            </div>
+            <div class="col-md-10 float-left" id="review-list">
+
+
+              <div class="row" id="review-row">
+                <div class="col-md-2" id="reviewer">
+                  <p id=name></p>
+                  <p id=date></p>
+                </div>
+                <div class="col-md-8" id="review-col">
+                  <p id="review-text"></p>
+                </div>
+            </div>
+
+          </div>
+        </div>
+          append reviews on left with 10 columns, hours on the right with 2 columns
+
+          <!-- end testing on restaurant page -->
         </div>
       </div>
     </div>

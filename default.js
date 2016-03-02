@@ -20,36 +20,36 @@ var restaurant = {
     address: ['1726 Some Street','Irvine','CA','92780'],
     hours: {
       monday: [],
-      tuesday: ['00101600'],
-      wednesday: ['00101600'],
-      thursday: ['00101600'],
-      friday: ['00101600'],
-      saturday: ['00101600'],
-      sunday: ['00101600']
+      tuesday: ['10:00 am - 4:00 pm'],
+      wednesday: ['10:00 am - 4:00 pm'],
+      thursday: ['10:00 am - 4:00 pm'],
+      friday: ['10:00 am - 4:00 pm'],
+      saturday: ['10:00 am - 4:00 pm'],
+      sunday: ['10:00 am - 4:00 pm']
     },
     tags: ['lunch','burritos','burrito','tacos','taco'],
-    images: ['images/mogitacos/img001','images/mogitacos/img002','images/mogitacos/img003'],
+    images: ['images/mogitacos/img001.jpg','images/mogitacos/img002.jpg','images/mogitacos/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
-    reviews: {
-      id0001: {
-        username: 'Fat Joe',
-        date: '021016',
+    reviews: [
+			{
+      	username: 'Fat Joe',
+        date: '02/10/16',
 				rating: 10,
         review: 'They have the best tacos in the OC! Try the short rib tacos or the spicy pork wet burrito. You might have to take a nap after but it\'s worth it!'
       },
-      id0002: {
+      {
         username: 'Sandra T',
-        date: '011316',
+        date: '01/13/16',
 				rating: 6,
         review: 'I\'ve been wanting to try this place for a long time. The boyfriend finally took me and... It was okay - overhyped for sure. The flavors were good but the meat was a little dry. I\'d be willing to give it another try.'
       },
-      id0003: {
+      {
         username: 'Wendy Eats',
-        date: '010216',
+        date: '01/02/16',
 				rating: 8,
         review: 'Fantastic food. Place was packed when we walked in but the wait wasn\'t bad. Tom, who took our order, was really helpful! He explained the menu and gave us his recommendations. I got the spicy pork burrito and I couldn\'t even finish it! I\'m going to have to make a few trips to try all of the other stuff!'
       }
-    }
+    ]
   },
 	// add restaurant Santana
   santana: {
@@ -58,37 +58,37 @@ var restaurant = {
     number: '714-623-2674',
     address: ['100 Some Street','Irvine','CA','92780'],
     hours: {
-      monday: ['00111500'],
-      tuesday: ['00111500'],
-      wednesday: ['00111500'],
-      thursday: ['00111500'],
-      friday: ['00111500'],
-      saturday: ['00111500'],
+      monday: ['11:00 am - 3:00 pm'],
+      tuesday: ['11:00 am - 3:00 pm'],
+      wednesday: ['11:00 am - 3:00 pm'],
+      thursday: ['11:00 am - 3:00 pm'],
+      friday: ['11:00 am - 3:00 pm'],
+      saturday: ['11:00 am - 3:00 pm'],
       sunday: []
     },
     tags: ['lunch','burritos','burrito','tacos','taco'],
-    images: ['images/santana/img001','images/santana/img002','images/santana/img003'],
+    images: ['images/santana/img001.jpg','images/santana/img002.jpg','images/santana/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
-    reviews: {
-      id0001: {
+    reviews: [
+      {
         username: 'ocEats',
-        date: '022316',
+        date: '02/23/16',
 				rating: 8,
         review: 'They have the best burritos in the OC! Try the lengua tacos or the carnitas wet burrito. You might have to take a nap after but it\'s worth it!'
       },
-      id0002: {
+      {
         username: 'I hate vegetarians',
-        date: '020116',
+        date: '02/01/16',
 				rating: 6,
         review: 'I\'ve been wanting to try this place for a long time. The boyfriend finally took me and... It was okay - overhyped for sure. The flavors were good but the meat was a little dry. I\'d be willing to give it another try.'
       },
-      id0003: {
+      {
         username: 'sweetguy2201',
-        date: '010216',
+        date: '01/02/16',
 				rating: 8,
         review: 'Fantastic food. Place was packed when we walked in but the wait wasn\'t bad. Tom, who took our order, was really helpful! He explained the menu and gave us his recommendations. I got the carne asada burrito and I couldn\'t even finish it! I\'m going to have to make a few trips to try all of the other stuff!'
       }
-    }
+    ]
   },
   // add restaurant Jupiter Cafe
   jupitercafe: {
@@ -97,37 +97,37 @@ var restaurant = {
     number: '714-112-2482',
     address: ['23 Some Street','Irvine','CA','92780'],
     hours: {
-      monday: ['00061400'],
-      tuesday: ['00061400'],
-      wednesday: ['00061400'],
-      thursday: ['00061400'],
-      friday: ['00061400'],
+      monday: ['6:00 am - 2:00 pm'],
+      tuesday: ['6:00 am - 2:00 pm'],
+      wednesday: ['6:00 am - 2:00 pm'],
+      thursday: ['6:00 am - 2:00 pm'],
+      friday: ['6:00 am - 2:00 pm'],
       saturday: [],
       sunday: []
     },
     tags: ['lunch','burritos','burrito'],
-    images: ['images/jupitercafe/img001','images/jupitercafe/img002','images/jupitercafe/img003'],
+    images: ['images/jupitercafe/img001.jpg','images/jupitercafe/img002.jpg','images/jupitercafe/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
-    reviews: {
-      id0001: {
+    reviews: [
+      {
         username: 'Salty Chicken',
-        date: '021316',
+        date: '02/13/16',
 				rating: 8,
         review: 'Yo, the breakfast burritos here are the size of your head! I\'d trade my first-born for a burrito and a cherry coke any day. ANY.'
       },
-      id0002: {
+      {
         username: 'Andy Min',
-        date: '020216',
+        date: '02/02/16',
 				rating: 8,
         review: 'The reviewer below me is an idiot. How are you gonna go and eat a tray of hash browns on a low carb diet. Seriously though, get the breakfast burrito. It can be your breakfast, lunch and dinner.'
       },
-      id0003: {
+      {
         username: 'Paleo Princess',
-        date: '012716',
+        date: '01/27/16',
 				rating: 6,
         review: 'If you order the burrito without the tortilla, they\'ll put everything in a big to-go box for you breakfast platter style. Good if you\'re low carbing.'
       }
-    }
+    ]
   },
 	// add restaurant Burger Bar
   burgerbar: {
@@ -136,37 +136,37 @@ var restaurant = {
     number: '714-712-2235',
     address: ['2223 Some Street','Irvine','CA','92780'],
     hours: {
-      monday: ['00101400'],
-      tuesday: ['00101400'],
-      wednesday: ['00101400'],
-      thursday: ['00101400','17002300'],
-      friday: ['00101400','17002300'],
-      saturday: ['00102300'],
-      sunday: ['00102300']
+      monday: ['10:00 am - 2:00 pm'],
+      tuesday: ['10:00 am - 2:00 pm'],
+      wednesday: ['10:00 am - 2:00 pm'],
+      thursday: ['10:00 am - 2:00 pm','5:00 pm - 11:00 pm'],
+      friday: ['10:00 am - 2:00 pm','5:00 pm - 11:00 pm'],
+      saturday: ['10:00 am - 2:00 pm'],
+      sunday: ['10:00 am - 2:00 pm']
     },
     tags: ['lunch','dinner','burgers','burger'],
-    images: ['images/burgerbar/img001','images/burgerbar/img002','images/burgerbar/img003'],
+    images: ['images/burgerbar/img001.jpg','images/burgerbar/img002.jpg','images/burgerbar/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
-    reviews: {
-      id0001: {
+    reviews: [
+      {
         username: 'Get Money Eat Bacon',
-        date: '022616',
+        date: '02/26/16',
 				rating: 10,
         review: 'Pastrami burger, add fried egg, add avocado. You\'re welcome.'
       },
-      id0002: {
+      {
         username: 'Matt B',
-        date: '021616',
+        date: '02/16/16',
 				rating: 10,
         review: 'The pastrami burger is ridiculous. If that\'s too much, get a classic burger. It comes with avocado, bacon and cheese. Seriously, if this isn\'t the best burger you\'ve ever had, go back to Average Burgers.'
       },
-      id0003: {
+      {
         username: 'Janet M',
-        date: '012716',
+        date: '01/27/16',
 				rating: 8,
         review: 'Forget the burgers, get the greek fries. Double fried and topped with a HEFTY amount of gyro, some kinda cheese, onions and tomatoes. Best fries ever.'
       }
-    }
+    ]
   },
 	// add restaurant Average Burgers
   averageburgers: {
@@ -175,37 +175,37 @@ var restaurant = {
     number: '714-732-0033',
     address: ['1736 Some Street','Irvine','CA','92780'],
     hours: {
-      monday: ['00101600'],
-      tuesday: ['00101600'],
-      wednesday: ['00101600'],
-      thursday: ['00101600'],
-      friday: ['00101600'],
-      saturday: ['00101600'],
+      monday: ['10:00 am - 4:00 pm'],
+      tuesday: ['10:00 am - 4:00 pm'],
+      wednesday: ['10:00 am - 4:00 pm'],
+      thursday: ['10:00 am - 4:00 pm'],
+      friday: ['10:00 am - 4:00 pm'],
+      saturday: ['10:00 am - 4:00 pm'],
       sunday: []
     },
     tags: ['lunch','burgers','burger'],
-    images: ['images/averageburgers/img001','images/averageburgers/img002','images/averageburgers/img003'],
+    images: ['images/averageburgers/img001.jpg','images/averageburgers/img002.jpg','images/averageburgers/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
-    reviews: {
-      id0001: {
+    reviews: [
+      {
         username: 'Rose',
-        date: '021816',
+        date: '02/18/16',
 				rating: 2,
         review: 'They really live up to their name. Go to Pete\'s down the street. They make much better burgers.'
       },
-      id0002: {
+      {
         username: 'Joe Crusher',
-        date: '012716',
+        date: '01/27/16',
 				rating: 6,
         review: 'Cheap and fast. Not the best but sometimes... you just want an average burger.'
       },
-      id0003: {
+      {
         username: 'Princess',
-        date: '011216',
+        date: '01/12/16',
 				rating: 10,
         review: 'So my boyfriend of ten years took me here for our anniversary. I was skeptical at first, but after walking in and being greeted by the acne-faced boy at the counter, all of my worries were laid to rest. My boyfriend got the special "Average Burger" and I just got a cheeseburger. I wanted the "Average Burger" too but my boyfriend said it\'d be better if we got different things so we would have more variety. The food was okay but the service was top-notch. They gave us table markers and brought the food to our table as soon as it was prepared. I think we\'ll come back again for special occasions.'
       }
-    }
+    ]
   },
 	// add restaurant County
   county: {
@@ -214,37 +214,37 @@ var restaurant = {
     number: '714-723-1123',
     address: ['736 Some Street','Irvine','CA','92780'],
     hours: {
-      monday: ['17002300'],
-      tuesday: ['17002300'],
-      wednesday: ['17002300'],
-      thursday: ['17002300'],
-      friday: ['10001400','17002300'],
-      saturday: ['10001400','17002300'],
-      sunday: ['10001400','17002300']
+      monday: ['5:00 pm - 11:00 pm'],
+      tuesday: ['5:00 pm - 11:00 pm'],
+      wednesday: ['5:00 pm - 11:00 pm'],
+      thursday: ['5:00 pm - 11:00 pm'],
+      friday: ['5:00 pm - 11:00 pm'],
+      saturday: ['10:00 am - 2:00 pm','5:00 pm - 11:00 pm'],
+      sunday: ['10:00 am - 2:00 pm','5:00 pm - 11:00 pm']
     },
     tags: ['lunch','dinner'],
-    images: ['images/county/img001','images/county/img002','images/county/img003'],
+    images: ['images/county/img001.jpg','images/county/img002.jpg','images/county/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
-    reviews: {
-      id0001: {
+    reviews: [
+      {
         username: 'codeMonkey',
-        date: '021816',
+        date: '02/18/16',
 				rating: 10,
         review: 'Fantastic food. Get the chicken and waffles. You won\'t regret it! Crunchy on the outside and fluffy in the middle. Chicken is well seasoned and moist. Guy below me is on crack.'
       },
-      id0002: {
+      {
         username: 'i luv buffets',
-        date: '021416',
+        date: '02/14/16',
 				rating: 4,
         review: 'I guess this is the new thing. Charge an arm and a leg for a plate with a tiny piece of meat, some sauce puddles and a few sprigs of crap I think they found in some guy\'s backyard. Sorry but I\'m sticking to Hometown Buffet.'
       },
-      id0003: {
+      {
         username: 'I thought this was Tinder',
-        date: '021216',
+        date: '02/12/16',
 				rating: 8,
         review: 'They just opened but I think they\'re here to stay. Had dinner with the family. Service was good, entrees came out on time, and most importantly, food was fantastic.'
       }
-    }
+    ]
   },
 	// add restaurant Stone and Marble
   stoneandmarble: {
@@ -254,46 +254,46 @@ var restaurant = {
     address: ['93 Some Street','Irvine','CA','92780'],
     hours: {
       monday: [],
-      tuesday: ['17002400'],
-      wednesday: ['17002400'],
-      thursday: ['17002400'],
-      friday: ['17002400'],
-      saturday: ['17002400'],
-      sunday: ['17002400']
+      tuesday: ['5:00 pm - 12:00 am'],
+      wednesday: ['5:00 pm - 12:00 am'],
+      thursday: ['5:00 pm - 12:00 am'],
+      friday: ['5:00 pm - 12:00 am'],
+      saturday: ['5:00 pm - 12:00 am'],
+      sunday: ['5:00 pm - 12:00 am']
     },
     tags: ['dinner','steaks','steak'],
-    images: ['images/stoneandmarble/img001','images/stoneandmarble/img002','images/stoneandmarble/img003'],
+    images: ['images/stoneandmarble/img001.jpg','images/stoneandmarble/img002.jpg','images/stoneandmarble/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
-    reviews: {
-      id0001: {
-        username: 'Adam23',
-        date: '021116',
+    reviews: [
+      {
+        username: 'Adam L',
+        date: '02/11/16',
 				rating: 10,
         review: 'Fine dining at it\'s best. Elegant yet inviting - never pretentious. Impeccable service and incomparable food. We opted for the wagyu steak (real/imported, $160, 8oz). Tasted like butter, a reflection of how perfectly marbled it was. Make sure you save room for dessert. You won\'t regret it.'
       },
-      id0002: {
+      {
         username: 'Joyce Y',
-        date: '012816',
+        date: '01/28/16',
 				rating: 8,
         review: 'The decor is nice and homey, slightly pretentious, but not enough to feel intimidated. They bring out all their cuts on a platter to show you difference in marbling. They even let us take a picture with the platter! John got the Japanese wagyu and I got the lamb chops. Instant regret.'
       },
-      id0003: {
+      {
         username: 'LadysMan7263',
-        date: '122715',
+        date: '12/27/15',
 				rating: 10,
         review: 'THE place to bring a date. They will be impressed with how expensive your steak is.'
       }
-    }
+    ]
   }
 };
 
-// converts search input to array
+// convert search input to array
 function intoArray(string) {
 	return string.toString().split(' ');
 }
 
-// cycles through each restaurant's tags against search array
-// calls function populate for all matches
+// cycle through each restaurant's tags against search array
+// call function populate for all matches
 function matchTags(obj, array) {
 	var dupe = [];
 	// dupe array used to check for duplicate entries (multiple tag matches)
@@ -322,8 +322,6 @@ function matchTags(obj, array) {
 }
 
 // populate function will create and append media boxes per query result
-// working on function: display restaurant page when a user clicks on that restaurant
-// planning to change link ID to restaurant's name. when user clicks, a variable will be set = to that name and used to reference results
 function populate(reference, name, image, description) {
   var landing = document.getElementById('landing');
 	landing.setAttribute('class', 'hidden');
@@ -349,7 +347,7 @@ function populate(reference, name, image, description) {
 	var newImage = document.createElement('img');
 	var toImageLink = document.getElementById('image-link');
 	newImage.setAttribute('class', 'media-object');
-	newImage.setAttribute('src', image + '.jpg');
+	newImage.setAttribute('src', image);
 	newImage.setAttribute('alt', 'image');
 	toImageLink.appendChild(newImage);
 
@@ -373,19 +371,19 @@ function populate(reference, name, image, description) {
 	newRestDesc.appendChild(restDesc);
 	toRestBody.appendChild(newRestDesc);
 
-	// removing IDs for next iteration
+	// remove IDs for next iteration
 	document.getElementById('rest-desc').removeAttribute('id');
 	document.getElementById('rest-name').removeAttribute('id');
 	document.getElementById('rest-body').removeAttribute('id');
 	document.getElementById('rest-thumb').removeAttribute('id');
 	document.getElementById('rest-box').removeAttribute('id');
-	// setting reference to resaurant page link by replacing link ID with reference ID
+	// set reference to resaurant page link by replacing link ID with reference ID
 	toImageLink.setAttribute('id', reference);
 }
 
-// clears old results prior to new search:
-// removes current query-list div container
-// creates an empty query-list div container for new results
+// clear old results prior to new search:
+// remove current query-list div container
+// create an empty query-list div container for new results
 function clearResults() {
 	var toAnchor = document.getElementById('anchor');
 	var toQueryList = document.getElementById('query-list');
@@ -397,9 +395,9 @@ function clearResults() {
 	toAnchor.appendChild(newResults);
 }
 
-// converts search input into an array by calling function intoArray;
-// cycles through each restaurant's tags against the search array;
-// returns any matches and appends them via function populate;
+// convert search input into an array by calling function intoArray;
+// cycle through each restaurant's tags against the search array;
+// return any matches and appends them via function populate;
 function searchFood() {
 	clearResults();
 	return matchTags(restaurant, intoArray(searchInput.value.toLowerCase()));
@@ -414,3 +412,184 @@ var queryDesc = '';
 var search = document.getElementById('submit-button');
 var searchInput = document.getElementById('search-input');
 search.addEventListener('click', searchFood);
+
+// set up restaurant page (info, photos) and create container for reviews
+// !!! FOR LATER: function to clear restaurant page for new search
+function setRestaurant() {
+	var anchor = document.getElementById('anchor');
+	var query = document.getElementById('query-list');
+	// set query-list to hidden
+	query.setAttribute('class', 'hidden');
+
+	// create skeleton for review section
+	var restContent = document.getElementById('restaurant-content');
+	var newRestHeader = document.createElement('div');
+	newRestHeader.setAttribute('class', 'media');
+	newRestHeader.setAttribute('id', 'rest-header');
+	restContent.appendChild(newRestHeader);
+
+	var newRestHeading = document.createElement('div');
+	var toRestHeader = document.getElementById('rest-header')
+	newRestHeading.setAttribute('class', 'media-body');
+	newRestHeading.setAttribute('id', 'rest-heading');
+	toRestHeader.appendChild(newRestHeading);
+
+	var newRestName = document.createElement('h4');
+	var toRestHeading = document.getElementById('rest-heading');
+	newRestName.setAttribute('class', 'media-heading');
+	newRestName.setAttribute('id', 'rest-name');
+	toRestHeading.appendChild(newRestName);
+
+	var newTags = document.createElement('p');
+	var newTagText = document.createTextNode('tags: lunch tacos');
+	newTags.appendChild(newTagText);
+	toRestHeading.appendChild(newTags);
+
+	var newStreet = document.createElement('p');
+	var newStreetText = document.createTextNode('2244 Citrus');
+	newStreet.appendChild(newStreetText);
+	toRestHeading.appendChild(newStreet);
+
+	var newCity = document.createElement('p');
+	var newCityText = document.createTextNode('Irvine, CA 92780');
+	newCity.appendChild(newCityText);
+	toRestHeading.appendChild(newCity);
+
+	var newTele = document.createElement('p');
+	var newTeleText = document.createTextNode('(714) 222-8888');
+	newTele.appendChild(newTeleText);
+	toRestHeading.appendChild(newTele);
+
+	var newRestImg = document.createElement('div');
+	newRestImg.setAttribute('class', 'media-right');
+	newRestImg.setAttribute('id', 'rest-img');
+	toRestHeader.appendChild(newRestImg);
+
+	var newLinkOne = document.createElement('a');
+	var toRestImg = document.getElementById('rest-img');
+	newLinkOne.setAttribute('id', 'img-link-one');
+	newLinkOne.setAttribute('href', '#');
+	toRestImg.appendChild(newLinkOne);
+
+	var newImgOne = document.createElement('img');
+	var toLinkOne = document.getElementById('img-link-one');
+	newImgOne.setAttribute('class', 'media-object');
+	newImgOne.setAttribute('class', 'review-img');
+	newImgOne.setAttribute('id', 'img-one');
+	newImgOne.setAttribute('src', '...');
+	newImgOne.setAttribute('alt', 'image');
+	toLinkOne.appendChild(newImgOne);
+
+	var newLinkTwo = document.createElement('a');
+	newLinkTwo.setAttribute('id', 'img-link-two');
+	newLinkTwo.setAttribute('href', '#');
+	toRestImg.appendChild(newLinkTwo);
+
+	var newImgTwo = document.createElement('img');
+	var toLinkTwo = document.getElementById('img-link-two');
+	newImgTwo.setAttribute('class', 'media-object');
+	newImgTwo.setAttribute('class', 'review-img');
+	newImgTwo.setAttribute('id', 'img-two');
+	newImgTwo.setAttribute('src', '...');
+	newImgTwo.setAttribute('alt', 'image');
+	toLinkTwo.appendChild(newImgTwo);
+
+	var newLinkThree = document.createElement('a');
+	newLinkThree.setAttribute('id', 'img-link-three');
+	newLinkThree.setAttribute('href', '#');
+	toRestImg.appendChild(newLinkThree);
+
+	var newImgThree = document.createElement('img');
+	var toLinkThree = document.getElementById('img-link-three');
+	newImgThree.setAttribute('class', 'media-object');
+	newImgThree.setAttribute('class', 'review-img');
+	newImgThree.setAttribute('id', 'img-three');
+	newImgThree.setAttribute('src', '...');
+	newImgThree.setAttribute('alt', 'image');
+	toLinkThree.appendChild(newImgThree);
+
+	var newReviewBox = document.createElement('div');
+	newReviewBox.setAttribute('class', 'reviews');
+	newReviewBox.setAttribute('id', 'review-box');
+	restContent.appendChild(newReviewBox);
+
+	var newHoursBox = document.createElement('div');
+	var toReviewBox = document.getElementById('review-box');
+	newHoursBox.setAttribute('class', 'col-md-2');
+	newHoursBox.setAttribute('class', 'float-right');
+	newHoursBox.setAttribute('id', 'hours-box');
+	toReviewBox.appendChild(newHoursBox);
+
+	var newHours = document.createElement('p');
+	var hoursText = document.createTextNode('Sunday: Monday: Tuesday: Wednesday: Thuesday Friday Saturday: ');
+	var toHoursBox = document.getElementById('hours-box');
+	newHours.setAttribute('id', 'hours');
+	newHours.appendChild(hoursText);
+	toHoursBox.appendChild(newHours);
+
+  var newList = document.createElement('div');
+  newList.setAttribute('class', 'col-md-10');
+  newList.setAttribute('class', 'float-left');
+  newList.setAttribute('id', 'review-list');
+  toReviewBox.appendChild(newList);
+	// this function will append everything about a restaurant except for the reviews
+	// a separate loop function will handle generating the reviews
+}
+
+// display reviews for a restaurant, only use after setRestaurant
+function showReviews() {
+	var newRow = document.createElement('div');
+	var toList = document.getElementById('review-list');
+	newRow.setAttribute('class', 'row');
+	newRow.setAttribute('id', 'review-row');
+	toList.appendChild(newRow);
+
+	var newReviewer = document.createElement('div');
+	var toRow = document.getElementById('review-row');
+	newReviewer.setAttribute('class', 'col-md-2');
+	newReviewer.setAttribute('id', 'reviewer');
+	toRow.appendChild(newReviewer);
+
+	var newName = document.createElement('p');
+	var nameText = document.createTextNode('Joe');
+	var toReviewer = document.getElementById('reviewer');
+	newName.appendChild(nameText);
+	toReviewer.appendChild(newName);
+
+	var newDate = document.createElement('p');
+	var dateText = document.createTextNode('12/12/15');
+	newDate.appendChild(dateText);
+	toReviewer.appendChild(newDate);
+
+	var reviewCol = document.createElement('div');
+	reviewCol.setAttribute('class', 'col-md-8');
+	reviewCol.setAttribute('id', 'review-col');
+	toRow.appendChild(reviewCol);
+
+	var reviewBody = document.createElement('p');
+	var bodyText = document.createTextNode('some review ref here');
+	var toReviewCol = document.getElementById('review-col');
+	reviewBody.appendChild(bodyText);
+	toReviewCol.appendChild(reviewBody);
+
+	// remove IDs for next iteration
+	document.getElementById('review-row').removeAttribute('id');
+	document.getElementById('reviewer').removeAttribute('id');
+	document.getElementById('review-col').removeAttribute('id');
+}
+// new row per review
+
+// storeRef for testing purposes
+var storeRef = 'mogitacos';
+function matchRef(reference, obj) {
+	for (var prop in obj) {
+		// cycle through each restaurant
+		if (obj[prop].reference === reference) {
+			// will call setRestaurant() and showReviews()
+			// will modify after writing showReviews()
+			console.log('Match FOUND');
+		} else {
+			console.log('NO MATCH');
+		}
+	}
+}
