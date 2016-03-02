@@ -69,5 +69,13 @@
 .review-img {
   display: inline;
   height: 150px;
-  width: 150px;
+  width: 170px;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
 }

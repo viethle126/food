@@ -15,7 +15,7 @@ var restaurant = {
       saturday: ['10:00 am - 4:00 pm'],
       sunday: ['10:00 am - 4:00 pm']
     },
-    tags: ['lunch','burritos','burrito','tacos','taco'],
+    tags: ['mogi','lunch','burritos','burrito','tacos','taco'],
     images: ['images/mogitacos/img001.jpg','images/mogitacos/img002.jpg','images/mogitacos/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
     reviews: [
@@ -54,7 +54,7 @@ var restaurant = {
       saturday: ['11:00 am - 3:00 pm'],
       sunday: ['Closed']
     },
-    tags: ['lunch','burritos','burrito','tacos','taco'],
+    tags: ['santana','lunch','burritos','burrito','tacos','taco'],
     images: ['images/santana/img001.jpg','images/santana/img002.jpg','images/santana/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
     reviews: [
@@ -93,7 +93,7 @@ var restaurant = {
       saturday: ['Closed'],
       sunday: ['Closed']
     },
-    tags: ['lunch','burritos','burrito'],
+    tags: ['jupiter','cafe','lunch','burritos','burrito'],
     images: ['images/jupitercafe/img001.jpg','images/jupitercafe/img002.jpg','images/jupitercafe/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
     reviews: [
@@ -132,7 +132,7 @@ var restaurant = {
       saturday: ['10:00 am - 2:00 pm'],
       sunday: ['10:00 am - 2:00 pm']
     },
-    tags: ['lunch','dinner','burgers','burger'],
+    tags: ['burger','bar','lunch','dinner','burgers'],
     images: ['images/burgerbar/img001.jpg','images/burgerbar/img002.jpg','images/burgerbar/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
     reviews: [
@@ -171,7 +171,7 @@ var restaurant = {
       saturday: ['10:00 am - 4:00 pm'],
       sunday: ['Closed']
     },
-    tags: ['lunch','burgers','burger'],
+    tags: ['average','burgers','lunch','burger'],
     images: ['images/averageburgers/img001.jpg','images/averageburgers/img002.jpg','images/averageburgers/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
     reviews: [
@@ -210,7 +210,7 @@ var restaurant = {
       saturday: ['10:00 am - 2:00 pm','5:00 pm - 11:00 pm'],
       sunday: ['10:00 am - 2:00 pm','5:00 pm - 11:00 pm']
     },
-    tags: ['lunch','dinner'],
+    tags: ['county','lunch','dinner'],
     images: ['images/county/img001.jpg','images/county/img002.jpg','images/county/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
     reviews: [
@@ -249,7 +249,7 @@ var restaurant = {
       saturday: ['5:00 pm - 12:00 am'],
       sunday: ['5:00 pm - 12:00 am']
     },
-    tags: ['dinner','steaks','steak'],
+    tags: ['stone','marble','dinner','steaks','steak'],
     images: ['images/stoneandmarble/img001.jpg','images/stoneandmarble/img002.jpg','images/stoneandmarble/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
     reviews: [
@@ -382,18 +382,24 @@ function populate(reference, name, image, description) {
   })
 }
 
-// clear old results prior to new search:
-// remove current query-list div container
-// create an empty query-list div container for new results
+// clear current results and/or restaurant content
+// remove parent div containers
+// create empty query container and restaurant container
 function clearResults() {
 	var toAnchor = document.getElementById('anchor');
 	var toQueryList = document.getElementById('query-list');
+  var toRestaurant = document.getElementById('restaurant-content');
 	toAnchor.removeChild(toQueryList);
-	// remove current query list container, create new query list container
+  toAnchor.removeChild(toRestaurant);
+	// remove current ontainers, create new containers
 	var newResults = document.createElement('div');
 	newResults.setAttribute('class', 'col-md-12');
 	newResults.setAttribute('id', 'query-list');
 	toAnchor.appendChild(newResults);
+  var newRestaurant = document.createElement('div');
+  newRestaurant.setAttribute('class', 'col-md-12');
+  newRestaurant.setAttribute('id', 'restaurant-content');
+  toAnchor.appendChild(newRestaurant);
 }
 
 // convert search input into an array by calling function intoArray;
@@ -495,7 +501,7 @@ function setRestaurant() {
 	var newImgOne = document.createElement('img');
 	var toLinkOne = document.getElementById('img-link-one');
 	newImgOne.setAttribute('class', 'media-object');
-	newImgOne.setAttribute('class', 'review-img');
+  newImgOne.className += ' review-img';
 	newImgOne.setAttribute('id', 'img-one');
 	newImgOne.setAttribute('src', picOne);
 	newImgOne.setAttribute('alt', 'image');
@@ -509,7 +515,7 @@ function setRestaurant() {
 	var newImgTwo = document.createElement('img');
 	var toLinkTwo = document.getElementById('img-link-two');
 	newImgTwo.setAttribute('class', 'media-object');
-	newImgTwo.setAttribute('class', 'review-img');
+	newImgTwo.className += ' review-img';
 	newImgTwo.setAttribute('id', 'img-two');
 	newImgTwo.setAttribute('src', picTwo);
 	newImgTwo.setAttribute('alt', 'image');
@@ -523,7 +529,7 @@ function setRestaurant() {
 	var newImgThree = document.createElement('img');
 	var toLinkThree = document.getElementById('img-link-three');
 	newImgThree.setAttribute('class', 'media-object');
-	newImgThree.setAttribute('class', 'review-img');
+	newImgThree.className += ' review-img';
 	newImgThree.setAttribute('id', 'img-three');
 	newImgThree.setAttribute('src', picThree);
 	newImgThree.setAttribute('alt', 'image');
@@ -537,7 +543,7 @@ function setRestaurant() {
 	var newHoursBox = document.createElement('div');
 	var toReviewBox = document.getElementById('review-box');
 	newHoursBox.setAttribute('class', 'col-md-2');
-	newHoursBox.setAttribute('class', 'float-right');
+  newHoursBox.className += ' float-right';
 	newHoursBox.setAttribute('id', 'hours-box');
 	toReviewBox.appendChild(newHoursBox);
 
@@ -600,7 +606,7 @@ function setRestaurant() {
 
   var newList = document.createElement('div');
   newList.setAttribute('class', 'col-md-10');
-  newList.setAttribute('class', 'float-left');
+  newList.className += ' float-left';
   newList.setAttribute('id', 'review-list');
   toReviewBox.appendChild(newList);
 }
@@ -656,6 +662,7 @@ function sendRef(reference) {
 // match variable storeRef to unique restaurant
 // call setRestaurant() and showReviews()
 function showRestaurant() {
+  clearResults();
 	for (var prop in restaurant) {
 		// loop through each restaurant
 		if (restaurant[prop].reference === storeRef) {

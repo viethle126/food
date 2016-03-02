@@ -41,8 +41,6 @@
         <!-- 'query-list' is hidden and individual restaurant page is shown on click -->
         <div class="col-md-12" id="restaurant-content">
           <!-- begin testing on restaurant page -->
-<!--
-          media object with title, contact and 3 pictures on right side
           <div class="media" id="rest-header">
             <div class="media-body" id="rest-heading">
               <h4 class="media-heading" id="rest-name">Restaurant name</h4>
@@ -64,12 +62,25 @@
             </div>
           </div>
           <div class="reviews" id="review-box">
-            <div class="col-md-2 float-right" id="hours-box">hours on right col
+            <div class="col-md-2 float-right" id="hours-box">
               <p id="hours"></p>
             </div>
             <div class="col-md-10 float-left" id="review-list">
+              <!-- begin testing on review form -->
 
+              <form>
+                <div class="form-group">
+                  <label for="username">Name</label>
+                  <input type="text" class="form-control" id="username">
+                </div>
+                <div class="form-group">
+                  <label for="review">Review</label>
+                  <textarea class="form-control" id="review" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form>
 
+              <!--
               <div class="row" id="review-row">
                 <div class="col-md-2" id="reviewer">
                   <p id=name></p>
@@ -78,12 +89,10 @@
                 <div class="col-md-8" id="review-col">
                   <p id="review-text"></p>
                 </div>
+              </div>
+            -->
             </div>
-
           </div>
-        </div>
-          append reviews on left with 10 columns, hours on the right with 2 columns
--->
           <!-- end testing on restaurant page -->
         </div>
       </div>
