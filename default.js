@@ -373,19 +373,19 @@ function populate(reference, name, image, description) {
 	document.getElementById('rest-box').removeAttribute('id');
 	// set reference to unique restaurant by replacing link ID with reference ID
   // add event listener to each search result
-  // click to save reference ID in storeRef and call showRestaurant()
+  // click to save reference ID in storeRef and call initRestaurant()
 	toImageLink.setAttribute('id', reference);
   var toReference = document.getElementById(reference);
   toReference.addEventListener('click', function(e) {
     sendRef(this.id);
-    showRestaurant();
+    initRestaurant();
   })
 }
 
 // clear current results and/or restaurant content
 // remove parent div containers
 // create empty query container and restaurant container
-function clearResults() {
+function clearPage() {
 	var toAnchor = document.getElementById('anchor');
 	var toQueryList = document.getElementById('query-list');
   var toRestaurant = document.getElementById('restaurant-content');
@@ -402,11 +402,32 @@ function clearResults() {
   toAnchor.appendChild(newRestaurant);
 }
 
+// clear review section
+function clearReviews() {
+  // remove list of reviews
+  var toReviewBox = document.getElementById('review-box');
+  var toList = document.getElementById('review-list');
+	toReviewBox.removeChild(toList);
+	// create empty container
+  var newList = document.createElement('div');
+  newList.setAttribute('class', 'col-md-10');
+  newList.className += ' float-left';
+  newList.setAttribute('id', 'review-list');
+  toReviewBox.appendChild(newList);
+}
+
+// remove form after submitting
+function clearForm() {
+  var toReviewBox = document.getElementById('review-list');
+  var toForm = document.getElementById('review-form');
+  toReviewBox.removeChild(toForm);
+}
+
 // convert search input into an array by calling function intoArray;
 // loop through each restaurant's tags against the search array;
 // return any matches and appends them via function populate;
 function searchFood() {
-	clearResults();
+	clearPage();
 	return matchTags(restaurant, intoArray(searchInput.value.toLowerCase()));
 }
 
@@ -416,7 +437,7 @@ var searchInput = document.getElementById('search-input');
 search.addEventListener('click', searchFood);
 
 // variables for generating restaurant page
-// assign values in showRestaurant(), use in setRestaurant() and showReviews()
+// assign values in initRestaurant(), use in showRestaurant() and showReviews()
 var storeRef = '';
 var name = '';
 var tags = '';
@@ -438,8 +459,7 @@ var date = '';
 var review = '';
 
 // set up restaurant page (info, photos) and create container for reviews
-// !!! FOR LATER: function to clear restaurant page for new search
-function setRestaurant() {
+function showRestaurant() {
 	var anchor = document.getElementById('anchor');
 	var query = document.getElementById('query-list');
 	// set query-list to hidden
@@ -465,6 +485,20 @@ function setRestaurant() {
 	newRestName.setAttribute('id', 'rest-name');
   newRestName.appendChild(restName)
 	toRestHeading.appendChild(newRestName);
+
+  // note: making button to write reviews here for now
+  var newButton = document.createElement('button');
+  var newButtonText = document.createTextNode('Write a Review');
+  newButton.setAttribute('type', 'submit');
+  newButton.setAttribute('class', 'btn');
+  newButton.className += ' btn-default';
+  newButton.setAttribute('id', 'write-review');
+  newButton.appendChild(newButtonText);
+  toRestHeading.appendChild(newButton);
+
+  // event listener to reveal review form
+  var write = document.getElementById('write-review')
+  write.addEventListener('click', writeReview);
 
   // note: hiding tags for now
 	//var newTags = document.createElement('p');
@@ -654,15 +688,15 @@ function showReviews(reviewer, date, review) {
 	document.getElementById('review-col').removeAttribute('id');
 }
 
-// store reference ID to be used in showRestaurant()
+// store reference ID to be used in initRestaurant()
 function sendRef(reference) {
   storeRef = reference;
 }
 
 // match variable storeRef to unique restaurant
-// call setRestaurant() and showReviews()
-function showRestaurant() {
-  clearResults();
+// call showRestaurant() and showReviews()
+function initRestaurant() {
+  clearPage();
 	for (var prop in restaurant) {
 		// loop through each restaurant
 		if (restaurant[prop].reference === storeRef) {
@@ -685,7 +719,7 @@ function showRestaurant() {
       sat = restaurant[prop].hours.saturday.join(', ');
       sunday = restaurant[prop].hours.sunday.join(', ');
       // set up restaurant html structure
-      setRestaurant();
+      showRestaurant();
       // loop through reviews backwards to show most recent reviews first
       for (var i = restaurant[prop].reviews.length - 1; i >= 0; i--) {
         reviewer = restaurant[prop].reviews[i].username;
@@ -703,6 +737,103 @@ var dateObj = new Date();
 var month = dateObj.getUTCMonth() + 1;
 var day = dateObj.getUTCDate();
 var year = dateObj.getUTCFullYear();
+
+// create review form when corresponding button is clicked
+function writeReview() {
+  clearReviews();
+  var toList = document.getElementById('review-list');
+  var newElem = document.createElement('div');
+  newElem.setAttribute('class', 'col-md-10');
+  newElem.className += ' form-box float-left';
+  newElem.setAttribute('id', 'review-form');
+  toList.appendChild(newElem);
+
+  var toForm = document.getElementById('review-form');
+  newElem = document.createElement('div');
+  newElem.setAttribute('class', 'form-group');
+  newElem.setAttribute('id', 'form-container');
+  toForm.appendChild(newElem);
+
+  var toContainer = document.getElementById('form-container');
+  newElem = document.createElement('label');
+  var newText = document.createTextNode('Name');
+  newElem.setAttribute('for', 'username');
+  newElem.appendChild(newText);
+  toContainer.appendChild(newElem);
+
+  newElem = document.createElement('input');
+  newElem.setAttribute('type', 'text');
+  newElem.setAttribute('class', 'form-control');
+  newElem.setAttribute('id', 'username');
+  toContainer.appendChild(newElem);
+
+  newElem = document.createElement('div');
+  newElem.setAttribute('class', 'form-group');
+  newElem.setAttribute('id', 'form-container');
+  toForm.appendChild(newElem);
+
+  newElem = document.createElement('label');
+  newText = document.createTextNode('Rating');
+  newElem.setAttribute('for', 'rating');
+  newElem.appendChild(newText);
+  toContainer.appendChild(newElem);
+
+  newElem = document.createElement('input');
+  newElem.setAttribute('type', 'text');
+  newElem.setAttribute('class', 'form-control');
+  newElem.setAttribute('id', 'rating');
+  toContainer.appendChild(newElem);
+
+  newElem = document.createElement('div');
+  newElem.setAttribute('class', 'form-group');
+  newElem.setAttribute('id', 'form-container');
+  toForm.appendChild(newElem);
+
+  newElem = document.createElement('label');
+  newText = document.createTextNode('Review');
+  newElem.setAttribute('for', 'review');
+  newElem.appendChild(newText);
+  toContainer.appendChild(newElem);
+
+  newElem = document.createElement('textarea');
+  newElem.setAttribute('class', 'form-control');
+  newElem.setAttribute('id', 'review');
+  newElem.setAttribute('rows', '10');
+  toContainer.appendChild(newElem);
+
+  newElem = document.createElement('button');
+  newText = document.createTextNode('Submit');
+  newElem.setAttribute('type', 'submit');
+  newElem.setAttribute('class', 'btn');
+  newElem.className += ' btn-default';
+  newElem.setAttribute('id' ,'submit-button');
+  newElem.appendChild(newText);
+  toContainer.appendChild(newElem);
+
+  // event listener to push review
+  var submit = document.getElementById('submit-button');
+  submit.addEventListener('click', submitReview);
+}
+
+// clear review form after pushing to review array
+// create updated list of reviews
+function updateReviews() {
+  clearForm();
+  for (var prop in restaurant) {
+    // loop through each restaurant
+    if (restaurant[prop].reference === storeRef) {
+      // match reference from search result
+      // loop through reviews backwards to show most recent reviews first
+      for (var i = restaurant[prop].reviews.length - 1; i >= 0; i--) {
+        reviewer = restaurant[prop].reviews[i].username;
+        date = restaurant[prop].reviews[i].date;
+        review = restaurant[prop].reviews[i].review;
+        // call showReviews() for each review
+        showReviews(reviewer, date, review);
+      }
+    }
+  }
+}
 
 // push new review object into review array
 function submitReview() {
@@ -722,9 +853,5 @@ function submitReview() {
       restaurant[prop].reviews.push(newReview);
     }
   }
+  updateReviews();
 }
-
-// variables for adding review
-var submit = document.getElementById('submit-button');
-// temporary, will move into setRestaurant() after testing
-submit.addEventListener('click', submitReview);
