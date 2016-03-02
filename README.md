@@ -2,12 +2,12 @@
 - [x] **User can search for reviews.**
   * [x] Search and return tag matches
   * [x] Clear search results if new search is initiated
-- [ ] **User can view a list of reviews.**
-  * [ ] Click search result to show restaurant details
-  * [ ] Show list of reviews under restaurant details
-- [ ] **User can add a review.**
-  * [ ] Fill out form and submit to push input into review array
-  * [ ] Update review list to show user review
+- [x] **User can view a list of reviews.**
+  * [x] Click search result to show restaurant details
+  * [x] Show list of reviews under restaurant details
+- [x] **User can add a review.**
+  * [x] Fill out form and submit to push input into review array
+  * [x] Update review list to show user review
 
 Data structure for restaurants:
 ```javascript
