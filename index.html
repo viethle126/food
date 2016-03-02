@@ -15,7 +15,7 @@
         <span class="input-group-addon" id="sizing-addon2">Find</span>
         <input class="form-control" id="search-input" type="text" placeholder="breakfast burritos, burgers, cheap lunch">
         <span class="input-group-btn">
-          <button class="btn btn-default" type="submit" id="submit-button">
+          <button class="btn btn-default" type="submit" id="search-button">
             <i class="fa fa-search"></i>
           </button>
         </span>
@@ -68,17 +68,21 @@
             <div class="col-md-10 float-left" id="review-list">
               <!-- begin testing on review form -->
 
-              <form>
+              <div>
                 <div class="form-group">
                   <label for="username">Name</label>
                   <input type="text" class="form-control" id="username">
                 </div>
                 <div class="form-group">
-                  <label for="review">Review</label>
-                  <textarea class="form-control" id="review" rows="4"></textarea>
+                  <label for="username">Rating</label>
+                  <input type="text" class="form-control" id="rating">
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-              </form>
+                <div class="form-group">
+                  <label for="review">Review</label>
+                  <textarea class="form-control" id="review" rows="10"></textarea>
+                </div>
+                <button type="submit" class="btn btn-default" id="submit-button">Submit</button>
+              </div>
 
               <!--
               <div class="row" id="review-row">

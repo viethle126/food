@@ -21,19 +21,19 @@ var restaurant = {
     reviews: [
 			{
       	username: 'Fat Joe',
-        date: '02/10/16',
+        date: '02/10/2016',
 				rating: 10,
         review: 'They have the best tacos in the OC! Try the short rib tacos or the spicy pork wet burrito. You might have to take a nap after but it\'s worth it!'
       },
       {
         username: 'Sandra T',
-        date: '02/13/16',
+        date: '02/13/2016',
 				rating: 6,
         review: 'I\'ve been wanting to try this place for a long time. The boyfriend finally took me and... It was okay - overhyped for sure. The flavors were good but the meat was a little dry. I\'d be willing to give it another try.'
       },
       {
         username: 'Wendy Eats',
-        date: '03/02/16',
+        date: '03/02/2016',
 				rating: 8,
         review: 'Fantastic food. Place was packed when we walked in but the wait wasn\'t bad. Tom, who took our order, was really helpful! He explained the menu and gave us his recommendations. I got the spicy pork burrito and I couldn\'t even finish it! I\'m going to have to make a few trips to try all of the other stuff!'
       }
@@ -60,19 +60,19 @@ var restaurant = {
     reviews: [
       {
         username: 'ocEats',
-        date: '01/23/16',
+        date: '01/23/2016',
 				rating: 8,
         review: 'They have the best burritos in the OC! Try the lengua tacos or the carnitas wet burrito. You might have to take a nap after but it\'s worth it!'
       },
       {
         username: 'I hate vegetarians',
-        date: '02/01/16',
+        date: '02/01/2016',
 				rating: 6,
         review: 'I\'ve been wanting to try this place for a long time. The boyfriend finally took me and... It was okay - overhyped for sure. The flavors were good but the meat was a little dry. I\'d be willing to give it another try.'
       },
       {
         username: 'sweetguy2201',
-        date: '02/02/16',
+        date: '02/02/2016',
 				rating: 8,
         review: 'Fantastic food. Place was packed when we walked in but the wait wasn\'t bad. Tom, who took our order, was really helpful! He explained the menu and gave us his recommendations. I got the carne asada burrito and I couldn\'t even finish it! I\'m going to have to make a few trips to try all of the other stuff!'
       }
@@ -99,19 +99,19 @@ var restaurant = {
     reviews: [
       {
         username: 'Salty Chicken',
-        date: '01/13/16',
+        date: '01/13/2016',
 				rating: 8,
         review: 'Yo, the breakfast burritos here are the size of your head! I\'d trade my first-born for a burrito and a cherry coke any day. ANY.'
       },
       {
         username: 'Andy Min',
-        date: '02/02/16',
+        date: '02/02/2016',
 				rating: 8,
         review: 'The reviewer below me is an idiot. How are you gonna go and eat a tray of hash browns on a low carb diet. Seriously though, get the breakfast burrito. It can be your breakfast, lunch and dinner.'
       },
       {
         username: 'Paleo Princess',
-        date: '02/27/16',
+        date: '02/27/2016',
 				rating: 6,
         review: 'If you order the burrito without the tortilla, they\'ll put everything in a big to-go box for you breakfast platter style. Good if you\'re low carbing.'
       }
@@ -138,19 +138,19 @@ var restaurant = {
     reviews: [
       {
         username: 'Get Money Eat Bacon',
-        date: '01/26/16',
+        date: '01/26/2016',
 				rating: 10,
         review: 'Pastrami burger, add fried egg, add avocado. You\'re welcome.'
       },
       {
         username: 'Matt B',
-        date: '02/16/16',
+        date: '02/16/2016',
 				rating: 10,
         review: 'The pastrami burger is ridiculous. If that\'s too much, get a classic burger. It comes with avocado, bacon and cheese. Seriously, if this isn\'t the best burger you\'ve ever had, go back to Average Burgers.'
       },
       {
         username: 'Janet M',
-        date: '02/27/16',
+        date: '02/27/2016',
 				rating: 8,
         review: 'Forget the burgers, get the greek fries. Double fried and topped with a HEFTY amount of gyro, some kinda cheese, onions and tomatoes. Best fries ever.'
       }
@@ -177,19 +177,19 @@ var restaurant = {
     reviews: [
       {
         username: 'Rose',
-        date: '01/18/16',
+        date: '01/18/2016',
 				rating: 2,
         review: 'They really live up to their name. Go to Pete\'s down the street. They make much better burgers.'
       },
       {
         username: 'Joe Crusher',
-        date: '01/27/16',
+        date: '01/27/2016',
 				rating: 6,
         review: 'Cheap and fast. Not the best but sometimes... you just want an average burger.'
       },
       {
         username: 'Princess',
-        date: '02/12/16',
+        date: '02/12/2016',
 				rating: 10,
         review: 'So my boyfriend of ten years took me here for our anniversary. I was skeptical at first, but after walking in and being greeted by the acne-faced boy at the counter, all of my worries were laid to rest. My boyfriend got the special "Average Burger" and I just got a cheeseburger. I wanted the "Average Burger" too but my boyfriend said it\'d be better if we got different things so we would have more variety. The food was okay but the service was top-notch. They gave us table markers and brought the food to our table as soon as it was prepared. I think we\'ll come back again for special occasions.'
       }
@@ -216,19 +216,19 @@ var restaurant = {
     reviews: [
       {
         username: 'codeMonkey',
-        date: '01/18/16',
+        date: '01/18/2016',
 				rating: 10,
         review: 'Fantastic food. Get the chicken and waffles. You won\'t regret it! Crunchy on the outside and fluffy in the middle. Chicken is well seasoned and moist. Guy below me is on crack.'
       },
       {
         username: 'i luv buffets',
-        date: '02/14/16',
+        date: '02/14/2016',
 				rating: 4,
         review: 'I guess this is the new thing. Charge an arm and a leg for a plate with a tiny piece of meat, some sauce puddles and a few sprigs of crap I think they found in some guy\'s backyard. Sorry but I\'m sticking to Hometown Buffet.'
       },
       {
         username: 'I thought this was Tinder',
-        date: '02/23/16',
+        date: '02/23/2016',
 				rating: 8,
         review: 'They just opened but I think they\'re here to stay. Had dinner with the family. Service was good, entrees came out on time, and most importantly, food was fantastic.'
       }
@@ -255,19 +255,19 @@ var restaurant = {
     reviews: [
       {
         username: 'Adam L',
-        date: '01/11/16',
+        date: '01/11/2016',
 				rating: 10,
         review: 'Fine dining at it\'s best. Elegant yet inviting - never pretentious. Impeccable service and incomparable food. We opted for the wagyu steak (real/imported, $160, 8oz). Tasted like butter, a reflection of how perfectly marbled it was. Make sure you save room for dessert. You won\'t regret it.'
       },
       {
         username: 'Joyce Y',
-        date: '01/28/16',
+        date: '01/28/2016',
 				rating: 8,
         review: 'The decor is nice and homey, slightly pretentious, but not enough to feel intimidated. They bring out all their cuts on a platter to show you difference in marbling. They even let us take a picture with the platter! John got the Japanese wagyu and I got the lamb chops. Instant regret.'
       },
       {
         username: 'LadysMan7263',
-        date: '02/27/16',
+        date: '02/27/2016',
 				rating: 10,
         review: 'THE place to bring a date. They will be impressed with how expensive your steak is.'
       }
@@ -411,7 +411,7 @@ function searchFood() {
 }
 
 // search event listener
-var search = document.getElementById('submit-button');
+var search = document.getElementById('search-button');
 var searchInput = document.getElementById('search-input');
 search.addEventListener('click', searchFood);
 
@@ -697,3 +697,34 @@ function showRestaurant() {
 		}
 	}
 }
+
+// variables for passing current date to review array
+var dateObj = new Date();
+var month = dateObj.getUTCMonth() + 1;
+var day = dateObj.getUTCDate();
+var year = dateObj.getUTCFullYear();
+
+// push new review object into review array
+function submitReview() {
+  // pull values from review form and assign to variables
+  var newReview = {};
+  var addReviewer = document.getElementById('username');
+  var addRating = document.getElementById('rating');
+  var addReview = document.getElementById('review');
+  newReview.username = addReviewer.value;
+  newReview.date = month + '/' + day + '/' + year;
+  newReview.rating = addRating.value;
+  newReview.review = addReview.value;
+  // match reference (assigned when clicking on restaurant)
+  // push new review into targeted restaurant's review array
+  for (var prop in restaurant) {
+    if (restaurant[prop].reference === storeRef) {
+      restaurant[prop].reviews.push(newReview);
+    }
+  }
+}
+
+// variables for adding review
+var submit = document.getElementById('submit-button');
+// temporary, will move into setRestaurant() after testing
+submit.addEventListener('click', submitReview);
