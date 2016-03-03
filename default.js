@@ -15,7 +15,8 @@ var restaurant = {
       saturday: ['10:00 am - 4:00 pm'],
       sunday: ['10:00 am - 4:00 pm']
     },
-    tags: ['mogi','lunch','burritos','burrito','tacos','taco'],
+    good: 'lunch, burritos, tacos',
+    tags: ['mogi','lunch','burritos','burrito','tacos','taco','food'],
     images: ['images/mogitacos/img001.jpg','images/mogitacos/img002.jpg','images/mogitacos/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
     reviews: [
@@ -54,7 +55,8 @@ var restaurant = {
       saturday: ['11:00 am - 3:00 pm'],
       sunday: ['Closed']
     },
-    tags: ['santana','lunch','burritos','burrito','tacos','taco'],
+    good: 'lunch, burritos, tacos',
+    tags: ['santana','lunch','burritos','burrito','tacos','taco','food'],
     images: ['images/santana/img001.jpg','images/santana/img002.jpg','images/santana/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
     reviews: [
@@ -93,7 +95,8 @@ var restaurant = {
       saturday: ['Closed'],
       sunday: ['Closed']
     },
-    tags: ['jupiter','cafe','lunch','burritos','burrito'],
+    good: 'lunch, brunch, burritos',
+    tags: ['jupiter','cafe','lunch','burritos','burrito','food'],
     images: ['images/jupitercafe/img001.jpg','images/jupitercafe/img002.jpg','images/jupitercafe/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
     reviews: [
@@ -132,7 +135,8 @@ var restaurant = {
       saturday: ['10:00 am - 2:00 pm'],
       sunday: ['10:00 am - 2:00 pm']
     },
-    tags: ['burger','bar','lunch','dinner','burgers'],
+    good: 'lunch, burgers',
+    tags: ['burger','bar','lunch','dinner','burgers','food'],
     images: ['images/burgerbar/img001.jpg','images/burgerbar/img002.jpg','images/burgerbar/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
     reviews: [
@@ -171,7 +175,8 @@ var restaurant = {
       saturday: ['10:00 am - 4:00 pm'],
       sunday: ['Closed']
     },
-    tags: ['average','burgers','lunch','burger'],
+    good: 'lunch, burgers',
+    tags: ['average','burgers','lunch','burger','food'],
     images: ['images/averageburgers/img001.jpg','images/averageburgers/img002.jpg','images/averageburgers/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
     reviews: [
@@ -210,7 +215,8 @@ var restaurant = {
       saturday: ['10:00 am - 2:00 pm','5:00 pm - 11:00 pm'],
       sunday: ['10:00 am - 2:00 pm','5:00 pm - 11:00 pm']
     },
-    tags: ['county','lunch','dinner'],
+    good: 'dinner, modern, upscale',
+    tags: ['county','lunch','dinner','food'],
     images: ['images/county/img001.jpg','images/county/img002.jpg','images/county/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
     reviews: [
@@ -249,7 +255,8 @@ var restaurant = {
       saturday: ['5:00 pm - 12:00 am'],
       sunday: ['5:00 pm - 12:00 am']
     },
-    tags: ['stone','marble','dinner','steaks','steak'],
+    good: 'dinner, steak, modern, upscale',
+    tags: ['stone','marble','dinner','steaks','steak','food'],
     images: ['images/stoneandmarble/img001.jpg','images/stoneandmarble/img002.jpg','images/stoneandmarble/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
     reviews: [
@@ -320,50 +327,52 @@ function populate(reference, name, image, description) {
   var landing = document.getElementById('landing');
 	landing.setAttribute('class', 'hidden');
 
-	var newMediaBox = document.createElement('div');
-	var toQueryList = document.getElementById('query-list');
-	newMediaBox.setAttribute('class', 'media');
-	newMediaBox.setAttribute('id', 'rest-box');
-	toQueryList.appendChild(newMediaBox);
+	var newElem = document.createElement('div');
+	var parent = document.getElementById('query-list');
+	newElem.setAttribute('class', 'media');
+	newElem.setAttribute('id', 'rest-box');
+	parent.appendChild(newElem);
 
-	var newImageBox = document.createElement('div');
-	var toRestBox = document.getElementById('rest-box');
-	newImageBox.setAttribute('class', 'media-left');
-	newImageBox.setAttribute('id', 'rest-thumb');
-	toRestBox.appendChild(newImageBox);
+	newElem = document.createElement('div');
+	parent = document.getElementById('rest-box');
+	newElem.setAttribute('class', 'media-left');
+	newElem.setAttribute('id', 'rest-thumb');
+	parent.appendChild(newElem);
 
-	var newImageLink = document.createElement('a');
-	var toImageBox = document.getElementById('rest-thumb');
-	newImageLink.setAttribute('id', 'image-link');
-	newImageLink.setAttribute('href', '#');
-	toImageBox.appendChild(newImageLink);
+	newElem = document.createElement('a');
+	parent = document.getElementById('rest-thumb');
+	newElem.setAttribute('id', 'image-link');
+	newElem.setAttribute('href', '#');
+	parent.appendChild(newElem);
 
-	var newImage = document.createElement('img');
-	var toImageLink = document.getElementById('image-link');
-	newImage.setAttribute('class', 'media-object');
-	newImage.setAttribute('src', image);
-	newImage.setAttribute('alt', 'image');
-	toImageLink.appendChild(newImage);
+	newElem = document.createElement('img');
+	parent = document.getElementById('image-link');
+	newElem.setAttribute('class', 'media-object');
+	newElem.setAttribute('src', image);
+	newElem.setAttribute('alt', 'image');
+	parent.appendChild(newElem);
 
-	var newMediaBody = document.createElement('div');
-	newMediaBody.setAttribute('class', 'media-body');
-	newMediaBody.setAttribute('id', 'rest-body');
-	toRestBox.appendChild(newMediaBody);
+	newElem = document.createElement('div');
+	parent = document.getElementById('rest-box');
+	newElem.setAttribute('class', 'media-body');
+	newElem.setAttribute('id', 'rest-body');
+	parent.appendChild(newElem);
 
-	var newHeading = document.createElement('h4');
-	var restName = document.createTextNode(name);
-	var toRestBody = document.getElementById('rest-body');
-	newHeading.setAttribute('class', 'media-header');
-	newHeading.setAttribute('id', 'rest-name');
-	newHeading.appendChild(restName);
-	toRestBody.appendChild(newHeading);
+	newElem = document.createElement('h4');
+	newText = document.createTextNode(name);
+	parent = document.getElementById('rest-body');
+	newElem.setAttribute('class', 'media-header');
+	newElem.setAttribute('id', 'rest-name');
+	newElem.appendChild(newText);
+	parent.appendChild(newElem);
 
-	var newRestDesc = document.createElement('p');
-	var restDesc = document.createTextNode(description);
-	newRestDesc.setAttribute('class', 'description');
-	newRestDesc.setAttribute('id', 'rest-desc');
-	newRestDesc.appendChild(restDesc);
-	toRestBody.appendChild(newRestDesc);
+	newElem = document.createElement('p');
+	newText = document.createTextNode(description);
+	parent = document.getElementById('rest-body');
+	newElem.setAttribute('class', 'description');
+	newElem.setAttribute('id', 'rest-desc');
+	newElem.appendChild(newText);
+	parent.appendChild(newElem);
 
 	// remove IDs for next iteration
 	document.getElementById('rest-desc').removeAttribute('id');
@@ -374,7 +383,7 @@ function populate(reference, name, image, description) {
 	// set reference to unique restaurant by replacing link ID with reference ID
   // add event listener to each search result
   // click to save reference ID in storeRef and call initRestaurant()
-	toImageLink.setAttribute('id', reference);
+	document.getElementById('image-link').setAttribute('id', reference);
   var toReference = document.getElementById(reference);
   toReference.addEventListener('click', function(e) {
     sendRef(this.id);
@@ -392,14 +401,14 @@ function clearPage() {
 	toAnchor.removeChild(toQueryList);
   toAnchor.removeChild(toRestaurant);
 	// remove current ontainers, create new containers
-	var newResults = document.createElement('div');
-	newResults.setAttribute('class', 'col-md-12');
-	newResults.setAttribute('id', 'query-list');
-	toAnchor.appendChild(newResults);
-  var newRestaurant = document.createElement('div');
-  newRestaurant.setAttribute('class', 'col-md-12');
-  newRestaurant.setAttribute('id', 'restaurant-content');
-  toAnchor.appendChild(newRestaurant);
+	var newElem = document.createElement('div');
+	newElem.setAttribute('class', 'col-md-12');
+	newElem.setAttribute('id', 'query-list');
+	toAnchor.appendChild(newElem);
+  newElem = document.createElement('div');
+  newElem.setAttribute('class', 'col-md-12');
+  newElem.setAttribute('id', 'restaurant-content');
+  toAnchor.appendChild(newElem);
 }
 
 // clear review section
@@ -409,11 +418,11 @@ function clearReviews() {
   var toList = document.getElementById('review-list');
 	toReviewBox.removeChild(toList);
 	// create empty container
-  var newList = document.createElement('div');
-  newList.setAttribute('class', 'col-md-10');
-  newList.className += ' float-left';
-  newList.setAttribute('id', 'review-list');
-  toReviewBox.appendChild(newList);
+  var newElem = document.createElement('div');
+  newElem.setAttribute('class', 'col-md-10');
+  newElem.className += ' float-left';
+  newElem.setAttribute('id', 'review-list');
+  toReviewBox.appendChild(newElem);
 }
 
 // remove form after submitting
@@ -440,6 +449,7 @@ search.addEventListener('click', searchFood);
 // assign values in initRestaurant(), use in showRestaurant() and showReviews()
 var storeRef = '';
 var name = '';
+var good = '';
 var tags = '';
 var street = '';
 var city = '';
@@ -466,221 +476,230 @@ function showRestaurant() {
 	query.setAttribute('class', 'hidden');
 
 	// create skeleton for review section
-	var restContent = document.getElementById('restaurant-content');
-	var newRestHeader = document.createElement('div');
-	newRestHeader.setAttribute('class', 'media');
-	newRestHeader.setAttribute('id', 'rest-header');
-	restContent.appendChild(newRestHeader);
+	var newElem = document.createElement('div');
+	var parent = document.getElementById('restaurant-content');
+	newElem.setAttribute('class', 'media');
+	newElem.setAttribute('id', 'rest-header');
+	parent.appendChild(newElem);
 
-	var newRestHeading = document.createElement('div');
-	var toRestHeader = document.getElementById('rest-header');
-	newRestHeading.setAttribute('class', 'media-body');
-	newRestHeading.setAttribute('id', 'rest-heading');
-	toRestHeader.appendChild(newRestHeading);
+	newElem = document.createElement('div');
+	parent = document.getElementById('rest-header');
+	newElem.setAttribute('class', 'media-body');
+	newElem.setAttribute('id', 'rest-heading');
+	parent.appendChild(newElem);
 
-	var newRestName = document.createElement('h4');
-	var toRestHeading = document.getElementById('rest-heading');
-  var restName = document.createTextNode(name);
-	newRestName.setAttribute('class', 'media-heading');
-	newRestName.setAttribute('id', 'rest-name');
-  newRestName.appendChild(restName)
-	toRestHeading.appendChild(newRestName);
+	newElem = document.createElement('h4');
+	parent = document.getElementById('rest-heading');
+  var newText = document.createTextNode(name);
+	newElem.setAttribute('class', 'media-heading');
+	newElem.setAttribute('id', 'rest-name');
+  newElem.appendChild(newText)
+	parent.appendChild(newElem);
 
   // note: making button to write reviews here for now
-  var newButton = document.createElement('button');
-  var newButtonText = document.createTextNode('Write a Review');
-  newButton.setAttribute('type', 'submit');
-  newButton.setAttribute('class', 'btn');
-  newButton.className += ' btn-default';
-  newButton.setAttribute('id', 'write-review');
-  newButton.appendChild(newButtonText);
-  toRestHeading.appendChild(newButton);
+  newElem = document.createElement('button');
+  newText = document.createTextNode('Write a Review');
+	parent = document.getElementById('rest-heading');
+  newElem.setAttribute('type', 'submit');
+  newElem.setAttribute('class', 'btn');
+  newElem.className += ' btn-default';
+  newElem.setAttribute('id', 'write-review');
+  newElem.appendChild(newText);
+  parent.appendChild(newElem);
 
   // event listener to reveal review form
   var write = document.getElementById('write-review')
   write.addEventListener('click', writeReview);
 
-  // note: hiding tags for now
-	//var newTags = document.createElement('p');
-	//var newTagText = document.createTextNode(tags);
-	//newTags.appendChild(newTagText);
-	//toRestHeading.appendChild(newTags);
+	newElem = document.createElement('p');
+  newText = document.createTextNode('Tags: ');
+	newElem.appendChild(newText);
+	newText = document.createTextNode(good);
+	newElem.appendChild(newText);
+	parent.appendChild(newElem);
 
-	var newStreet = document.createElement('p');
-	var newStreetText = document.createTextNode(street);
-	newStreet.appendChild(newStreetText);
-	toRestHeading.appendChild(newStreet);
+	newElem = document.createElement('p');
+	newText = document.createTextNode(street);
+	parent = document.getElementById('rest-heading');
+	newElem.appendChild(newText);
+	parent.appendChild(newElem);
 
-	var newCity = document.createElement('p');
-	var newCityText = document.createTextNode(city);
-	newCity.appendChild(newCityText);
-	toRestHeading.appendChild(newCity);
+	newElem = document.createElement('p');
+	newText = document.createTextNode(city);
+	newElem.appendChild(newText);
+	parent.appendChild(newElem);
 
-	var newTele = document.createElement('p');
-	var newTeleText = document.createTextNode(telephone);
-	newTele.appendChild(newTeleText);
-	toRestHeading.appendChild(newTele);
+	newElem = document.createElement('p');
+	newText = document.createTextNode(telephone);
+	newElem.appendChild(newText);
+	parent.appendChild(newElem);
 
-	var newRestImg = document.createElement('div');
-	newRestImg.setAttribute('class', 'media-right');
-	newRestImg.setAttribute('id', 'rest-img');
-	toRestHeader.appendChild(newRestImg);
+	newElem = document.createElement('div');
+	parent = document.getElementById('rest-header');
+	newElem.setAttribute('class', 'media-right');
+	newElem.setAttribute('id', 'rest-img');
+	parent.appendChild(newElem);
 
-	var newLinkOne = document.createElement('a');
-	var toRestImg = document.getElementById('rest-img');
-	newLinkOne.setAttribute('id', 'img-link-one');
-	newLinkOne.setAttribute('href', '#');
-	toRestImg.appendChild(newLinkOne);
+	newElem = document.createElement('a');
+	parent = document.getElementById('rest-img');
+	newElem.setAttribute('id', 'img-link-one');
+	newElem.setAttribute('href', '#');
+	parent.appendChild(newElem);
 
-	var newImgOne = document.createElement('img');
-	var toLinkOne = document.getElementById('img-link-one');
-	newImgOne.setAttribute('class', 'media-object');
-  newImgOne.className += ' review-img';
-	newImgOne.setAttribute('id', 'img-one');
-	newImgOne.setAttribute('src', picOne);
-	newImgOne.setAttribute('alt', 'image');
-	toLinkOne.appendChild(newImgOne);
+	newElem = document.createElement('img');
+	parent = document.getElementById('img-link-one');
+	newElem.setAttribute('class', 'media-object');
+  newElem.className += ' review-img';
+	newElem.setAttribute('id', 'img-one');
+	newElem.setAttribute('src', picOne);
+	newElem.setAttribute('alt', 'image');
+	parent.appendChild(newElem);
 
-	var newLinkTwo = document.createElement('a');
-	newLinkTwo.setAttribute('id', 'img-link-two');
-	newLinkTwo.setAttribute('href', '#');
-	toRestImg.appendChild(newLinkTwo);
+	newElem = document.createElement('a');
+	parent = document.getElementById('rest-img');
+	newElem.setAttribute('id', 'img-link-two');
+	newElem.setAttribute('href', '#');
+	parent.appendChild(newElem);
 
-	var newImgTwo = document.createElement('img');
-	var toLinkTwo = document.getElementById('img-link-two');
-	newImgTwo.setAttribute('class', 'media-object');
-	newImgTwo.className += ' review-img';
-	newImgTwo.setAttribute('id', 'img-two');
-	newImgTwo.setAttribute('src', picTwo);
-	newImgTwo.setAttribute('alt', 'image');
-	toLinkTwo.appendChild(newImgTwo);
+	newElem = document.createElement('img');
+	parent = document.getElementById('img-link-two');
+	newElem.setAttribute('class', 'media-object');
+	newElem.className += ' review-img';
+	newElem.setAttribute('id', 'img-two');
+	newElem.setAttribute('src', picTwo);
+	newElem.setAttribute('alt', 'image');
+	parent.appendChild(newElem);
 
-	var newLinkThree = document.createElement('a');
-	newLinkThree.setAttribute('id', 'img-link-three');
-	newLinkThree.setAttribute('href', '#');
-	toRestImg.appendChild(newLinkThree);
+	newElem = document.createElement('a');
+	parent = document.getElementById('rest-img');
+	newElem.setAttribute('id', 'img-link-three');
+	newElem.setAttribute('href', '#');
+	parent.appendChild(newElem);
 
-	var newImgThree = document.createElement('img');
-	var toLinkThree = document.getElementById('img-link-three');
-	newImgThree.setAttribute('class', 'media-object');
-	newImgThree.className += ' review-img';
-	newImgThree.setAttribute('id', 'img-three');
-	newImgThree.setAttribute('src', picThree);
-	newImgThree.setAttribute('alt', 'image');
-	toLinkThree.appendChild(newImgThree);
+	newElem = document.createElement('img');
+	parent = document.getElementById('img-link-three');
+	newElem.setAttribute('class', 'media-object');
+	newElem.className += ' review-img';
+	newElem.setAttribute('id', 'img-three');
+	newElem.setAttribute('src', picThree);
+	newElem.setAttribute('alt', 'image');
+	parent.appendChild(newElem);
 
-	var newReviewBox = document.createElement('div');
-	newReviewBox.setAttribute('class', 'reviews');
-	newReviewBox.setAttribute('id', 'review-box');
-	restContent.appendChild(newReviewBox);
+	newElem = document.createElement('div');
+	parent = document.getElementById('restaurant-content');
+	newElem.setAttribute('class', 'reviews');
+	newElem.setAttribute('id', 'review-box');
+	parent.appendChild(newElem);
 
-	var newHoursBox = document.createElement('div');
-	var toReviewBox = document.getElementById('review-box');
-	newHoursBox.setAttribute('class', 'col-md-2');
-  newHoursBox.className += ' float-right';
-	newHoursBox.setAttribute('id', 'hours-box');
-	toReviewBox.appendChild(newHoursBox);
+	newElem = document.createElement('div');
+	parent = document.getElementById('review-box');
+	newElem.setAttribute('class', 'col-md-2');
+  newElem.className += ' float-right';
+	newElem.setAttribute('id', 'hours-box');
+	parent.appendChild(newElem);
 
-	var newMon = document.createElement('p');
-	var monText = document.createTextNode(mon);
-  var newDay = document.createTextNode('Mon: ')
-	var toHoursBox = document.getElementById('hours-box');
-	newMon.setAttribute('id', 'monday');
-  newMon.appendChild(newDay);
-	newMon.appendChild(monText);
-	toHoursBox.appendChild(newMon);
+	newElem = document.createElement('p');
+	parent = document.getElementById('hours-box');
+  newText = document.createTextNode('Mon: ')
+	newElem.appendChild(newText);
+	newText = document.createTextNode(mon);
+  newElem.appendChild(newText);
+	newElem.setAttribute('id', 'monday');
+	parent.appendChild(newElem);
 
-	var newTue = document.createElement('p');
-	var tueText = document.createTextNode(tue);
-  newDay = document.createTextNode('Tue: ')
-	newTue.setAttribute('id', 'tuesday');
-  newTue.appendChild(newDay);
-	newTue.appendChild(tueText);
-	toHoursBox.appendChild(newTue);
+	newElem = document.createElement('p');
+  newText = document.createTextNode('Tue: ')
+  newElem.appendChild(newText);
+	newText = document.createTextNode(tue);
+	newElem.appendChild(newText);
+	newElem.setAttribute('id', 'tuesday');
+	parent.appendChild(newElem);
 
-	var newWed = document.createElement('p');
-	var wedText = document.createTextNode(wed);
-  newDay = document.createTextNode('Wed: ')
-	newWed.setAttribute('id', 'wednesday');
-  newWed.appendChild(newDay);
-	newWed.appendChild(wedText);
-	toHoursBox.appendChild(newWed);
+	newElem = document.createElement('p');
+  newText = document.createTextNode('Wed: ')
+  newElem.appendChild(newText);
+	newText = document.createTextNode(wed);
+	newElem.appendChild(newText);
+	newElem.setAttribute('id', 'wednesday');
+	parent.appendChild(newElem);
 
-	var newThu = document.createElement('p');
-	var thuText = document.createTextNode(thu);
-  newDay = document.createTextNode('Thu: ')
-	newThu.setAttribute('id', 'thursday');
-  newThu.appendChild(newDay);
-	newThu.appendChild(thuText);
-	toHoursBox.appendChild(newThu);
+  newElem = document.createElement('p');
+  newText = document.createTextNode('Thu: ')
+  newElem.appendChild(newText);
+  newText = document.createTextNode(thu);
+  newElem.appendChild(newText);
+  newElem.setAttribute('id', 'thursday');
+  parent.appendChild(newElem);
 
-	var newFri = document.createElement('p');
-	var friText = document.createTextNode(fri);
-  newDay = document.createTextNode('Fri: ')
-	newFri.setAttribute('id', 'friday');
-  newFri.appendChild(newDay);
-	newFri.appendChild(friText);
-	toHoursBox.appendChild(newFri);
+  newElem = document.createElement('p');
+  newText = document.createTextNode('Fri: ')
+  newElem.appendChild(newText);
+  newText = document.createTextNode(fri);
+  newElem.appendChild(newText);
+  newElem.setAttribute('id', 'friday');
+  parent.appendChild(newElem);
 
-	var newSat = document.createElement('p');
-	var satText = document.createTextNode(sat);
-  newDay = document.createTextNode('Sat: ')
-	newSat.setAttribute('id', 'saturday');
-  newSat.appendChild(newDay);
-	newSat.appendChild(satText);
-	toHoursBox.appendChild(newSat);
+  newElem = document.createElement('p');
+  newText = document.createTextNode('Sat: ')
+  newElem.appendChild(newText);
+  newText = document.createTextNode(sat);
+  newElem.appendChild(newText);
+  newElem.setAttribute('id', 'saturday');
+  parent.appendChild(newElem);
 
-	var newSun = document.createElement('p');
-	var sunText = document.createTextNode(sunday);
-  newDay = document.createTextNode('Sun: ')
-	newSun.setAttribute('id', 'sunday');
-  newSun.appendChild(newDay);
-	newSun.appendChild(sunText);
-	toHoursBox.appendChild(newSun);
+  newElem = document.createElement('p');
+  newText = document.createTextNode('Sun: ')
+  newElem.appendChild(newText);
+  newText = document.createTextNode(sunday);
+  newElem.appendChild(newText);
+  newElem.setAttribute('id', 'Sunday');
+  parent.appendChild(newElem);
 
-  var newList = document.createElement('div');
-  newList.setAttribute('class', 'col-md-10');
-  newList.className += ' float-left';
-  newList.setAttribute('id', 'review-list');
-  toReviewBox.appendChild(newList);
+  newElem = document.createElement('div');
+  parent = document.getElementById('review-box');
+  newElem.setAttribute('class', 'col-md-10');
+  newElem.className += ' float-left';
+  newElem.setAttribute('id', 'review-list');
+  parent.appendChild(newElem);
 }
 
 // loop function for every entry in object review
 // create separate div container for each review
 function showReviews(reviewer, date, review) {
-	var newRow = document.createElement('div');
-	var toList = document.getElementById('review-list');
-	newRow.setAttribute('class', 'row');
-	newRow.setAttribute('id', 'review-row');
-	toList.appendChild(newRow);
+	var newElem = document.createElement('div');
+	var parent = document.getElementById('review-list');
+	newElem.setAttribute('class', 'row');
+	newElem.setAttribute('id', 'review-row');
+	parent.appendChild(newElem);
 
-	var newReviewer = document.createElement('div');
-	var toRow = document.getElementById('review-row');
-	newReviewer.setAttribute('class', 'col-md-2');
-	newReviewer.setAttribute('id', 'reviewer');
-	toRow.appendChild(newReviewer);
+	newElem = document.createElement('div');
+	parent = document.getElementById('review-row');
+	newElem.setAttribute('class', 'col-md-2');
+	newElem.setAttribute('id', 'reviewer');
+	parent.appendChild(newElem);
 
-	var newName = document.createElement('p');
-	var nameText = document.createTextNode(reviewer);
-	var toReviewer = document.getElementById('reviewer');
-	newName.appendChild(nameText);
-	toReviewer.appendChild(newName);
+	newElem = document.createElement('p');
+	var newText = document.createTextNode(reviewer);
+	parent = document.getElementById('reviewer');
+	newElem.appendChild(newText);
+	parent.appendChild(newElem);
 
-	var newDate = document.createElement('p');
-	var dateText = document.createTextNode(date);
-	newDate.appendChild(dateText);
-	toReviewer.appendChild(newDate);
+	newElem = document.createElement('p');
+	newText = document.createTextNode(date);
+	newElem.appendChild(newText);
+	parent.appendChild(newElem);
 
-	var reviewCol = document.createElement('div');
-	reviewCol.setAttribute('class', 'col-md-8');
-	reviewCol.setAttribute('id', 'review-col');
-	toRow.appendChild(reviewCol);
+	newElem = document.createElement('div');
+	parent = document.getElementById('review-row');
+	newElem.setAttribute('class', 'col-md-8');
+	newElem.setAttribute('id', 'review-col');
+	parent.appendChild(newElem);
 
-	var reviewBody = document.createElement('p');
-	var bodyText = document.createTextNode(review);
-	var toReviewCol = document.getElementById('review-col');
-	reviewBody.appendChild(bodyText);
-	toReviewCol.appendChild(reviewBody);
+	newElem = document.createElement('p');
+	newText = document.createTextNode(review);
+	parent = document.getElementById('review-col');
+	newElem.appendChild(newText);
+	parent.appendChild(newElem);
 
 	// remove IDs for next iteration
 	document.getElementById('review-row').removeAttribute('id');
@@ -703,7 +722,7 @@ function initRestaurant() {
 			// match reference from search result
       // pass matching restaurant details to variables
       name = restaurant[prop].name;
-      tags = restaurant[prop].tags.join(', ');
+      good = restaurant[prop].good;
       street = restaurant[prop].address[0];
       city = restaurant[prop].address[1] + ', ' + restaurant[prop].address[2] + ' ' + restaurant[prop].address[3];
       telephone = restaurant[prop].number;

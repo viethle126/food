@@ -58,12 +58,26 @@
 .main {
   padding-left: 0;
   padding-right: 0;
-  width: 1000px
+  width: 900px
 }
 
 .media-object {
-  height: 150px;
-  width: 150px;
+  height: 160px;
+  width: 160px;
+}
+
+.media {
+  height: 180px;
+  border-bottom: 1px solid #b2b2b2;
+}
+
+.media-body {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.media-header {
+  margin-top: 0;
 }
 
 .review-img {

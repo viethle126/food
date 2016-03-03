@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head lang="en-us">
+  <meta charset="utf-8">
+  <title>food</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/default.css">
+</head>
+<body>
+  <!-- fixed nav header -->
+  <div class="container-fluid header">
+    <div class="header-container centered">
+      <div class="input-group" id="search-group">
+        <span class="input-group-addon" id="sizing-addon2">Find</span>
+        <input class="form-control" id="search-input" type="text" placeholder="breakfast burritos, burgers, cheap lunch">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit" id="search-button">
+            <i class="fa fa-search"></i>
+          </button>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="page-wrapper">
+    <!-- main content header -->
+    <div class="content-header">
+      <p class="header-text">food</p>
+    </div>
+    <div class="container main centered">
+      <div class="row" id="anchor">
+        <div class="hidden" id="landing">
+          <img class="landing-img" src="images/landing.jpg">
+          <h1 class="subtitle"><i>50% more influential than the guy sitting next to you</i></h1>
+        </div>
+        <!-- 'query-list' is hidden and individual restaurant page is shown on click -->
+        <div class="col-md-12" id="query-list">
+          <div class="media">
+            <div class="media-left">
+              <a id="mogitacos" href="#">
+                <img class="media-object" src="images/mogitacos/img001.jpg" alt="image">
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-header">Mogi Tacos</h4>
+              <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+            </div>
+          </div>
+          <div class="media">
+            <div class="media-left">
+              <a id="santana" href="#">
+                <img class="media-object" src="images/santana/img001.jpg" alt="image">
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-header">Santana</h4>
+              <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+            </div>
+          </div>
+          <div class="media">
+            <div class="media-left">
+              <a id="mogitacos" href="#">
+                <img class="media-object" src="images/mogitacos/img001.jpg" alt="image">
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-header">Mogi Tacos</h4>
+              <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+            </div>
+          </div>
+          <div class="media">
+            <div class="media-left">
+              <a id="mogitacos" href="#">
+                <img class="media-object" src="images/mogitacos/img001.jpg" alt="image">
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-header">Mogi Tacos</h4>
+              <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+            </div>
+          </div>
+          <div class="media">
+            <div class="media-left">
+              <a id="mogitacos" href="#">
+                <img class="media-object" src="images/mogitacos/img001.jpg" alt="image">
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-header">Mogi Tacos</h4>
+              <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+            </div>
+          </div>
+        </div>
+        <!-- landing content is displayed until a search is initiated -->
+        <div class="col-md-12" id="restaurant-content"></div>
+      </div>
+    </div>
+  </div>
+  <script src="default.js"></script>
+</body>
+</html>
