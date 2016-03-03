@@ -366,6 +366,8 @@ function populate(reference, name, image, description) {
 	newElem.appendChild(newText);
 	parent.appendChild(newElem);
 
+  findStars(reference, 'rest-name')
+
 	newElem = document.createElement('p');
 	newText = document.createTextNode(description);
 	parent = document.getElementById('rest-body');
@@ -497,22 +499,10 @@ function showRestaurant() {
 	parent.appendChild(newElem);
 
   // note: making button to write reviews here for now
-  newElem = document.createElement('button');
-  newText = document.createTextNode('Write a Review');
-	parent = document.getElementById('rest-heading');
-  newElem.setAttribute('type', 'submit');
-  newElem.setAttribute('class', 'btn');
-  newElem.className += ' btn-default';
-  newElem.setAttribute('id', 'write-review');
-  newElem.appendChild(newText);
-  parent.appendChild(newElem);
-
-  // event listener to reveal review form
-  var write = document.getElementById('write-review')
-  write.addEventListener('click', writeReview);
+  findStars (storeRef, 'rest-heading');
 
 	newElem = document.createElement('p');
-  newText = document.createTextNode('Tags: ');
+  newText = document.createTextNode('tags: ');
 	newElem.appendChild(newText);
 	newText = document.createTextNode(good);
 	newElem.appendChild(newText);
@@ -524,15 +514,30 @@ function showRestaurant() {
 	newElem.appendChild(newText);
 	parent.appendChild(newElem);
 
-	newElem = document.createElement('p');
+	var newBreak = document.createElement('br');
+  newElem.appendChild(newBreak);
 	newText = document.createTextNode(city);
 	newElem.appendChild(newText);
-	parent.appendChild(newElem);
 
-	newElem = document.createElement('p');
+	newBreak = document.createElement('br');
+  newElem.appendChild(newBreak);
 	newText = document.createTextNode(telephone);
 	newElem.appendChild(newText);
-	parent.appendChild(newElem);
+
+  // note: making button to write reviews here for now
+  newElem = document.createElement('button');
+  newText = document.createTextNode('Write a Review');
+  parent = document.getElementById('rest-heading');
+  newElem.setAttribute('type', 'submit');
+  newElem.setAttribute('class', 'btn');
+  newElem.className += ' btn-default';
+  newElem.setAttribute('id', 'write-review');
+  newElem.appendChild(newText);
+  parent.appendChild(newElem);
+
+  // event listener to reveal review form
+  var write = document.getElementById('write-review')
+  write.addEventListener('click', writeReview);
 
 	newElem = document.createElement('div');
 	parent = document.getElementById('rest-header');
@@ -907,13 +912,13 @@ function giveEmptyStar(number) {
 }
 
 // create star html components
-function createStars(stars, half) {
+function createStars(stars, half, toId) {
   var count = 5;
   var emptyStar = '';
 
   // 5 stars total; empty star = count - (stars + half)
   var newElem = document.createElement('span');
-  var parent = document.getElementById('landing');
+  var parent = document.getElementById(toId);
   newElem.setAttribute('id', 'stars');
   parent.appendChild(newElem);
 
@@ -944,7 +949,7 @@ function avgArray (array) {
 }
 
 // determine how many stars are displayed
-function calcStars(rating) {
+function calcStars(rating, toId) {
   var times = ''
   var half = ''
   // times = number of stars, if half = true, give half star
@@ -976,11 +981,11 @@ function calcStars(rating) {
     half = false;
   }
   // console.log for testing, will call another function
-  createStars(times, half);
+  createStars(times, half, toId);
 }
 
 // determine how many stars to create for a restaurant
-function findStars (name) {
+function findStars (name, toId) {
   var ratings = [];
   var average = ''
   for (var prop in restaurant) {
@@ -993,5 +998,5 @@ function findStars (name) {
   }
   // calculate average of array and quantity of stars
   average = avgArray(ratings);
-  return calcStars(average);
+  return calcStars(average, toId);
 }
