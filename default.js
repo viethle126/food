@@ -875,20 +875,71 @@ function submitReview() {
   updateReviews();
 }
 
-//function to loop through star maker, if remainder = 1, do half star
-//make span
-//do loop
-//function to create and append star span
-// will edit later
+// add star to span id = 'stars'
+function giveStar(number) {
+  for (var i = 0; i < number; i++){
+    var newElem = document.createElement('i');
+    var parent = document.getElementById('stars');
+    newElem.setAttribute('class', 'fa');
+    newElem.className += ' fa-star';
+    parent.appendChild(newElem);
+  }
+}
+
+// add half star to span id = 'stars'
+function giveHalfStar() {
+  var newElem = document.createElement('i');
+  var parent = document.getElementById('stars');
+  newElem.setAttribute('class', 'fa');
+  newElem.className += ' fa-star-half-o';
+  parent.appendChild(newElem);
+}
+
+// add empty star to span id = 'stars'
+function giveEmptyStar(number) {
+  for (var i = 0; i < number; i++){
+    var newElem = document.createElement('i');
+    var parent = document.getElementById('stars');
+    newElem.setAttribute('class', 'fa');
+    newElem.className += ' fa-star-o';
+    parent.appendChild(newElem);
+  }
+}
+
+// create star html components
+function createStars(stars, half) {
+  var count = 5;
+  var emptyStar = '';
+
+  // 5 stars total; empty star = count - (stars + half)
+  var newElem = document.createElement('span');
+  var parent = document.getElementById('landing');
+  newElem.setAttribute('id', 'stars');
+  parent.appendChild(newElem);
+
+  giveStar(stars);
+  // create half star if true, create empty to fill
+  if (half = true) {
+    giveHalfStar();
+    count -= 1;
+    emptyStar = count - stars;
+    giveEmptyStar(emptyStar);
+  } else {
+    emptyStar = count - stars;
+    giveEmptyStar(emptyStar);
+  }
+  // removing id for next span
+  newElem.removeAttribute('id');
+}
 
 // find the average of an array containing numbers
 function avgArray (array) {
-  var sum = '';
+  var sum = 0;
   for (i = 0; i < array.length; i++) {
     // add each array value to sum and divide amount of values
-    sum =+ array[i];
-    sum = sum / array.length;
+    sum = sum + array[i];
   }
+  sum = sum / array.length;
   return sum;
 }
 
@@ -898,7 +949,7 @@ function calcStars(rating) {
   var half = ''
   // times = number of stars, if half = true, give half star
   if (rating > 4.875) {
-    times = 1;
+    times = 5;
   } else if (rating > 4.25) {
     times = 4;
     half = true;
@@ -925,11 +976,11 @@ function calcStars(rating) {
     half = false;
   }
   // console.log for testing, will call another function
-  console.log(times, half);
+  createStars(times, half);
 }
 
 // determine how many stars to create for a restaurant
-function avgRating (name) {
+function findStars (name) {
   var ratings = [];
   var average = ''
   for (var prop in restaurant) {
@@ -944,5 +995,3 @@ function avgRating (name) {
   average = avgArray(ratings);
   return calcStars(average);
 }
-
-function giveStars(stars, half) {}
