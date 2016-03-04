@@ -805,71 +805,51 @@ function writeReview() {
   newElem.appendChild(newText);
   toContainer.appendChild(newElem);
 
+  newElem = document.createElement('br');
+  toContainer.appendChild(newElem);
 // testing
 
-  newElem = document.createElement('div');
-  newElem.setAttribute('id', 'review-star-box');
+  newElem = document.createElement('span');
+  newElem.setAttribute('id', 'rating');
   toContainer.appendChild(newElem);
   // star 1
-  newElem = document.createElement('span');
-  var parent = document.getElementById('review-star-box');
-  newElem.setAttribute('id', 'stars');
-  parent.appendChild(newElem);
-
   newElem = document.createElement('i');
-  parent = document.getElementById('stars');
+  parent = document.getElementById('rating');
   newElem.setAttribute('class', 'fa');
   newElem.className += ' fa-star-o fa-3x';
+  newElem.setAttribute('data-count', 1);
   parent.appendChild(newElem);
-  parent.removeAttribute('id');
   // star 2
-  newElem = document.createElement('span');
-  parent = document.getElementById('review-star-box');
-  newElem.setAttribute('id', 'stars');
-  parent.appendChild(newElem);
-
   newElem = document.createElement('i');
-  parent = document.getElementById('stars');
   newElem.setAttribute('class', 'fa');
   newElem.className += ' fa-star-o fa-3x';
+  newElem.setAttribute('data-count', 2);
   parent.appendChild(newElem);
-  parent.removeAttribute('id');
   // star 3
-  newElem = document.createElement('span');
-  parent = document.getElementById('review-star-box');
-  newElem.setAttribute('id', 'stars');
-  parent.appendChild(newElem);
-
   newElem = document.createElement('i');
-  parent = document.getElementById('stars');
   newElem.setAttribute('class', 'fa');
   newElem.className += ' fa-star-o fa-3x';
+  newElem.setAttribute('data-count', 3);
   parent.appendChild(newElem);
-  parent.removeAttribute('id');
   // star 4
-  newElem = document.createElement('span');
-  parent = document.getElementById('review-star-box');
-  newElem.setAttribute('id', 'stars');
-  parent.appendChild(newElem);
-
   newElem = document.createElement('i');
-  parent = document.getElementById('stars');
   newElem.setAttribute('class', 'fa');
   newElem.className += ' fa-star-o fa-3x';
+  newElem.setAttribute('data-count', 4);
   parent.appendChild(newElem);
-  parent.removeAttribute('id');
   // star 5
-  newElem = document.createElement('span');
-  parent = document.getElementById('review-star-box');
-  newElem.setAttribute('id', 'stars');
-  parent.appendChild(newElem);
-
   newElem = document.createElement('i');
-  parent = document.getElementById('stars');
   newElem.setAttribute('class', 'fa');
   newElem.className += ' fa-star-o fa-3x';
+  newElem.setAttribute('data-count', 5);
   parent.appendChild(newElem);
-  parent.removeAttribute('id');
+
+  newElem = document.createElement('br');
+  toContainer.appendChild(newElem);
+
+  stars = document.querySelectorAll('[data-count]');
+  allstars = document.getElementById('rating');
+  shiftStar();
 
 // testing
 
@@ -1061,7 +1041,28 @@ function findStars(name, toId) {
   return calcStars(average, toId);
 }
 
-// click on star to determine rating
-function makeRevStars() {
+// test
 
+var stars = '';
+var allStars = '';
+
+function shiftStar() {
+  for (i = 0; i < stars.length; i++) {
+    stars[i].addEventListener('mouseenter', fillStar);
+    stars[i].addEventListener('mouseleave', emptyStar);
+  }
+}
+
+function fillStar() {
+  for (i = 0; i < stars.length; i++) {
+    stars[i].classList.remove('fa-star-o');
+    stars[i].classList.add('fa-star');
+  }
+}
+
+function emptyStar() {
+  for (i = 0; i < stars.length; i++) {
+    stars[i].classList.remove('fa-star');
+    stars[i].classList.add('fa-star-o');
+  }
 }
