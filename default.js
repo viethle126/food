@@ -777,10 +777,65 @@ function showReviews(reviewer, date, review) {
 	newElem.appendChild(newText);
 	parent.appendChild(newElem);
 
+  // add useful badge
+  newElem = document.createElement('button');
+  newText = document.createTextNode('useful');
+  parent = document.getElementById('review-col')
+  newElem.setAttribute('class', 'btn');
+  newElem.className += ' btn-default inline';
+  newElem.setAttribute('type', 'button');
+  newElem.setAttribute('id', 'useful');
+  newElem.appendChild(newText);
+  parent.appendChild(newElem);
+
+  newElem = document.createElement('span');
+  newText = document.createTextNode('4');
+  parent = document.getElementById('useful');
+  newElem.setAttribute('class', 'badge');
+  newElem.appendChild(newText);
+  parent.appendChild(newElem);
+  // add funny badge
+  newElem = document.createElement('button');
+  newText = document.createTextNode('funny');
+  parent = document.getElementById('review-col')
+  newElem.setAttribute('class', 'btn');
+  newElem.className += ' btn-default inline';
+  newElem.setAttribute('type', 'button');
+  newElem.setAttribute('id', 'funny');
+  newElem.appendChild(newText);
+  parent.appendChild(newElem);
+
+  newElem = document.createElement('span');
+  newText = document.createTextNode('4');
+  parent = document.getElementById('funny');
+  newElem.setAttribute('class', 'badge');
+  newElem.appendChild(newText);
+  parent.appendChild(newElem);
+  // add cool badge
+  newElem = document.createElement('button');
+  newText = document.createTextNode('cool');
+  parent = document.getElementById('review-col')
+  newElem.setAttribute('class', 'btn');
+  newElem.className += ' btn-default inline';
+  newElem.setAttribute('type', 'button');
+  newElem.setAttribute('id', 'cool');
+  newElem.appendChild(newText);
+  parent.appendChild(newElem);
+
+  newElem = document.createElement('span');
+  newText = document.createTextNode('4');
+  parent = document.getElementById('cool');
+  newElem.setAttribute('class', 'badge');
+  newElem.appendChild(newText);
+  parent.appendChild(newElem);
+
 	// remove IDs for next iteration
 	document.getElementById('review-row').removeAttribute('id');
 	document.getElementById('reviewer').removeAttribute('id');
 	document.getElementById('review-col').removeAttribute('id');
+	document.getElementById('useful').removeAttribute('id');
+	document.getElementById('funny').removeAttribute('id');
+	document.getElementById('cool').removeAttribute('id');
 }
 
 // store reference ID to be used in initRestaurant()
