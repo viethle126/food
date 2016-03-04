@@ -22,19 +22,19 @@ var restaurant = {
     reviews: [
 			{
       	username: 'Fat Joe',
-        date: '02/10/2016',
+        date: '2/10/2016',
 				rating: 5,
         review: 'They have the best tacos in the OC! Try the short rib tacos or the spicy pork wet burrito. You might have to take a nap after but it\'s worth it!'
       },
       {
         username: 'Sandra T',
-        date: '02/13/2016',
+        date: '2/13/2016',
 				rating: 3,
         review: 'I\'ve been wanting to try this place for a long time. The boyfriend finally took me and... It was okay - overhyped for sure. The flavors were good but the meat was a little dry. I\'d be willing to give it another try.'
       },
       {
         username: 'Wendy Eats',
-        date: '03/02/2016',
+        date: '3/2/2016',
 				rating: 4,
         review: 'Fantastic food. Place was packed when we walked in but the wait wasn\'t bad. Tom, who took our order, was really helpful! He explained the menu and gave us his recommendations. I got the spicy pork burrito and I couldn\'t even finish it! I\'m going to have to make a few trips to try all of the other stuff!'
       }
@@ -62,19 +62,19 @@ var restaurant = {
     reviews: [
       {
         username: 'ocEats',
-        date: '01/23/2016',
+        date: '1/23/2016',
 				rating: 4,
         review: 'They have the best burritos in the OC! Try the lengua tacos or the carnitas wet burrito. You might have to take a nap after but it\'s worth it!'
       },
       {
         username: 'I hate vegetarians',
-        date: '02/01/2016',
+        date: '2/1/2016',
 				rating: 3,
         review: 'I\'ve been wanting to try this place for a long time. The boyfriend finally took me and... It was okay - overhyped for sure. The flavors were good but the meat was a little dry. I\'d be willing to give it another try.'
       },
       {
         username: 'sweetguy2201',
-        date: '02/02/2016',
+        date: '2/2/2016',
 				rating: 4,
         review: 'Fantastic food. Place was packed when we walked in but the wait wasn\'t bad. Tom, who took our order, was really helpful! He explained the menu and gave us his recommendations. I got the carne asada burrito and I couldn\'t even finish it! I\'m going to have to make a few trips to try all of the other stuff!'
       }
@@ -102,19 +102,19 @@ var restaurant = {
     reviews: [
       {
         username: 'Salty Chicken',
-        date: '01/13/2016',
+        date: '1/13/2016',
 				rating: 4,
         review: 'Yo, the breakfast burritos here are the size of your head! I\'d trade my first-born for a burrito and a cherry coke any day. ANY.'
       },
       {
         username: 'Andy Min',
-        date: '02/02/2016',
+        date: '2/2/2016',
 				rating: 4,
         review: 'The reviewer below me is an idiot. How are you gonna go and eat a tray of hash browns on a low carb diet. Seriously though, get the breakfast burrito. It can be your breakfast, lunch and dinner.'
       },
       {
         username: 'Paleo Princess',
-        date: '02/27/2016',
+        date: '2/27/2016',
 				rating: 3,
         review: 'If you order the burrito without the tortilla, they\'ll put everything in a big to-go box for you breakfast platter style. Good if you\'re low carbing.'
       }
@@ -142,19 +142,19 @@ var restaurant = {
     reviews: [
       {
         username: 'Get Money Eat Bacon',
-        date: '01/26/2016',
+        date: '1/26/2016',
 				rating: 5,
         review: 'Pastrami burger, add fried egg, add avocado. You\'re welcome.'
       },
       {
         username: 'Matt B',
-        date: '02/16/2016',
+        date: '2/16/2016',
 				rating: 5,
         review: 'The pastrami burger is ridiculous. If that\'s too much, get a classic burger. It comes with avocado, bacon and cheese. Seriously, if this isn\'t the best burger you\'ve ever had, go back to Average Burgers.'
       },
       {
         username: 'Janet M',
-        date: '02/27/2016',
+        date: '2/27/2016',
 				rating: 4,
         review: 'Forget the burgers, get the greek fries. Double fried and topped with a HEFTY amount of gyro, some kinda cheese, onions and tomatoes. Best fries ever.'
       }
@@ -182,19 +182,19 @@ var restaurant = {
     reviews: [
       {
         username: 'Rose',
-        date: '01/18/2016',
+        date: '1/18/2016',
 				rating: 1,
         review: 'They really live up to their name. Go to Pete\'s down the street. They make much better burgers.'
       },
       {
         username: 'Joe Crusher',
-        date: '01/27/2016',
+        date: '1/27/2016',
 				rating: 2,
         review: 'Cheap and fast. Not the best but sometimes... you just want an average burger.'
       },
       {
         username: 'Princess',
-        date: '02/12/2016',
+        date: '2/12/2016',
 				rating: 4,
         review: 'So my boyfriend of ten years took me here for our anniversary. I was skeptical at first, but after walking in and being greeted by the acne-faced boy at the counter, all of my worries were laid to rest. My boyfriend got the special "Average Burger" and I just got a cheeseburger. I wanted the "Average Burger" too but my boyfriend said it\'d be better if we got different things so we would have more variety. The food was okay but the service was top-notch. They gave us table markers and brought the food to our table as soon as it was prepared. I think we\'ll come back again for special occasions.'
       }
@@ -222,19 +222,19 @@ var restaurant = {
     reviews: [
       {
         username: 'codeMonkey',
-        date: '01/18/2016',
+        date: '1/18/2016',
 				rating: 5,
         review: 'Fantastic food. Get the chicken and waffles. You won\'t regret it! Crunchy on the outside and fluffy in the middle. Chicken is well seasoned and moist. Guy below me is on crack.'
       },
       {
         username: 'i luv buffets',
-        date: '02/14/2016',
+        date: '2/14/2016',
 				rating: 2,
         review: 'I guess this is the new thing. Charge an arm and a leg for a plate with a tiny piece of meat, some sauce puddles and a few sprigs of crap I think they found in some guy\'s backyard. Sorry but I\'m sticking to Hometown Buffet.'
       },
       {
         username: 'I thought this was Tinder',
-        date: '02/23/2016',
+        date: '2/23/2016',
 				rating: 4,
         review: 'They just opened but I think they\'re here to stay. Had dinner with the family. Service was good, entrees came out on time, and most importantly, food was fantastic.'
       }
@@ -262,19 +262,19 @@ var restaurant = {
     reviews: [
       {
         username: 'Adam L',
-        date: '01/11/2016',
+        date: '1/11/2016',
 				rating: 5,
         review: 'Fine dining at it\'s best. Elegant yet inviting - never pretentious. Impeccable service and incomparable food. We opted for the wagyu steak (real/imported, $160, 8oz). Tasted like butter, a reflection of how perfectly marbled it was. Make sure you save room for dessert. You won\'t regret it.'
       },
       {
         username: 'Joyce Y',
-        date: '01/28/2016',
+        date: '1/28/2016',
 				rating: 4,
         review: 'The decor is nice and homey, slightly pretentious, but not enough to feel intimidated. They bring out all their cuts on a platter to show you difference in marbling. They even let us take a picture with the platter! John got the Japanese wagyu and I got the lamb chops. Instant regret.'
       },
       {
         username: 'LadysMan7263',
-        date: '02/27/2016',
+        date: '2/27/2016',
 				rating: 5,
         review: 'THE place to bring a date. They will be impressed with how expensive your steak is.'
       }
@@ -345,6 +345,13 @@ function populate(reference, name, image, description) {
 	newElem.setAttribute('href', '#');
 	parent.appendChild(newElem);
 
+  // add event listener to each search result
+  // click to call initRestaurant() for this restaurant
+  newElem.addEventListener('click', function(e) {
+    sendRef(reference);
+    initRestaurant();
+  })
+
 	newElem = document.createElement('img');
 	parent = document.getElementById('image-link');
 	newElem.setAttribute('class', 'media-object');
@@ -362,11 +369,19 @@ function populate(reference, name, image, description) {
 	newText = document.createTextNode(name);
 	parent = document.getElementById('rest-body');
 	newElem.setAttribute('class', 'media-header');
+  newElem.className += ' inline';
 	newElem.setAttribute('id', 'rest-name');
 	newElem.appendChild(newText);
 	parent.appendChild(newElem);
 
-  findStars(reference, 'rest-name')
+  // user can also click on restaurant name
+  newElem.addEventListener('click', function(e) {
+    sendRef(reference);
+    initRestaurant();
+  })
+
+  // convert and display ratings to stars
+  findStars(reference, 'rest-body');
 
 	newElem = document.createElement('p');
 	newText = document.createTextNode(description);
@@ -377,20 +392,12 @@ function populate(reference, name, image, description) {
 	parent.appendChild(newElem);
 
 	// remove IDs for next iteration
-	document.getElementById('rest-desc').removeAttribute('id');
+  document.getElementById('rest-desc').removeAttribute('id');
 	document.getElementById('rest-name').removeAttribute('id');
 	document.getElementById('rest-body').removeAttribute('id');
 	document.getElementById('rest-thumb').removeAttribute('id');
 	document.getElementById('rest-box').removeAttribute('id');
-	// set reference to unique restaurant by replacing link ID with reference ID
-  // add event listener to each search result
-  // click to save reference ID in storeRef and call initRestaurant()
-	document.getElementById('image-link').setAttribute('id', reference);
-  var toReference = document.getElementById(reference);
-  toReference.addEventListener('click', function(e) {
-    sendRef(this.id);
-    initRestaurant();
-  })
+	document.getElementById('image-link').removeAttribute('id');
 }
 
 // clear current results and/or restaurant content
@@ -421,13 +428,14 @@ function clearReviews() {
 	toReviewBox.removeChild(toList);
 	// create empty container
   var newElem = document.createElement('div');
-  newElem.setAttribute('class', 'col-md-10');
+  newElem.setAttribute('class', 'col-md-9');
   newElem.className += ' float-left';
   newElem.setAttribute('id', 'review-list');
   toReviewBox.appendChild(newElem);
 }
 
 // remove form after submitting
+// not currently using, leaving code to preserve
 function clearForm() {
   var toReviewBox = document.getElementById('review-list');
   var toForm = document.getElementById('review-form');
@@ -598,7 +606,7 @@ function showRestaurant() {
 
 	newElem = document.createElement('div');
 	parent = document.getElementById('review-box');
-	newElem.setAttribute('class', 'col-md-2');
+	newElem.setAttribute('class', 'col-md-3');
   newElem.className += ' float-right';
 	newElem.setAttribute('id', 'hours-box');
 	parent.appendChild(newElem);
@@ -662,7 +670,7 @@ function showRestaurant() {
 
   newElem = document.createElement('div');
   parent = document.getElementById('review-box');
-  newElem.setAttribute('class', 'col-md-10');
+  newElem.setAttribute('class', 'col-md-9');
   newElem.className += ' float-left';
   newElem.setAttribute('id', 'review-list');
   parent.appendChild(newElem);
@@ -679,7 +687,7 @@ function showReviews(reviewer, date, review) {
 
 	newElem = document.createElement('div');
 	parent = document.getElementById('review-row');
-	newElem.setAttribute('class', 'col-md-2');
+	newElem.setAttribute('class', 'col-md-3');
 	newElem.setAttribute('id', 'reviewer');
 	parent.appendChild(newElem);
 
@@ -696,7 +704,7 @@ function showReviews(reviewer, date, review) {
 
 	newElem = document.createElement('div');
 	parent = document.getElementById('review-row');
-	newElem.setAttribute('class', 'col-md-8');
+	newElem.setAttribute('class', 'col-md-9');
 	newElem.setAttribute('id', 'review-col');
 	parent.appendChild(newElem);
 
@@ -767,7 +775,7 @@ function writeReview() {
   clearReviews();
   var toList = document.getElementById('review-list');
   var newElem = document.createElement('div');
-  newElem.setAttribute('class', 'col-md-10');
+  newElem.setAttribute('class', 'col-md-12');
   newElem.className += ' form-box float-left';
   newElem.setAttribute('id', 'review-form');
   toList.appendChild(newElem);
@@ -791,27 +799,79 @@ function writeReview() {
   newElem.setAttribute('id', 'username');
   toContainer.appendChild(newElem);
 
-  newElem = document.createElement('div');
-  newElem.setAttribute('class', 'form-group');
-  newElem.setAttribute('id', 'form-container');
-  toForm.appendChild(newElem);
-
   newElem = document.createElement('label');
   newText = document.createTextNode('Rating');
   newElem.setAttribute('for', 'rating');
   newElem.appendChild(newText);
   toContainer.appendChild(newElem);
 
-  newElem = document.createElement('input');
-  newElem.setAttribute('type', 'text');
-  newElem.setAttribute('class', 'form-control');
-  newElem.setAttribute('id', 'rating');
-  toContainer.appendChild(newElem);
+// testing
 
   newElem = document.createElement('div');
-  newElem.setAttribute('class', 'form-group');
-  newElem.setAttribute('id', 'form-container');
-  toForm.appendChild(newElem);
+  newElem.setAttribute('id', 'review-star-box');
+  toContainer.appendChild(newElem);
+  // star 1
+  newElem = document.createElement('span');
+  var parent = document.getElementById('review-star-box');
+  newElem.setAttribute('id', 'stars');
+  parent.appendChild(newElem);
+
+  newElem = document.createElement('i');
+  parent = document.getElementById('stars');
+  newElem.setAttribute('class', 'fa');
+  newElem.className += ' fa-star-o fa-3x';
+  parent.appendChild(newElem);
+  parent.removeAttribute('id');
+  // star 2
+  newElem = document.createElement('span');
+  parent = document.getElementById('review-star-box');
+  newElem.setAttribute('id', 'stars');
+  parent.appendChild(newElem);
+
+  newElem = document.createElement('i');
+  parent = document.getElementById('stars');
+  newElem.setAttribute('class', 'fa');
+  newElem.className += ' fa-star-o fa-3x';
+  parent.appendChild(newElem);
+  parent.removeAttribute('id');
+  // star 3
+  newElem = document.createElement('span');
+  parent = document.getElementById('review-star-box');
+  newElem.setAttribute('id', 'stars');
+  parent.appendChild(newElem);
+
+  newElem = document.createElement('i');
+  parent = document.getElementById('stars');
+  newElem.setAttribute('class', 'fa');
+  newElem.className += ' fa-star-o fa-3x';
+  parent.appendChild(newElem);
+  parent.removeAttribute('id');
+  // star 4
+  newElem = document.createElement('span');
+  parent = document.getElementById('review-star-box');
+  newElem.setAttribute('id', 'stars');
+  parent.appendChild(newElem);
+
+  newElem = document.createElement('i');
+  parent = document.getElementById('stars');
+  newElem.setAttribute('class', 'fa');
+  newElem.className += ' fa-star-o fa-3x';
+  parent.appendChild(newElem);
+  parent.removeAttribute('id');
+  // star 5
+  newElem = document.createElement('span');
+  parent = document.getElementById('review-star-box');
+  newElem.setAttribute('id', 'stars');
+  parent.appendChild(newElem);
+
+  newElem = document.createElement('i');
+  parent = document.getElementById('stars');
+  newElem.setAttribute('class', 'fa');
+  newElem.className += ' fa-star-o fa-3x';
+  parent.appendChild(newElem);
+  parent.removeAttribute('id');
+
+// testing
 
   newElem = document.createElement('label');
   newText = document.createTextNode('Review');
@@ -842,7 +902,7 @@ function writeReview() {
 // clear review form after pushing to review array
 // create updated list of reviews
 function updateReviews() {
-  clearForm();
+  clearPage();
   for (var prop in restaurant) {
     // loop through each restaurant
     if (restaurant[prop].reference === storeRef) {
@@ -853,7 +913,7 @@ function updateReviews() {
         date = restaurant[prop].reviews[i].date;
         review = restaurant[prop].reviews[i].review;
         // call showReviews() for each review
-        showReviews(reviewer, date, review);
+        initRestaurant();
       }
     }
   }
@@ -868,7 +928,7 @@ function submitReview() {
   var addReview = document.getElementById('review');
   newReview.username = addReviewer.value;
   newReview.date = month + '/' + day + '/' + year;
-  newReview.rating = addRating.value;
+  newReview.rating = parseInt(addRating.value);
   newReview.review = addReview.value;
   // match reference (assigned when clicking on restaurant)
   // push new review into targeted restaurant's review array
@@ -886,7 +946,7 @@ function giveStar(number) {
     var newElem = document.createElement('i');
     var parent = document.getElementById('stars');
     newElem.setAttribute('class', 'fa');
-    newElem.className += ' fa-star';
+    newElem.className += ' fa-star fa-2x';
     parent.appendChild(newElem);
   }
 }
@@ -896,7 +956,7 @@ function giveHalfStar() {
   var newElem = document.createElement('i');
   var parent = document.getElementById('stars');
   newElem.setAttribute('class', 'fa');
-  newElem.className += ' fa-star-half-o';
+  newElem.className += ' fa-star-half-o fa-2x';
   parent.appendChild(newElem);
 }
 
@@ -906,7 +966,7 @@ function giveEmptyStar(number) {
     var newElem = document.createElement('i');
     var parent = document.getElementById('stars');
     newElem.setAttribute('class', 'fa');
-    newElem.className += ' fa-star-o';
+    newElem.className += ' fa-star-o fa-2x';
     parent.appendChild(newElem);
   }
 }
@@ -938,7 +998,7 @@ function createStars(stars, half, toId) {
 }
 
 // find the average of an array containing numbers
-function avgArray (array) {
+function avgArray(array) {
   var sum = 0;
   for (i = 0; i < array.length; i++) {
     // add each array value to sum and divide amount of values
@@ -985,7 +1045,7 @@ function calcStars(rating, toId) {
 }
 
 // determine how many stars to create for a restaurant
-function findStars (name, toId) {
+function findStars(name, toId) {
   var ratings = [];
   var average = ''
   for (var prop in restaurant) {
@@ -999,4 +1059,9 @@ function findStars (name, toId) {
   // calculate average of array and quantity of stars
   average = avgArray(ratings);
   return calcStars(average, toId);
+}
+
+// click on star to determine rating
+function makeRevStars() {
+
 }
