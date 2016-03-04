@@ -807,8 +807,7 @@ function writeReview() {
 
   newElem = document.createElement('br');
   toContainer.appendChild(newElem);
-// testing
-
+  // add star icons
   newElem = document.createElement('span');
   newElem.setAttribute('id', 'rating');
   toContainer.appendChild(newElem);
@@ -850,8 +849,6 @@ function writeReview() {
   stars = document.querySelectorAll('[data-count]');
   allstars = document.getElementById('rating');
   shiftStar();
-
-// testing
 
   newElem = document.createElement('label');
   newText = document.createTextNode('Review');
@@ -904,11 +901,10 @@ function submitReview() {
   // pull values from review form and assign to variables
   var newReview = {};
   var addReviewer = document.getElementById('username');
-  var addRating = document.getElementById('rating');
   var addReview = document.getElementById('review');
   newReview.username = addReviewer.value;
   newReview.date = month + '/' + day + '/' + year;
-  newReview.rating = parseInt(addRating.value);
+  newReview.rating = saveFill;
   newReview.review = addReview.value;
   // match reference (assigned when clicking on restaurant)
   // push new review into targeted restaurant's review array
@@ -1041,28 +1037,60 @@ function findStars(name, toId) {
   return calcStars(average, toId);
 }
 
-// test
-
+// variables for filling in stars
 var stars = '';
-var allStars = '';
+var fill = 0;
+var saveFill = 0;
+var starsClicked = false
 
+// apply event listeners to make stars interactive
 function shiftStar() {
   for (i = 0; i < stars.length; i++) {
     stars[i].addEventListener('mouseenter', fillStar);
     stars[i].addEventListener('mouseleave', emptyStar);
+    stars[i].addEventListener('click', saveStars);
   }
 }
 
+// fill clicked star and all stars before it
 function fillStar() {
-  for (i = 0; i < stars.length; i++) {
-    stars[i].classList.remove('fa-star-o');
-    stars[i].classList.add('fa-star');
+  fill = this.getAttribute('data-count');
+  // determine which star user is hovering over
+  for (i = 0; i < fill; i++) {
+    // fill only if user has not clicked a rating
+    if (!starsClicked) {
+      stars[i].classList.remove('fa-star-o');
+      stars[i].classList.add('fa-star');
+    }
   }
 }
 
+// empty all stars when mouse leaves rating area
 function emptyStar() {
   for (i = 0; i < stars.length; i++) {
-    stars[i].classList.remove('fa-star');
-    stars[i].classList.add('fa-star-o');
+    // empty only if user has not clicked a rating
+    if (!starsClicked) {
+      stars[i].classList.remove('fa-star');
+      stars[i].classList.add('fa-star-o');
+    }
+  }
+}
+
+// save fill state and save rating value
+function saveStars() {
+  fill = this.getAttribute('data-count');
+  saveFill = fill;
+  // save fill state if user has not clicked
+  if (!starsClicked) {
+    for (i = 0; i < fill; i++) {
+      stars[i].classList.remove('fa-star-o');
+      stars[i].classList.add('fa-star');
+    }
+    starsClicked = true;
+    saveFill = fill;
+  } else if (starsClicked) {
+    // click again to reset/remove saved fill state
+    starsClicked = false;
+    saveFill = 0;
   }
 }
