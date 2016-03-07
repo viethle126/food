@@ -1342,5 +1342,285 @@ function saveStars() {
   }
 }
 
+// clear search results and create add location form
+function addForm() {
+  clearPage();
+  // clear page and create columns
+  var newElem = document.createElement('div');
+	var parent = document.getElementById('query-list');
+	newElem.setAttribute('class', 'row');
+	newElem.setAttribute('id', 'add-row');
+	parent.appendChild(newElem);
 
+  newElem = document.createElement('div');
+	parent = document.getElementById('add-row');
+	newElem.setAttribute('class', 'col-md-6');
+	newElem.setAttribute('id', 'form-col');
+	parent.appendChild(newElem);
+
+  newElem = document.createElement('form');
+	parent = document.getElementById('form-col');
+	newElem.setAttribute('id', 'add-form');
+	parent.appendChild(newElem);
+
+  // restaurant name
+  newElem = document.createElement('div');
+	parent = document.getElementById('add-form');
+	newElem.setAttribute('class', 'form-group');
+	newElem.setAttribute('id', 'form-parent');
+	parent.appendChild(newElem);
+
+  newElem = document.createElement('label');
+	parent = document.getElementById('form-parent');
+  var newText = document.createTextNode('Restaurant Name');
+	newElem.setAttribute('for', 'add-name');
+  newElem.appendChild(newText);
+	parent.appendChild(newElem);
+
+  newElem = document.createElement('input');
+	newElem.setAttribute('type', 'text');
+  newElem.setAttribute('class', 'form-control');
+  newElem.setAttribute('id', 'add-name');
+	newElem.setAttribute('placeholder', 'Hipster\'s Delight');
+	parent.appendChild(newElem);
+  parent.removeAttribute('id');
+
+  // address
+  newElem = document.createElement('div');
+	parent = document.getElementById('add-form');
+	newElem.setAttribute('class', 'form-group');
+	newElem.setAttribute('id', 'form-parent');
+	parent.appendChild(newElem);
+
+  newElem = document.createElement('label');
+	parent = document.getElementById('form-parent');
+  newText = document.createTextNode('Address');
+	newElem.setAttribute('for', 'add-street');
+  newElem.appendChild(newText);
+	parent.appendChild(newElem);
+
+  newElem = document.createElement('input');
+	newElem.setAttribute('type', 'text');
+  newElem.setAttribute('class', 'form-control');
+  newElem.setAttribute('id', 'add-street');
+	newElem.setAttribute('placeholder', '24 Main Street');
+	parent.appendChild(newElem);
+  parent.removeAttribute('id');
+
+  // city
+  newElem = document.createElement('div');
+	parent = document.getElementById('add-form');
+	newElem.setAttribute('class', 'form-group');
+	newElem.setAttribute('id', 'form-parent');
+	parent.appendChild(newElem);
+
+  newElem = document.createElement('label');
+	parent = document.getElementById('form-parent');
+  newText = document.createTextNode('City');
+	newElem.setAttribute('for', 'add-city');
+  newElem.appendChild(newText);
+	parent.appendChild(newElem);
+
+  newElem = document.createElement('input');
+	newElem.setAttribute('type', 'text');
+  newElem.setAttribute('class', 'form-control');
+  newElem.setAttribute('id', 'add-city');
+	newElem.setAttribute('placeholder', 'Tustin');
+	parent.appendChild(newElem);
+  parent.removeAttribute('id');
+
+  // state
+  newElem = document.createElement('div');
+	parent = document.getElementById('add-form');
+	newElem.setAttribute('class', 'form-group');
+	newElem.setAttribute('id', 'form-parent');
+	parent.appendChild(newElem);
+
+  newElem = document.createElement('label');
+	parent = document.getElementById('form-parent');
+  newText = document.createTextNode('State');
+	newElem.setAttribute('for', 'add-state');
+  newElem.appendChild(newText);
+	parent.appendChild(newElem);
+
+  newElem = document.createElement('input');
+	newElem.setAttribute('type', 'text');
+  newElem.setAttribute('class', 'form-control');
+  newElem.setAttribute('id', 'add-state');
+	newElem.setAttribute('placeholder', 'CA');
+	parent.appendChild(newElem);
+  parent.removeAttribute('id');
+
+  // zip code
+  newElem = document.createElement('div');
+	parent = document.getElementById('add-form');
+	newElem.setAttribute('class', 'form-group');
+	newElem.setAttribute('id', 'form-parent');
+	parent.appendChild(newElem);
+
+  newElem = document.createElement('label');
+	parent = document.getElementById('form-parent');
+  newText = document.createTextNode('Zip Code');
+	newElem.setAttribute('for', 'add-zip');
+  newElem.appendChild(newText);
+	parent.appendChild(newElem);
+
+  newElem = document.createElement('input');
+	newElem.setAttribute('type', 'text');
+  newElem.setAttribute('class', 'form-control');
+  newElem.setAttribute('id', 'add-zip');
+	newElem.setAttribute('placeholder', '92780');
+	parent.appendChild(newElem);
+  parent.removeAttribute('id');
+
+  // phone number
+  newElem = document.createElement('div');
+	parent = document.getElementById('add-form');
+	newElem.setAttribute('class', 'form-group');
+	newElem.setAttribute('id', 'form-parent');
+	parent.appendChild(newElem);
+
+  newElem = document.createElement('label');
+	parent = document.getElementById('form-parent');
+  newText = document.createTextNode('Phone Number');
+	newElem.setAttribute('for', 'add-tele');
+  newElem.appendChild(newText);
+	parent.appendChild(newElem);
+
+  newElem = document.createElement('input');
+	newElem.setAttribute('type', 'text');
+  newElem.setAttribute('class', 'form-control');
+  newElem.setAttribute('id', 'add-tele');
+	newElem.setAttribute('placeholder', '714-144-1441');
+	parent.appendChild(newElem);
+  parent.removeAttribute('id');
+
+  // categories
+  newElem = document.createElement('div');
+	parent = document.getElementById('add-form');
+	newElem.setAttribute('class', 'form-group');
+	newElem.setAttribute('id', 'form-parent');
+	parent.appendChild(newElem);
+
+  newElem = document.createElement('label');
+	parent = document.getElementById('form-parent');
+  newText = document.createTextNode('Categories');
+	newElem.setAttribute('for', 'add-tags');
+  newElem.appendChild(newText);
+	parent.appendChild(newElem);
+
+  newElem = document.createElement('p');
+  newText = document.createTextNode('Select up to 3 categories. The more specific the better.');
+  newElem.setAttribute('class', 'help-block');
+  newElem.appendChild(newText);
+  parent.appendChild(newElem);
+
+  newElem = document.createElement('input');
+	newElem.setAttribute('type', 'text');
+  newElem.setAttribute('class', 'form-control');
+  newElem.setAttribute('id', 'add-tags');
+	newElem.setAttribute('placeholder', 'Japanese, sushi');
+	parent.appendChild(newElem);
+  parent.removeAttribute('id');
+
+  // description
+  newElem = document.createElement('div');
+	parent = document.getElementById('add-form');
+	newElem.setAttribute('class', 'form-group');
+	newElem.setAttribute('id', 'form-parent');
+	parent.appendChild(newElem);
+
+  newElem = document.createElement('label');
+	parent = document.getElementById('form-parent');
+  newText = document.createTextNode('Tell us about this restaurant');
+	newElem.setAttribute('for', 'add-desc');
+  newElem.appendChild(newText);
+	parent.appendChild(newElem);
+
+  newElem = document.createElement('textarea');
+  newElem.setAttribute('class', 'form-control');
+  newElem.setAttribute('id', 'add-desc');
+	newElem.setAttribute('row', '3');
+	parent.appendChild(newElem);
+  parent.removeAttribute('id');
+
+  // add location button
+  newElem = document.createElement('div');
+	parent = document.getElementById('add-form');
+	newElem.setAttribute('class', 'form-group');
+	newElem.setAttribute('id', 'form-parent');
+	parent.appendChild(newElem);
+
+  newElem = document.createElement('button');
+	parent = document.getElementById('form-parent');
+  newText = document.createTextNode('Add location');
+	newElem.setAttribute('type', 'submit');
+  newElem.setAttribute('id', 'add-button');
+  newElem.appendChild(newText);
+	parent.appendChild(newElem);
+  parent.removeAttribute('id');
+
+  // side image
+  newElem = document.createElement('div');
+  parent = document.getElementById('add-row');
+  newElem.setAttribute('class', 'col-md-6');
+  newElem.setAttribute('id', 'form-img');
+  parent.appendChild(newElem);
+
+  newElem = document.createElement('img');
+  parent = document.getElementById('form-img');
+  newElem.setAttribute('src', 'images/add.jpg');
+  newElem.setAttribute('class', 'img-responsive');
+  newElem.setAttribute('alt', 'Image');
+  parent.appendChild(newElem);
+}
+
+// display location added message
+function locationAdded(name) {
+  clearPage();
+  // clear page and create panel
+  var newElem = document.createElement('div');
+	var parent = document.getElementById('query-list');
+	newElem.setAttribute('class', 'col-md-12');
+	newElem.setAttribute('id', 'submit-panel');
+	parent.appendChild(newElem);
+
+  newElem = document.createElement('div');
+	parent = document.getElementById('submit-panel');
+	newElem.setAttribute('class', 'panel');
+  newElem.className += ' panel-default';
+	newElem.setAttribute('id', 'submit-default');
+	parent.appendChild(newElem);
+
+  newElem = document.createElement('div');
+	parent = document.getElementById('submit-default');
+	newElem.setAttribute('class', 'panel-body');
+	newElem.setAttribute('id', 'submit-body');
+	parent.appendChild(newElem);
+
+  newElem = document.createElement('h3');
+	parent = document.getElementById('submit-body');
+  var newText = document.createTextNode(name + ' has been added!');
+  newElem.appendChild(newText)
+	parent.appendChild(newElem);
+
+  // image
+  var newElem = document.createElement('div');
+	var parent = document.getElementById('query-list');
+	newElem.setAttribute('class', 'col-md-12');
+	newElem.setAttribute('id', 'submit-img');
+	parent.appendChild(newElem);
+
+  var newElem = document.createElement('img');
+	var parent = document.getElementById('submit-img');
+	newElem.setAttribute('src', 'images/submitted.jpg');
+	newElem.setAttribute('class', 'img-responsive');
+	newElem.setAttribute('alt', 'Image');
+	parent.appendChild(newElem);
+}
+
+// create new restaurant object for new location
+function addLocation() {
+
+}
 // plans for issue #6 restaurant[someInput.toLowerCase().replace(/\s+/g, '')] = {}
