@@ -28,6 +28,11 @@
   text-align: right;
 }
 
+.spacing {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -97,6 +102,10 @@
   height: auto;
   width:  33%;
   text-align: center;
+}
+
+#add-location {
+  height: 42px;
 }
 
 h3 {

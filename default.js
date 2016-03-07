@@ -414,6 +414,118 @@ var queryName = '';
 var queryImage = '';
 var queryDesc = '';
 
+// create search header
+function searchHeader(search) {
+  var landing = document.getElementById('landing');
+  landing.setAttribute('class', 'hidden');
+
+  // panel
+  var newElem = document.createElement('div');
+  var parent = document.getElementById('query-list');
+  newElem.setAttribute('class', 'panel');
+  newElem.className += ' panel-default text-center';
+  newElem.setAttribute('id', 'search-panel');
+  parent.appendChild(newElem);
+
+  // panel heading
+  newElem = document.createElement('div');
+  parent = document.getElementById('search-panel');
+  newElem.setAttribute('class', 'panel-heading');
+  newElem.setAttribute('id', 'search-heading');
+  parent.appendChild(newElem);
+
+  newElem = document.createElement('i');
+  parent = document.getElementById('search-heading');
+  var newText = document.createTextNode('showing results for: ' + search);
+  newElem.appendChild(newText);
+  parent.appendChild(newElem);
+
+  // panel body
+  newElem = document.createElement('div');
+  parent = document.getElementById('search-panel');
+  newElem.setAttribute('class', 'panel-body');
+  newElem.setAttribute('id', 'search-body');
+  parent.appendChild(newElem);
+
+  newElem = document.createElement('span');
+  parent = document.getElementById('search-body');
+  newElem.setAttribute('id', 'sort');
+  parent.appendChild(newElem);
+
+  // sort alpha asc
+  newElem = document.createElement('button');
+  parent = document.getElementById('sort');
+  newElem.setAttribute('class', 'btn');
+  newElem.className += ' btn-default spacing';
+  newElem.setAttribute('type', 'submit');
+  newElem.setAttribute('id', 'alpha-asc')
+  parent.appendChild(newElem);
+
+  newElem = document.createElement('i');
+  parent = document.getElementById('alpha-asc');
+  newElem.setAttribute('class', 'fa');
+  newElem.className += ' fa-sort-alpha-asc fa-2x';
+  parent.appendChild(newElem);
+
+  // sort alpha desc
+  newElem = document.createElement('button');
+  parent = document.getElementById('sort');
+  newElem.setAttribute('class', 'btn');
+  newElem.className += ' btn-default spacing';
+  newElem.setAttribute('type', 'submit');
+  newElem.setAttribute('id', 'alpha-desc')
+  parent.appendChild(newElem);
+
+  newElem = document.createElement('i');
+  parent = document.getElementById('alpha-desc');
+  newElem.setAttribute('class', 'fa');
+  newElem.className += ' fa-sort-alpha-desc fa-2x';
+  parent.appendChild(newElem);
+
+  // sort high
+  newElem = document.createElement('button');
+  parent = document.getElementById('sort');
+  newElem.setAttribute('class', 'btn');
+  newElem.className += ' btn-default spacing';
+  newElem.setAttribute('type', 'submit');
+  newElem.setAttribute('id', 'high')
+  parent.appendChild(newElem);
+
+  newElem = document.createElement('i');
+  parent = document.getElementById('high');
+  newElem.setAttribute('class', 'fa');
+  newElem.className += ' fa-sort-amount-desc fa-2x';
+  parent.appendChild(newElem);
+
+  // sort low
+  newElem = document.createElement('button');
+  parent = document.getElementById('sort');
+  newElem.setAttribute('class', 'btn');
+  newElem.className += ' btn-default spacing';
+  newElem.setAttribute('type', 'submit');
+  newElem.setAttribute('id', 'low')
+  parent.appendChild(newElem);
+
+  newElem = document.createElement('i');
+  parent = document.getElementById('low');
+  newElem.setAttribute('class', 'fa');
+  newElem.className += ' fa-sort-amount-asc fa-2x';
+  parent.appendChild(newElem);
+
+  // add location button
+  newElem = document.createElement('button');
+  parent = document.getElementById('sort');
+  newText = document.createTextNode('Add location');
+  newElem.setAttribute('class', 'btn');
+  newElem.className += ' btn-default spacing';
+  newElem.setAttribute('type', 'submit');
+  newElem.setAttribute('id', 'add-location');
+  newElem.appendChild(newText);
+  parent.appendChild(newElem);
+
+  newElem.addEventListener('click', addForm);
+}
+
 // convert search input to array
 function intoArray(string) {
 	return string.toString().split(' ');
@@ -450,9 +562,6 @@ function matchTags(obj, array) {
 
 // populate function will create and append media boxes per query result
 function populate(reference, name, image, description) {
-  var landing = document.getElementById('landing');
-	landing.setAttribute('class', 'hidden');
-
 	var newElem = document.createElement('div');
 	var parent = document.getElementById('query-list');
 	newElem.setAttribute('class', 'media');
@@ -573,6 +682,7 @@ function clearForm() {
 // return any matches and appends them via function populate;
 function searchFood() {
 	clearPage();
+  searchHeader(searchInput.value);
 	return matchTags(restaurant, intoArray(searchInput.value.toLowerCase()));
 }
 
