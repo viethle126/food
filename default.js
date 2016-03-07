@@ -15,7 +15,7 @@ var restaurant = {
       saturday: ['10:00 am - 4:00 pm'],
       sunday: ['10:00 am - 4:00 pm']
     },
-    good: 'lunch, burritos, tacos',
+    good: 'mexican, burritos, tacos',
     tags: ['mogi','lunch','burritos','burrito','tacos','taco','food'],
     images: ['images/mogitacos/img001.jpg','images/mogitacos/img002.jpg','images/mogitacos/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
@@ -27,7 +27,10 @@ var restaurant = {
         review: 'They have the best tacos in the OC! Try the short rib tacos or the spicy pork wet burrito. You might have to take a nap after but it\'s worth it!',
         useful: 3,
         funny: 3,
-        cool: 3
+        cool: 3,
+        plusUseful: 0,
+        plusFunny: 0,
+        plusCool: 0
       },
       {
         username: 'Sandra T',
@@ -36,7 +39,10 @@ var restaurant = {
         review: 'I\'ve been wanting to try this place for a long time. The boyfriend finally took me and... It was okay - overhyped for sure. The flavors were good but the meat was a little dry. I\'d be willing to give it another try.',
         useful: 0,
         funny: 0,
-        cool: 0
+        cool: 0,
+        plusUseful: 0,
+        plusFunny: 0,
+        plusCool: 0
       },
       {
         username: 'Wendy Eats',
@@ -45,7 +51,10 @@ var restaurant = {
         review: 'Fantastic food. Place was packed when we walked in but the wait wasn\'t bad. Tom, who took our order, was really helpful! He explained the menu and gave us his recommendations. I got the spicy pork burrito and I couldn\'t even finish it! I\'m going to have to make a few trips to try all of the other stuff!',
         useful: 0,
         funny: 1,
-        cool: 1
+        cool: 1,
+        plusUseful: 0,
+        plusFunny: 0,
+        plusCool: 0
       }
     ]
   },
@@ -64,7 +73,7 @@ var restaurant = {
       saturday: ['11:00 am - 3:00 pm'],
       sunday: ['Closed']
     },
-    good: 'lunch, burritos, tacos',
+    good: 'mexican, burritos, tacos',
     tags: ['santana','lunch','burritos','burrito','tacos','taco','food'],
     images: ['images/santana/img001.jpg','images/santana/img002.jpg','images/santana/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
@@ -76,7 +85,10 @@ var restaurant = {
         review: 'They have the best burritos in the OC! Try the lengua tacos or the carnitas wet burrito. You might have to take a nap after but it\'s worth it!',
         useful: 1,
         funny: 1,
-        cool: 2
+        cool: 2,
+        plusUseful: 0,
+        plusFunny: 0,
+        plusCool: 0
       },
       {
         username: 'I hate vegetarians',
@@ -85,7 +97,10 @@ var restaurant = {
         review: 'I\'ve been wanting to try this place for a long time. The boyfriend finally took me and... It was okay - overhyped for sure. The flavors were good but the meat was a little dry. I\'d be willing to give it another try.',
         useful: 2,
         funny: 0,
-        cool: 0
+        cool: 0,
+        plusUseful: 0,
+        plusFunny: 0,
+        plusCool: 0
       },
       {
         username: 'sweetguy2201',
@@ -94,7 +109,10 @@ var restaurant = {
         review: 'Fantastic food. Place was packed when we walked in but the wait wasn\'t bad. Tom, who took our order, was really helpful! He explained the menu and gave us his recommendations. I got the carne asada burrito and I couldn\'t even finish it! I\'m going to have to make a few trips to try all of the other stuff!',
         useful: 0,
         funny: 0,
-        cool: 1
+        cool: 1,
+        plusUseful: 0,
+        plusFunny: 0,
+        plusCool: 0
       }
     ]
   },
@@ -113,7 +131,7 @@ var restaurant = {
       saturday: ['Closed'],
       sunday: ['Closed']
     },
-    good: 'lunch, brunch, burritos',
+    good: 'american, brunch',
     tags: ['jupiter','cafe','lunch','burritos','burrito','food'],
     images: ['images/jupitercafe/img001.jpg','images/jupitercafe/img002.jpg','images/jupitercafe/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
@@ -125,7 +143,22 @@ var restaurant = {
         review: 'Yo, the breakfast burritos here are the size of your head! I\'d trade my first-born for a burrito and a cherry coke any day. ANY.',
         useful: 0,
         funny: 1,
-        cool: 0
+        cool: 0,
+        plusUseful: 0,
+        plusFunny: 0,
+        plusCool: 0
+      },
+      {
+        username: 'Paleo Princess',
+        date: '2/27/2016',
+        rating: 3,
+        review: 'If you order the burrito without the tortilla, they\'ll put everything in a big to-go box for you breakfast platter style. Good if you\'re low carbing.',
+        useful: 2,
+        funny: 0,
+        cool: 0,
+        plusUseful: 0,
+        plusFunny: 0,
+        plusCool: 0
       },
       {
         username: 'Andy Min',
@@ -134,16 +167,10 @@ var restaurant = {
         review: 'The reviewer below me is an idiot. How are you gonna go and eat a tray of hash browns on a low carb diet. Seriously though, get the breakfast burrito. It can be your breakfast, lunch and dinner.',
         useful: 1,
         funny: 4,
-        cool: 0
-      },
-      {
-        username: 'Paleo Princess',
-        date: '2/27/2016',
-				rating: 3,
-        review: 'If you order the burrito without the tortilla, they\'ll put everything in a big to-go box for you breakfast platter style. Good if you\'re low carbing.',
-        useful: 2,
-        funny: 0,
-        cool: 0
+        cool: 0,
+        plusUseful: 0,
+        plusFunny: 0,
+        plusCool: 0
       }
     ]
   },
@@ -162,7 +189,7 @@ var restaurant = {
       saturday: ['10:00 am - 2:00 pm'],
       sunday: ['10:00 am - 2:00 pm']
     },
-    good: 'lunch, burgers',
+    good: 'burgers',
     tags: ['burger','bar','lunch','dinner','burgers','food'],
     images: ['images/burgerbar/img001.jpg','images/burgerbar/img002.jpg','images/burgerbar/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
@@ -174,7 +201,10 @@ var restaurant = {
         review: 'Pastrami burger, add fried egg, add avocado. You\'re welcome.',
         useful: 0,
         funny: 2,
-        cool: 6
+        cool: 6,
+        plusUseful: 0,
+        plusFunny: 0,
+        plusCool: 0
       },
       {
         username: 'Matt B',
@@ -183,7 +213,10 @@ var restaurant = {
         review: 'The pastrami burger is ridiculous. If that\'s too much, get a classic burger. It comes with avocado, bacon and cheese. Seriously, if this isn\'t the best burger you\'ve ever had, go back to Average Burgers.',
         useful: 3,
         funny: 3,
-        cool: 3
+        cool: 3,
+        plusUseful: 0,
+        plusFunny: 0,
+        plusCool: 0
       },
       {
         username: 'Janet M',
@@ -192,7 +225,10 @@ var restaurant = {
         review: 'Forget the burgers, get the greek fries. Double fried and topped with a HEFTY amount of gyro, some kinda cheese, onions and tomatoes. Best fries ever.',
         useful: 0,
         funny: 3,
-        cool: 0
+        cool: 0,
+        plusUseful: 0,
+        plusFunny: 0,
+        plusCool: 0
       }
     ]
   },
@@ -211,7 +247,7 @@ var restaurant = {
       saturday: ['10:00 am - 4:00 pm'],
       sunday: ['Closed']
     },
-    good: 'lunch, burgers',
+    good: 'burgers',
     tags: ['average','burgers','lunch','burger','food'],
     images: ['images/averageburgers/img001.jpg','images/averageburgers/img002.jpg','images/averageburgers/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
@@ -223,7 +259,10 @@ var restaurant = {
         review: 'They really live up to their name. Go to Pete\'s down the street. They make much better burgers.',
         useful: 5,
         funny: 0,
-        cool: 0
+        cool: 0,
+        plusUseful: 0,
+        plusFunny: 0,
+        plusCool: 0
       },
       {
         username: 'Joe Crusher',
@@ -232,7 +271,10 @@ var restaurant = {
         review: 'Cheap and fast. Not the best but sometimes... you just want an average burger.',
         useful: 0,
         funny: 1,
-        cool: 0
+        cool: 0,
+        plusUseful: 0,
+        plusFunny: 0,
+        plusCool: 0
       },
       {
         username: 'Princess',
@@ -241,7 +283,10 @@ var restaurant = {
         review: 'So my boyfriend of ten years took me here for our anniversary. I was skeptical at first, but after walking in and being greeted by the acne-faced boy at the counter, all of my worries were laid to rest. My boyfriend got the special "Average Burger" and I just got a cheeseburger. I wanted the "Average Burger" too but my boyfriend said it\'d be better if we got different things so we would have more variety. The food was okay but the service was top-notch. They gave us table markers and brought the food to our table as soon as it was prepared. I think we\'ll come back again for special occasions.',
         useful: 1,
         funny: 0,
-        cool: 0
+        cool: 0,
+        plusUseful: 0,
+        plusFunny: 0,
+        plusCool: 0
       }
     ]
   },
@@ -260,28 +305,34 @@ var restaurant = {
       saturday: ['10:00 am - 11:00 pm'],
       sunday: ['10:00 am - 11:00 pm']
     },
-    good: 'dinner, modern, upscale',
+    good: 'American, modern, trendy',
     tags: ['county','lunch','dinner','food'],
     images: ['images/county/img001.jpg','images/county/img002.jpg','images/county/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
     reviews: [
       {
-        username: 'codeMonkey',
-        date: '1/18/2016',
-				rating: 5,
-        review: 'Fantastic food. Get the chicken and waffles. You won\'t regret it! Crunchy on the outside and fluffy in the middle. Chicken is well seasoned and moist. Guy below me is on crack.',
-        useful: 0,
-        funny: 5,
-        cool: 1
-      },
-      {
         username: 'i luv buffets',
-        date: '2/14/2016',
+        date: '1/14/2016',
 				rating: 2,
         review: 'I guess this is the new thing. Charge an arm and a leg for a plate with a tiny piece of meat, some sauce puddles and a few sprigs of crap I think they found in some guy\'s backyard. Sorry but I\'m sticking to Hometown Buffet.',
         useful: 0,
         funny: 1,
-        cool: 0
+        cool: 0,
+        plusUseful: 0,
+        plusFunny: 0,
+        plusCool: 0
+      },
+      {
+        username: 'codeMonkey',
+        date: '2/18/2016',
+				rating: 5,
+        review: 'Fantastic food. Get the chicken and waffles. You won\'t regret it! Crunchy on the outside and fluffy in the middle. Chicken is well seasoned and moist. Guy below me is on crack.',
+        useful: 0,
+        funny: 5,
+        cool: 1,
+        plusUseful: 0,
+        plusFunny: 0,
+        plusCool: 0
       },
       {
         username: 'I thought this was Tinder',
@@ -290,7 +341,10 @@ var restaurant = {
         review: 'They just opened but I think they\'re here to stay. Had dinner with the family. Service was good, entrees came out on time, and most importantly, food was fantastic.',
         useful: 1,
         funny: 3,
-        cool: 1
+        cool: 1,
+        plusUseful: 0,
+        plusFunny: 0,
+        plusCool: 0
       }
     ]
   },
@@ -309,7 +363,7 @@ var restaurant = {
       saturday: ['5:00 pm - 12:00 am'],
       sunday: ['5:00 pm - 12:00 am']
     },
-    good: 'dinner, steak, modern, upscale',
+    good: 'American, steak, upscale',
     tags: ['stone','marble','dinner','steaks','steak','food'],
     images: ['images/stoneandmarble/img001.jpg','images/stoneandmarble/img002.jpg','images/stoneandmarble/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
@@ -321,7 +375,10 @@ var restaurant = {
         review: 'Fine dining at it\'s best. Elegant yet inviting - never pretentious. Impeccable service and incomparable food. We opted for the wagyu steak (real/imported, $160, 8oz). Tasted like butter, a reflection of how perfectly marbled it was. Make sure you save room for dessert. You won\'t regret it.',
         useful: 2,
         funny: 1,
-        cool: 1
+        cool: 1,
+        plusUseful: 0,
+        plusFunny: 0,
+        plusCool: 0
       },
       {
         username: 'Joyce Y',
@@ -330,7 +387,10 @@ var restaurant = {
         review: 'The decor is nice and homey, slightly pretentious, but not enough to feel intimidated. They bring out all their cuts on a platter to show you difference in marbling. They even let us take a picture with the platter! John got the Japanese wagyu and I got the lamb chops. Instant regret.',
         useful: 4,
         funny: 3,
-        cool: 2
+        cool: 2,
+        plusUseful: 0,
+        plusFunny: 0,
+        plusCool: 0
       },
       {
         username: 'LadysMan7263',
@@ -339,7 +399,10 @@ var restaurant = {
         review: 'THE place to bring a date. They will be impressed with how expensive your steak is.',
         useful: 0,
         funny: 3,
-        cool: 0
+        cool: 0,
+        plusUseful: 0,
+        plusFunny: 0,
+        plusCool: 0
       }
     ]
   }
@@ -539,7 +602,12 @@ var sat = '';
 var sunday = '';
 var reviewer = '';
 var date = '';
+var rate = '';
 var review = '';
+var useful = 0;
+var funny = 0;
+var cool = 0;
+var thisReview = '';
 
 // set up restaurant page (info, photos) and create container for reviews
 function showRestaurant() {
@@ -741,7 +809,7 @@ function showRestaurant() {
 
 // loop function for every entry in object review
 // create separate div container for each review
-function showReviews(reviewer, date, review) {
+function showReviews(reviewer, date, review, ref) {
 	var newElem = document.createElement('div');
 	var parent = document.getElementById('review-list');
 	newElem.setAttribute('class', 'row');
@@ -771,6 +839,9 @@ function showReviews(reviewer, date, review) {
 	newElem.setAttribute('id', 'review-col');
 	parent.appendChild(newElem);
 
+  // add individual reviewer rating
+  calcStars(rate, 'review-col');
+
 	newElem = document.createElement('p');
 	newText = document.createTextNode(review);
 	parent = document.getElementById('review-col');
@@ -780,62 +851,97 @@ function showReviews(reviewer, date, review) {
   // add useful badge
   newElem = document.createElement('button');
   newText = document.createTextNode('useful');
-  parent = document.getElementById('review-col')
+  parent = document.getElementById('review-col');
   newElem.setAttribute('class', 'btn');
-  newElem.className += ' btn-default inline';
+  newElem.className += ' btn-default useful-badge inline';
   newElem.setAttribute('type', 'button');
-  newElem.setAttribute('id', 'useful');
+  newElem.setAttribute('data-useful', ref.useful);
+  newElem.setAttribute('data-clicked', ref.plusUseful);
   newElem.appendChild(newText);
   parent.appendChild(newElem);
 
-  newElem = document.createElement('span');
-  newText = document.createTextNode('4');
-  parent = document.getElementById('useful');
-  newElem.setAttribute('class', 'badge');
-  newElem.appendChild(newText);
-  parent.appendChild(newElem);
+  // add useful badge event listener
+  newElem.addEventListener('click', function(e) {
+    if (event.currentTarget.getAttribute('data-clicked') == 0) {
+      // check if user has already upvoted badge
+      // add +1 to badge score and displayed data attribute
+      ref.useful += 1;
+      ref.plusUseful = 1;
+      event.currentTarget.setAttribute('data-useful', ref.useful);
+      event.currentTarget.setAttribute('data-clicked', 1);
+    } else if (event.currentTarget.getAttribute('data-clicked') == 1) {
+      // retract user upvote
+      ref.useful -= 1;
+      ref.plusUseful = 0;
+      event.currentTarget.setAttribute('data-useful', ref.useful);
+      event.currentTarget.setAttribute('data-clicked', 0);
+    }
+  })
+
   // add funny badge
   newElem = document.createElement('button');
   newText = document.createTextNode('funny');
-  parent = document.getElementById('review-col')
+  parent = document.getElementById('review-col');
   newElem.setAttribute('class', 'btn');
-  newElem.className += ' btn-default inline';
+  newElem.className += ' btn-default funny-badge inline';
   newElem.setAttribute('type', 'button');
-  newElem.setAttribute('id', 'funny');
+  newElem.setAttribute('data-funny', ref.funny);
+  newElem.setAttribute('data-clicked', ref.plusFunny);
   newElem.appendChild(newText);
   parent.appendChild(newElem);
 
-  newElem = document.createElement('span');
-  newText = document.createTextNode('4');
-  parent = document.getElementById('funny');
-  newElem.setAttribute('class', 'badge');
-  newElem.appendChild(newText);
-  parent.appendChild(newElem);
+  // add funny badge event listener
+  newElem.addEventListener('click', function(e) {
+    if (event.currentTarget.getAttribute('data-clicked') == 0) {
+      // check if user has already upvoted badge
+      // add +1 to badge score and displayed data attribute
+      ref.funny += 1;
+      ref.plusFunny = 1;
+      event.currentTarget.setAttribute('data-funny', ref.funny);
+      event.currentTarget.setAttribute('data-clicked', 1);
+    } else if (event.currentTarget.getAttribute('data-clicked') == 1) {
+      // retract user upvate
+      ref.funny -= 1;
+      ref.plusFunny = 0;
+      event.currentTarget.setAttribute('data-funny', ref.funny);
+      event.currentTarget.setAttribute('data-clicked', 0);
+    }
+  })
+
   // add cool badge
   newElem = document.createElement('button');
   newText = document.createTextNode('cool');
-  parent = document.getElementById('review-col')
+  parent = document.getElementById('review-col');
   newElem.setAttribute('class', 'btn');
-  newElem.className += ' btn-default inline';
+  newElem.className += ' btn-default cool-badge inline';
   newElem.setAttribute('type', 'button');
-  newElem.setAttribute('id', 'cool');
+  newElem.setAttribute('data-cool', ref.cool);
+  newElem.setAttribute('data-clicked', ref.plusCool);
   newElem.appendChild(newText);
   parent.appendChild(newElem);
 
-  newElem = document.createElement('span');
-  newText = document.createTextNode('4');
-  parent = document.getElementById('cool');
-  newElem.setAttribute('class', 'badge');
-  newElem.appendChild(newText);
-  parent.appendChild(newElem);
+  // add cool badge event listener
+  newElem.addEventListener('click', function(e) {
+    if (event.currentTarget.getAttribute('data-clicked') == 0) {
+      // check if user has already upvoted badge
+      // add +1 to badge score and displayed data attribute
+      ref.cool += 1;
+      ref.plusCool = 1;
+      event.currentTarget.setAttribute('data-cool', ref.cool);
+      event.currentTarget.setAttribute('data-clicked', 1);
+    } else if (event.currentTarget.getAttribute('data-clicked') == 1) {
+      // retract user upvote
+      ref.cool -= 1;
+      ref.plusCool = 0;
+      event.currentTarget.setAttribute('data-cool', ref.cool);
+      event.currentTarget.setAttribute('data-clicked', 0);
+    }
+  })
 
 	// remove IDs for next iteration
 	document.getElementById('review-row').removeAttribute('id');
 	document.getElementById('reviewer').removeAttribute('id');
 	document.getElementById('review-col').removeAttribute('id');
-	document.getElementById('useful').removeAttribute('id');
-	document.getElementById('funny').removeAttribute('id');
-	document.getElementById('cool').removeAttribute('id');
 }
 
 // store reference ID to be used in initRestaurant()
@@ -874,14 +980,19 @@ function initRestaurant() {
       for (var i = restaurant[prop].reviews.length - 1; i >= 0; i--) {
         reviewer = restaurant[prop].reviews[i].username;
         date = restaurant[prop].reviews[i].date;
+        rate = restaurant[prop].reviews[i].rating;
         review = restaurant[prop].reviews[i].review;
+        useful = restaurant[prop].reviews[i].useful;
+        funny = restaurant[prop].reviews[i].funny;
+        cool = restaurant[prop].reviews[i].cool;
+        thisReview = restaurant[prop].reviews[i];
         // call showReviews() for each review
-        showReviews(reviewer, date, review);
+        showReviews(reviewer, date, review, thisReview);
       }
 		}
 	}
 }
-
+// test.childNodes[1].childNodes[1].childNodes[3] from review-list to useful
 // variables for passing current date to review array
 var dateObj = new Date();
 var month = dateObj.getUTCMonth() + 1;
@@ -891,6 +1002,7 @@ var year = dateObj.getUTCFullYear();
 // create review form when corresponding button is clicked
 function writeReview() {
   clearReviews();
+  saveFill = 0;
   var toList = document.getElementById('review-list');
   var newElem = document.createElement('div');
   newElem.setAttribute('class', 'col-md-12');
@@ -965,7 +1077,6 @@ function writeReview() {
   toContainer.appendChild(newElem);
 
   stars = document.querySelectorAll('[data-count]');
-  allstars = document.getElementById('rating');
   shiftStar();
 
   newElem = document.createElement('label');
@@ -1024,6 +1135,24 @@ function submitReview() {
   newReview.date = month + '/' + day + '/' + year;
   newReview.rating = parseInt(saveFill);
   newReview.review = addReview.value;
+  newReview.useful = 0;
+  newReview.funny = 0;
+  newReview.cool = 0;
+  newReview.plusUseful = 0;
+  newReview.plusFunny = 0;
+  newReview.plusCool = 0;
+  if (newReview.review === '') {
+    newReview.review = 'I forgot to write a review...';
+  }
+  if (newReview.username === '') {
+    newReview.username = 'Anonymous';
+  }
+  if (newReview.rating === 0) {
+    newReview.rating = 1;
+  }
+  if (starsClicked === false) {
+    newReview.rating = 1;
+  }
   // match reference (assigned when clicking on restaurant)
   // push new review into targeted restaurant's review array
   for (var prop in restaurant) {
@@ -1152,7 +1281,6 @@ function findStars(name, toId) {
   }
   // calculate average of array and quantity of stars
   average = avgArray(ratings);
-  console.log(average);
   return calcStars(average, toId);
 }
 
@@ -1213,3 +1341,6 @@ function saveStars() {
     saveFill = 0;
   }
 }
+
+
+// plans for issue #6 restaurant[someInput.toLowerCase().replace(/\s+/g, '')] = {}
