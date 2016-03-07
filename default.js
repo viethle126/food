@@ -1102,7 +1102,7 @@ function initRestaurant() {
 		}
 	}
 }
-// test.childNodes[1].childNodes[1].childNodes[3] from review-list to useful
+
 // variables for passing current date to review array
 var dateObj = new Date();
 var month = dateObj.getUTCMonth() + 1;
@@ -1452,6 +1452,17 @@ function saveStars() {
   }
 }
 
+// return first three tags (used in add location function)
+function threeTags(array) {
+  var string = array[0];
+  for (var i = 1; i < 3 && array[i] !== undefined; i++) {
+    // add comma and space for second and third tags
+    // stop if array doesn't have a second or third tag
+      string += ', ' + array[i];
+    }
+  return string;
+}
+
 // clear search results and create add location form
 function addForm() {
   clearPage();
@@ -1470,6 +1481,7 @@ function addForm() {
 
   newElem = document.createElement('form');
 	parent = document.getElementById('form-col');
+  newElem.setAttribute('onSubmit', 'return false')
 	newElem.setAttribute('id', 'add-form');
 	parent.appendChild(newElem);
 
@@ -1664,11 +1676,15 @@ function addForm() {
   newElem = document.createElement('button');
 	parent = document.getElementById('form-parent');
   newText = document.createTextNode('Add location');
-	newElem.setAttribute('type', 'submit');
+  newElem.setAttribute('class', 'btn');
+  newElem.className += ' btn-default';
   newElem.setAttribute('id', 'add-button');
+	newElem.setAttribute('type', 'submit');
   newElem.appendChild(newText);
 	parent.appendChild(newElem);
   parent.removeAttribute('id');
+
+  newElem.addEventListener('click', addLocation);
 
   // side image
   newElem = document.createElement('div');
@@ -1731,6 +1747,41 @@ function locationAdded(name) {
 
 // create new restaurant object for new location
 function addLocation() {
+  // define input references
+  var name = document.getElementById('add-name').value;
+  var reference = name.toLowerCase().replace(/["'-_=+,.\s]+/g, '');
+  var number = document.getElementById('add-tele').value;
+  var street = document.getElementById('add-street').value;
+  var city = document.getElementById('add-city').value;
+  var state = document.getElementById('add-state').value;
+  var zip = document.getElementById('add-zip').value;
+  var desc = document.getElementById('add-desc').value;
+  var tags = document.getElementById('add-tags').value;
+  var stripped = tags.toLowerCase().replace(/["'-_=+,.]+/g, '');
+  var tagArray = intoArray(stripped);
 
+  // create new restaurant object
+  restaurant[reference] = {
+    reference: reference,
+    name: name,
+    number: number,
+    address: [street, city, state, zip],
+    hours: {
+      monday: ['Closed'],
+      tuesday: ['Closed'],
+      wednesday: ['Closed'],
+      thursday: ['Closed'],
+      friday: ['Closed'],
+      saturday: ['Closed'],
+      sunday: ['Closed']
+    },
+    good: threeTags(tagArray),
+    tags: tagArray,
+    images: ['images/default.jpg'],
+    description: desc,
+    reviews: []
+  }
+
+  // create location added message
+  locationAdded(name);
 }
-// plans for issue #6 restaurant[someInput.toLowerCase().replace(/\s+/g, '')] = {}
