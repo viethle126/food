@@ -408,12 +408,6 @@ var restaurant = {
   }
 };
 
-// variables for populating search results
-var queryRef = '';
-var queryName = '';
-var queryImage = '';
-var queryDesc = '';
-
 // create search header
 function searchHeader(search) {
   var landing = document.getElementById('landing');
@@ -535,6 +529,12 @@ function intoArray(string) {
 // call function populate for all matches
 function matchTags(obj, array) {
 	var dupe = [];
+  var reference = '';
+  var name = '';
+  var image = '';
+  var good = '';
+  var count = '';
+  var desc = '';
 	// dupe array used to check for duplicate entries (multiple tag matches)
   for (var prop in obj) {
     // loop through each restaurant
@@ -547,11 +547,13 @@ function matchTags(obj, array) {
 					// check to see if tag value === search array value
 					// && check if current iteration is the same as the last iteration (duplicate)
 					// prevent 'lunch tacos' search returning the same restaurant twice ('tacos' and 'lunch' tag)
-					queryRef = obj[prop].reference;
-          queryName = obj[prop].name;
-          queryImage = obj[prop].images[0];
-          queryDesc = obj[prop].description;
-          populate(queryRef, queryName, queryImage, queryDesc);
+					reference = obj[prop].reference;
+          name = obj[prop].name;
+          image = obj[prop].images[0];
+          good = obj[prop].good;
+          count = obj[prop].reviews.length;
+          desc = obj[prop].description;
+          populate(reference, name, image, good, count, desc);
 					// push matching restaurant to dupe array before repeating loop
           dupe.push(obj[prop].name);
         }
@@ -561,9 +563,22 @@ function matchTags(obj, array) {
 }
 
 // populate function will create and append media boxes per query result
-function populate(reference, name, image, description) {
+function populate(reference, name, image, good, count, desc) {
 	var newElem = document.createElement('div');
 	var parent = document.getElementById('query-list');
+	newElem.setAttribute('class', 'panel');
+  newElem.className += ' panel-default';
+	newElem.setAttribute('id', 'result-panel');
+	parent.appendChild(newElem);
+
+  newElem = document.createElement('div');
+	parent = document.getElementById('result-panel');
+	newElem.setAttribute('class', 'panel-body');
+	newElem.setAttribute('id', 'result-body');
+	parent.appendChild(newElem);
+
+  newElem = document.createElement('div');
+	parent = document.getElementById('result-body');
 	newElem.setAttribute('class', 'media');
 	newElem.setAttribute('id', 'rest-box');
 	parent.appendChild(newElem);
@@ -618,21 +633,32 @@ function populate(reference, name, image, description) {
   // convert and display ratings to stars
   findStars(reference, 'rest-body');
 
+  newElem = document.createElement('p');
+  newText = document.createTextNode(good);
+  parent = document.getElementById('rest-body');
+  newElem.setAttribute('id', 'tags');
+  newElem.appendChild(newText);
+  var newBreak = document.createElement('br');
+  newElem.appendChild(newBreak);
+  newText = document.createTextNode('Reviews: ' + count);
+  newElem.appendChild(newText);
+  parent.appendChild(newElem);
+
 	newElem = document.createElement('p');
-	newText = document.createTextNode(description);
+	newText = document.createTextNode(desc);
 	parent = document.getElementById('rest-body');
 	newElem.setAttribute('class', 'description');
-	newElem.setAttribute('id', 'rest-desc');
 	newElem.appendChild(newText);
 	parent.appendChild(newElem);
 
 	// remove IDs for next iteration
-  document.getElementById('rest-desc').removeAttribute('id');
 	document.getElementById('rest-name').removeAttribute('id');
 	document.getElementById('rest-body').removeAttribute('id');
 	document.getElementById('rest-thumb').removeAttribute('id');
 	document.getElementById('rest-box').removeAttribute('id');
 	document.getElementById('image-link').removeAttribute('id');
+	document.getElementById('result-panel').removeAttribute('id');
+	document.getElementById('result-body').removeAttribute('id');
 }
 
 // clear current results and/or restaurant content
@@ -1777,7 +1803,7 @@ function addLocation() {
     },
     good: threeTags(tagArray),
     tags: tagArray,
-    images: ['images/default.jpg'],
+    images: ['images/default-one.jpg', 'images/default-two.jpg', 'images/default-three.jpg'],
     description: desc,
     reviews: []
   }
