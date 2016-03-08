@@ -131,8 +131,8 @@ var restaurant = {
       saturday: ['Closed'],
       sunday: ['Closed']
     },
-    good: 'american, brunch',
-    tags: ['jupiter','cafe','lunch','burritos','burrito','food'],
+    good: 'American, brunch',
+    tags: ['jupiter','cafe','brunch','lunch','burritos','burrito','food'],
     images: ['images/jupitercafe/img001.jpg','images/jupitercafe/img002.jpg','images/jupitercafe/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
     reviews: [
@@ -305,7 +305,7 @@ var restaurant = {
       saturday: ['10:00 am - 11:00 pm'],
       sunday: ['10:00 am - 11:00 pm']
     },
-    good: 'American, modern, trendy',
+    good: 'American, trendy',
     tags: ['county','lunch','dinner','food'],
     images: ['images/county/img001.jpg','images/county/img002.jpg','images/county/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
@@ -1498,7 +1498,6 @@ function initRestaurant() {
         funny = restaurant[prop].reviews[i].funny;
         cool = restaurant[prop].reviews[i].cool;
         thisReview = restaurant[prop].reviews[i];
-        console.log(thisReview)
         // push into saveRev for sorting manipulation
         saveRev.push([reviewer, date, rate, review, useful, funny, cool, thisReview]);
         lowRev.push([reviewer, date, rate, review, useful, funny, cool, thisReview]);
@@ -1711,18 +1710,10 @@ function submitReview() {
   newReview.plusUseful = 0;
   newReview.plusFunny = 0;
   newReview.plusCool = 0;
-  if (newReview.review === '') {
-    newReview.review = 'I forgot to write a review...';
-  }
-  if (newReview.username === '') {
-    newReview.username = 'Anonymous';
-  }
-  if (newReview.rating === 0) {
-    newReview.rating = 1;
-  }
-  if (starsClicked === false) {
-    newReview.rating = 1;
-  }
+  if (newReview.review === '') { newReview.review = 'I forgot to write a review...' }
+  if (newReview.username === '') { newReview.username = 'Anonymous' }
+  if (newReview.rating === 0) { newReview.rating = 1 }
+  if (starsClicked === false) { newReview.rating = 1 }
   // match reference (assigned when clicking on restaurant)
   // push new review into targeted restaurant's review array
   for (var prop in restaurant) {
@@ -2225,6 +2216,19 @@ function addLocation() {
   var tags = document.getElementById('add-tags').value;
   var stripped = tags.toLowerCase().replace(/["'-_=+,.]+/g, '');
   var tagArray = intoArray(stripped);
+  // pushing default tag 'food' into new restaurant
+  // removing empty tag if no tags were entered
+  tagArray.push('food');
+  tagArray.splice(tagArray.indexOf(''), 1);
+  var good = threeTags(tagArray);
+  if (name === '') { name = 'Untitled' }
+  if (reference === '') { reference = 'untitled' }
+  if (number === '') { number = 'Phone Number' }
+  if (street === '') { street = 'Street' }
+  if (city === '') { city = 'City' }
+  if (state === '') { state = 'State' }
+  if (zip === '') { zip = 'Zip' }
+  if (desc === '') { desc = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.' }
 
   // create new restaurant object
   restaurant[reference] = {
@@ -2241,7 +2245,7 @@ function addLocation() {
       saturday: ['Closed'],
       sunday: ['Closed']
     },
-    good: threeTags(tagArray),
+    good: good,
     tags: tagArray,
     images: ['images/default-one.jpg', 'images/default-two.jpg', 'images/default-three.jpg'],
     description: desc,
