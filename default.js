@@ -1520,6 +1520,7 @@ var year = dateObj.getUTCFullYear();
 // create review form when corresponding button is clicked
 function writeReview() {
   clearReviews();
+  document.getElementById('hours-box').className += " hidden";
   saveFill = 0;
   var parent = document.getElementById('restaurant-content');
   var newElem = document.createElement('div');
@@ -1729,6 +1730,7 @@ function submitReview() {
       restaurant[prop].reviews.push(newReview);
     }
   }
+  document.getElementById('hours-box').className -= " hidden";
   updateReviews();
 }
 
@@ -1967,6 +1969,7 @@ function addForm() {
   newElem.setAttribute('class', 'form-control');
   newElem.setAttribute('id', 'add-name');
 	newElem.setAttribute('placeholder', 'Hipster\'s Delight');
+  newElem.required = true;
 	parent.appendChild(newElem);
   parent.removeAttribute('id');
 
