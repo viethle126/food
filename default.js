@@ -1158,6 +1158,7 @@ function writeReview() {
   newElem = document.createElement('form');
   parent = document.getElementById('add-body');
   newElem.setAttribute('id', 'write-form');
+  newElem.setAttribute('onSubmit', 'return false');
   parent.appendChild(newElem);
 
   newElem = document.createElement('div');
@@ -1548,7 +1549,7 @@ function addForm() {
 
   newElem = document.createElement('form');
 	parent = document.getElementById('form-col');
-  newElem.setAttribute('onSubmit', 'return false')
+  newElem.setAttribute('onSubmit', 'return false');
 	newElem.setAttribute('id', 'add-form');
 	parent.appendChild(newElem);
 
