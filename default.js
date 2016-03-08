@@ -408,14 +408,12 @@ var restaurant = {
   }
 };
 
-// variables for sorting search results
+// variables for sorting
 var saveQuery = [];
+var saveRev = [];
+var lowRev = [];
 var sorted = [];
 var removed = [];
-// variables for sorting reviews
-var saveRev = [];
-var sortRev = [];
-var removeRev = [];
 
 // create search header
 function searchHeader(search) {
@@ -827,6 +825,114 @@ function arrangeHigh() {
   document.getElementById('high').setAttribute('data-sort', 1);
 }
 
+// loop splice function until array length = 0
+// for sorting reviews
+function revLow(array) {
+  sorted = [];
+  removed = [];
+  // run loop (splice lowest rating) until length = 0
+  while (array.length > 0) {
+    minRating(array);
+  }
+  lowRev = sorted;
+}
+
+// sort by newest reviews
+function reviewNew() {
+  clearReviews();
+  reviewSorter();
+  // loop saved array through populate function
+  for (var i = 0; i < saveRev.length; i++) {
+    reviewer = saveRev[i][0];
+    date = saveRev[i][1];
+    rate = saveRev[i][2];
+    review = saveRev[i][3];
+    useful = saveRev[i][4];
+    funny = saveRev[i][5];
+    cool = saveRev[i][6];
+    thisReview = saveRev[i][7];
+    // call showReviews() for each review
+    showReviews(reviewer, date, review, thisReview);
+  }
+  // indicate sort option
+  document.getElementById('date-desc').setAttribute('data-sort', 1);
+  document.getElementById('date-asc').setAttribute('data-sort', 0);
+  document.getElementById('rev-high').setAttribute('data-sort', 0);
+  document.getElementById('rev-low').setAttribute('data-sort', 0);
+}
+
+// sort by oldest reviews
+function reviewOld() {
+  clearReviews();
+  reviewSorter();
+  // loop saved array through populate function
+  for (var i = saveRev.length - 1; i > -1; i--) {
+    reviewer = saveRev[i][0];
+    date = saveRev[i][1];
+    rate = saveRev[i][2];
+    review = saveRev[i][3];
+    useful = saveRev[i][4];
+    funny = saveRev[i][5];
+    cool = saveRev[i][6];
+    thisReview = saveRev[i][7];
+    // call showReviews() for each review
+    showReviews(reviewer, date, review, thisReview);
+  }
+  // indicate sort option
+  document.getElementById('date-desc').setAttribute('data-sort', 0);
+  document.getElementById('date-asc').setAttribute('data-sort', 1);
+  document.getElementById('rev-high').setAttribute('data-sort', 0);
+  document.getElementById('rev-low').setAttribute('data-sort', 0);
+}
+
+// sort by oldest reviews
+function reviewHigh() {
+  clearReviews();
+  reviewSorter();
+  // loop saved array through populate function
+  for (var i = lowRev.length - 1; i > -1; i--) {
+    reviewer = lowRev[i][0];
+    date = lowRev[i][1];
+    rate = lowRev[i][2];
+    review = lowRev[i][3];
+    useful = lowRev[i][4];
+    funny = lowRev[i][5];
+    cool = lowRev[i][6];
+    thisReview = lowRev[i][7];
+    // call showReviews() for each review
+    showReviews(reviewer, date, review, thisReview);
+  }
+  // indicate sort option
+  document.getElementById('date-desc').setAttribute('data-sort', 0);
+  document.getElementById('date-asc').setAttribute('data-sort', 0);
+  document.getElementById('rev-high').setAttribute('data-sort', 1);
+  document.getElementById('rev-low').setAttribute('data-sort', 0);
+}
+
+// sort by oldest reviews
+function reviewLow() {
+  clearReviews();
+  reviewSorter();
+  // loop saved array through populate function
+  for (var i = 0; i < lowRev.length; i++) {
+    reviewer = lowRev[i][0];
+    date = lowRev[i][1];
+    rate = lowRev[i][2];
+    review = lowRev[i][3];
+    useful = lowRev[i][4];
+    funny = lowRev[i][5];
+    cool = lowRev[i][6];
+    thisReview = lowRev[i][7];
+    // call showReviews() for each review
+    showReviews(reviewer, date, review, thisReview);
+  }
+  // indicate sort option
+  document.getElementById('date-desc').setAttribute('data-sort', 0);
+  document.getElementById('date-asc').setAttribute('data-sort', 0);
+  document.getElementById('rev-high').setAttribute('data-sort', 0);
+  document.getElementById('rev-low').setAttribute('data-sort', 1);
+}
+
 // clear current results and/or restaurant content
 // remove parent div containers
 // create empty query container and restaurant container
@@ -851,10 +957,14 @@ function clearPage() {
 function clearReviews() {
   // remove list of reviews
   var toContent = document.getElementById('restaurant-content');
-  var toReviewBox = document.getElementById('review-box');
   var toList = document.getElementById('review-list');
-	toContent.removeChild(toReviewBox);
   toContent.removeChild(toList);
+  newElem = document.createElement('div');
+  parent = document.getElementById('restaurant-content');
+  newElem.setAttribute('class', 'col-md-9');
+  newElem.className += ' col-xs-8 float-left';
+  newElem.setAttribute('id', 'review-list');
+  parent.appendChild(newElem);
 }
 
 // remove form after submitting
@@ -1140,7 +1250,7 @@ function reviewSorter() {
   newElem.setAttribute('data-review', 0);
   parent.appendChild(newElem);
 
-  newElem.addEventListener('click', arrangeAZ);
+  newElem.addEventListener('click', reviewNew);
 
   newElem = document.createElement('i');
   var newText = document.createTextNode(' date')
@@ -1160,7 +1270,7 @@ function reviewSorter() {
   newElem.setAttribute('data-review', 0);
   parent.appendChild(newElem);
 
-  newElem.addEventListener('click', arrangeZA);
+  newElem.addEventListener('click', reviewOld);
 
   newElem = document.createElement('i');
   newText = document.createTextNode(' date')
@@ -1180,7 +1290,7 @@ function reviewSorter() {
   newElem.setAttribute('data-review', 0);
   parent.appendChild(newElem);
 
-  newElem.addEventListener('click', arrangeHigh);
+  newElem.addEventListener('click', reviewHigh);
 
   newElem = document.createElement('i');
   parent = document.getElementById('rev-high');
@@ -1198,7 +1308,7 @@ function reviewSorter() {
   newElem.setAttribute('data-review', 0);
   parent.appendChild(newElem);
 
-  newElem.addEventListener('click', arrangeLow);
+  newElem.addEventListener('click', reviewLow);
 
   newElem = document.createElement('i');
   parent = document.getElementById('rev-low');
@@ -1352,6 +1462,8 @@ function sendRef(reference) {
 // call showRestaurant() and showReviews()
 function initRestaurant() {
   clearPage();
+  saveRev = [];
+  lowRev = [];
 	for (var prop in restaurant) {
 		// loop through each restaurant
 		if (restaurant[prop].reference === storeRef) {
@@ -1386,13 +1498,17 @@ function initRestaurant() {
         funny = restaurant[prop].reviews[i].funny;
         cool = restaurant[prop].reviews[i].cool;
         thisReview = restaurant[prop].reviews[i];
+        console.log(thisReview)
         // push into saveRev for sorting manipulation
         saveRev.push([reviewer, date, rate, review, useful, funny, cool, thisReview]);
+        lowRev.push([reviewer, date, rate, review, useful, funny, cool, thisReview]);
         // call showReviews() for each review
         showReviews(reviewer, date, review, thisReview);
       }
 		}
 	}
+  revLow(lowRev);
+  document.getElementById('date-desc').setAttribute('data-review', 1);
 }
 
 // variables for passing current date to review array

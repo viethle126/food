@@ -221,21 +221,27 @@ span {
 
 button[data-sort='1'] {
   color: #fff !important;
-  background-color: #d42b2e !important;
+  background-color: #b70000 !important;
+}
+
+button[data-review='1'] {
+  color: #fff !important;
+  background-color: #b70000 !important;
 }
 
 #add-location {
   height: 42px;
   font-weight: 400;
   color: #fff;
-  background-color: #d42b2e;
+  background-color: #b70000;
 }
 
 #write-review {
   margin-top: 10px;
+  height: 42px;
   font-weight: 400;
   color: #fff;
-  background-color: #d42b2e;
+  background-color: #b70000;
 }
 
 .fa-star, .fa-star-half-o, .fa-star-o {
