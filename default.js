@@ -2016,3 +2016,19 @@ function addLocation() {
   // create location added message
   locationAdded(name);
 }
+
+var showScroll = false;
+// add back to top icon if user has scrolled away from search bar
+function onScroll() {
+  var scroll = document.getElementById('scroll')
+  var currentY = window.scrollY;
+  if (currentY > 60 && showScroll === false) {
+    showScroll = true;
+    scroll.removeAttribute('class');
+  } else if (currentY < 60 && showScroll === true) {
+    showScroll = false;
+    scroll.setAttribute('class', 'hidden');
+  }
+}
+
+window.document.addEventListener('scroll', onScroll);
