@@ -1600,8 +1600,12 @@ function calcStars(rating, toId) {
   } else if (rating > 1.25) {
     times = 1;
     half = true;
-  } else {
+  } else if (rating < 1.25) {
     times = 1;
+    half = false;
+  } else {
+    // give new restaurants 5 empty stars
+    times = 0;
     half = false;
   }
   // console.log for testing, will call another function
@@ -1622,6 +1626,7 @@ function findStars(name, toId) {
   }
   // calculate average of array and quantity of stars
   average = avgArray(ratings);
+  console.log(restaurant[prop].reference + ' average is ' + average)
   return calcStars(average, toId);
 }
 
