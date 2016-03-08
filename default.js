@@ -412,6 +412,10 @@ var restaurant = {
 var saveQuery = [];
 var sorted = [];
 var removed = [];
+// variables for sorting reviews
+var saveRev = [];
+var sortRev = [];
+var removeRev = [];
 
 // create search header
 function searchHeader(search) {
@@ -740,7 +744,6 @@ function minAlpha(array) {
   for (var i = 0; i < array.length; i++) {
     // loop through array, splice out lowest alpha
     if (array[i][0] < lowest) {
-      console.log('changing lowest to ' + array[i][0] + ' from ' + lowest);
       lowest = array[i][0];
       cut = i;
     }
@@ -1098,6 +1101,112 @@ function showRestaurant() {
   parent.appendChild(newElem);
 }
 
+// not currently used, for generating review sort bar
+function reviewSorter() {
+  // row
+  var newElem = document.createElement('div');
+  var parent = document.getElementById('review-list');
+  newElem.setAttribute('class', 'row');
+  newElem.setAttribute('id', 'sort-row');
+  parent.appendChild(newElem);
+
+  // panel
+  newElem = document.createElement('div');
+  parent = document.getElementById('sort-row');
+  newElem.setAttribute('class', 'panel');
+  newElem.className += ' panel-default text-center';
+  newElem.setAttribute('id', 'sort-panel');
+  parent.appendChild(newElem);
+
+  // panel body
+  newElem = document.createElement('div');
+  parent = document.getElementById('sort-panel');
+  newElem.setAttribute('class', 'panel-body');
+  newElem.setAttribute('id', 'sort-body');
+  parent.appendChild(newElem);
+
+  newElem = document.createElement('span');
+  parent = document.getElementById('sort-body');
+  newElem.setAttribute('id', 'sort-reviews');
+  parent.appendChild(newElem);
+
+  // sort date desc
+  newElem = document.createElement('button');
+  parent = document.getElementById('sort-reviews');
+  newElem.setAttribute('class', 'btn');
+  newElem.className += ' btn-default spacing';
+  newElem.setAttribute('type', 'submit');
+  newElem.setAttribute('id', 'date-desc');
+  newElem.setAttribute('data-review', 0);
+  parent.appendChild(newElem);
+
+  newElem.addEventListener('click', arrangeAZ);
+
+  newElem = document.createElement('i');
+  var newText = document.createTextNode(' date')
+  parent = document.getElementById('date-desc');
+  newElem.setAttribute('class', 'fa');
+  newElem.className += ' fa-arrow-circle-down fa-2x';
+  newElem.appendChild(newText);
+  parent.appendChild(newElem);
+
+  // sort date asc
+  newElem = document.createElement('button');
+  parent = document.getElementById('sort-reviews');
+  newElem.setAttribute('class', 'btn');
+  newElem.className += ' btn-default spacing';
+  newElem.setAttribute('type', 'submit');
+  newElem.setAttribute('id', 'date-asc');
+  newElem.setAttribute('data-review', 0);
+  parent.appendChild(newElem);
+
+  newElem.addEventListener('click', arrangeZA);
+
+  newElem = document.createElement('i');
+  newText = document.createTextNode(' date')
+  parent = document.getElementById('date-asc');
+  newElem.setAttribute('class', 'fa');
+  newElem.className += ' fa-arrow-circle-up fa-2x';
+  newElem.appendChild(newText);
+  parent.appendChild(newElem);
+
+  // sort high
+  newElem = document.createElement('button');
+  parent = document.getElementById('sort-reviews');
+  newElem.setAttribute('class', 'btn');
+  newElem.className += ' btn-default spacing';
+  newElem.setAttribute('type', 'submit');
+  newElem.setAttribute('id', 'rev-high');
+  newElem.setAttribute('data-review', 0);
+  parent.appendChild(newElem);
+
+  newElem.addEventListener('click', arrangeHigh);
+
+  newElem = document.createElement('i');
+  parent = document.getElementById('rev-high');
+  newElem.setAttribute('class', 'fa');
+  newElem.className += ' fa-sort-amount-desc fa-2x';
+  parent.appendChild(newElem);
+
+  // sort low
+  newElem = document.createElement('button');
+  parent = document.getElementById('sort-reviews');
+  newElem.setAttribute('class', 'btn');
+  newElem.className += ' btn-default spacing';
+  newElem.setAttribute('type', 'submit');
+  newElem.setAttribute('id', 'rev-low');
+  newElem.setAttribute('data-review', 0);
+  parent.appendChild(newElem);
+
+  newElem.addEventListener('click', arrangeLow);
+
+  newElem = document.createElement('i');
+  parent = document.getElementById('rev-low');
+  newElem.setAttribute('class', 'fa');
+  newElem.className += ' fa-sort-amount-asc fa-2x';
+  parent.appendChild(newElem);
+}
+
 // loop function for every entry in object review
 // create separate div container for each review
 function showReviews(reviewer, date, review, ref) {
@@ -1266,6 +1375,7 @@ function initRestaurant() {
       sunday = restaurant[prop].hours.sunday.join(', ');
       // set up restaurant html structure
       showRestaurant();
+      reviewSorter();
       // loop through reviews backwards to show most recent reviews first
       for (var i = restaurant[prop].reviews.length - 1; i >= 0; i--) {
         reviewer = restaurant[prop].reviews[i].username;
@@ -1276,6 +1386,8 @@ function initRestaurant() {
         funny = restaurant[prop].reviews[i].funny;
         cool = restaurant[prop].reviews[i].cool;
         thisReview = restaurant[prop].reviews[i];
+        // push into saveRev for sorting manipulation
+        saveRev.push([reviewer, date, rate, review, useful, funny, cool, thisReview]);
         // call showReviews() for each review
         showReviews(reviewer, date, review, thisReview);
       }
@@ -1626,7 +1738,6 @@ function findStars(name, toId) {
   }
   // calculate average of array and quantity of stars
   average = avgArray(ratings);
-  console.log(restaurant[prop].reference + ' average is ' + average)
   return calcStars(average, toId);
 }
 
