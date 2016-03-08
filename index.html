@@ -11,15 +11,17 @@
   <!-- fixed nav header -->
   <div class="container-fluid header">
     <div class="header-container centered">
-      <div class="input-group" id="search-group">
-        <span class="input-group-addon" id="sizing-addon2">Find</span>
-        <input class="form-control" id="search-input" type="text" placeholder="breakfast burritos, burgers, cheap lunch">
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="submit" id="search-button">
-            <i class="fa fa-search"></i>
-          </button>
-        </span>
-      </div>
+      <form onSubmit="return false">
+        <div class="input-group" id="search-group">
+          <span class="input-group-addon" id="sizing-addon2">Find</span>
+          <input class="form-control" id="search-input" type="text" placeholder="breakfast burritos, burgers, cheap lunch">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="submit" id="search-button">
+              <i class="fa fa-search"></i>
+            </button>
+          </span>
+        </div>
+      </form>
     </div>
   </div>
   <div class="page-wrapper">
