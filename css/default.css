@@ -24,17 +24,18 @@
   text-align: center;
 }
 
-.text-right {
-  text-align: right;
-}
-
 .spacing {
   margin-left: 2px;
   margin-right: 2px;
 }
 
+.main {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: 1200px;
+}
+
 .header {
-  position: fixed;
   top: 0;
   z-index: 1;
   margin: 0;
@@ -46,7 +47,7 @@
 }
 
 .header-container {
-  width: 600px;
+  max-width: 600px;
 }
 
 .input-group-addon {
@@ -54,8 +55,7 @@
 }
 
 .content-header {
-  margin-top: 80px;
-  margin-bottom: 40px;
+  margin-bottom: 34px;
   height: 65px;
   font-family: Courier New, monospace;
   font-size: 30px;
@@ -81,31 +81,15 @@
   width: 100%;
 }
 
-.main {
-  padding-left: 0;
-  padding-right: 0;
-  max-width: 1200px;
-}
-
 .media-object {
-  height: 160px;
-  width: 160px;
-}
-
-#write-review {
-  background-color: #111111;
-  color: #fff;
-  margin-top: 10px;
+  height: 200px;
+  width: 200px;
 }
 
 .review-img {
   height: auto;
   width:  33%;
   text-align: center;
-}
-
-#add-location {
-  height: 42px;
 }
 
 h3 {
@@ -124,18 +108,18 @@ span {
   margin-bottom: 10px;
 }
 
-button:hover, button[data-clicked='1'] {
-  background-color: #111111 !important;
+.useful-badge:hover, .useful-badge[data-clicked='1'] {
+  background-color: #f89d15 !important;
   color: #fff !important;
 }
 
-button:focus {
-  background-color: #111111 !important;
+.useful-badge:focus {
+  background-color: #f89d15 !important;
   color: #fff !important;
 }
 
-button[data-clicked='1']:focus {
-  background-color: #111111 !important;
+.useful-badge[data-clicked='1']:focus {
+  background-color: #f89d15 !important;
   color: #fff !important;
 }
 
@@ -146,8 +130,8 @@ button[data-clicked='1']:focus {
   padding-left: 5px;
   padding-right: 5px;
   border-radius: 10px;
-  color: #ffffff;
-  background-color: #111111;
+  color: #fff;
+  background-color: #f89d15;
 }
 
 .useful-badge[data-useful='0']::after {
@@ -158,7 +142,22 @@ button[data-clicked='1']:focus {
 .useful-badge[data-useful='0']:hover::after,
 .useful-badge[data-useful='0']:focus::after {
   content: '';
-  background-color: #111111 !important;
+  background-color: #f89d15 !important;
+}
+
+.funny-badge:hover, .funny-badge[data-clicked='1'] {
+  background-color: #a8b250 !important;
+  color: #fff !important;
+}
+
+.funny-badge:focus {
+  background-color: #a8b250 !important;
+  color: #fff !important;
+}
+
+.funny-badge[data-clicked='1']:focus {
+  background-color: #a8b250 !important;
+  color: #fff !important;
 }
 
 .funny-badge::after {
@@ -169,7 +168,7 @@ button[data-clicked='1']:focus {
   padding-right: 5px;
   border-radius: 10px;
   color: #ffffff;
-  background-color: #111111;
+  background-color: #a8b250;
 }
 
 .funny-badge[data-funny='0']::after {
@@ -180,8 +179,24 @@ button[data-clicked='1']:focus {
 .funny-badge[data-funny='0']:hover::after,
 .funny-badge[data-funny='0']:focus::after {
   content: '';
-  background-color: #111111 !important;
+  background-color: #a8b250 !important;
 }
+
+.cool-badge:hover, .cool-badge[data-clicked='1'] {
+  background-color: #4c73ab !important;
+  color: #fff !important;
+}
+
+.cool-badge:focus {
+  background-color: #4c73ab !important;
+  color: #fff !important;
+}
+
+.cool-badge[data-clicked='1']:focus {
+  background-color: #4c73ab !important;
+  color: #fff !important;
+}
+
 .cool-badge::after {
   content: '+' attr(data-cool);
   margin-left: 10px;
@@ -190,7 +205,7 @@ button[data-clicked='1']:focus {
   padding-right: 5px;
   border-radius: 10px;
   color: #ffffff;
-  background-color: #111111;
+  background-color: #4c73ab;
 }
 
 .cool-badge[data-cool='0']::after {
@@ -201,5 +216,42 @@ button[data-clicked='1']:focus {
 .cool-badge[data-cool='0']:hover::after,
 .cool-badge[data-cool='0']:focus::after {
   content: '';
-  background-color: #111111 !important;
+  background-color: #4c73ab !important;
+}
+
+button[data-sort='1'] {
+  background-color: #d42b2e !important;
+  color: #fff !important;
+}
+
+#add-location {
+  height: 42px;
+  background-color: #d42b2e;
+  color: #fff;
+  font-weight: 400;
+}
+
+#write-review {
+  margin-top: 10px;
+  background-color: #d42b2e;
+  color: #fff;
+  font-weight: 400;
+}
+
+.fa-star, .fa-star-half-o, .fa-star-o {
+  color: #d42b2e;
+}
+
+#anchor {
+  position: relative;
+}
+
+#scroll {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  color: black;
+  text-decoration: none;
+  z-index: 1;
+  opacity: 0.2;
 }

@@ -1,13 +1,15 @@
 **food.**
 - [x] **User can search for reviews.**
-  * [x] Search and return tag matches
-  * [x] Clear search results if new search is initiated
+  * [x] Search to return a list of tag matches
+  * [x] Sort search results by AZ, ZA and rating (DESC or ASC)
 - [x] **User can view a list of reviews.**
-  * [x] Click search result to show restaurant details
-  * [x] Show list of reviews under restaurant details
+  * [x] Click on any search result to show restaurant details and reviews
+  * [x] 'Upvote' reviews that are useful, funny or cool
 - [x] **User can add a review.**
-  * [x] Fill out form and submit to push input into review array
-  * [x] Update review list to show user review
+  * [x] Rate a restaurant using stars to affect it's rating
+  * [x] Fill out form and submit to add a new review
+- [x] **User can add a new location**
+  * [x] Add a new location by filling out a form
 
 Data structure for restaurants:
 ```javascript
