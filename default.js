@@ -574,101 +574,82 @@ function matchTags(obj, array) {
 
 // populate function will create and append media boxes per query result
 function populate(reference, name, image, good, count, desc) {
-	var newElem = document.createElement('div');
-	var parent = document.getElementById('query-list');
-	newElem.setAttribute('class', 'panel');
-  newElem.className += ' panel-default';
-	newElem.setAttribute('id', 'result-panel');
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('div');
-	parent = document.getElementById('result-panel');
-	newElem.setAttribute('class', 'panel-body');
-	newElem.setAttribute('id', 'result-body');
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('div');
-	parent = document.getElementById('result-body');
-	newElem.setAttribute('class', 'media');
-	newElem.setAttribute('id', 'rest-box');
-	parent.appendChild(newElem);
-
-	newElem = document.createElement('div');
-	parent = document.getElementById('rest-box');
-	newElem.setAttribute('class', 'media-left');
-	newElem.setAttribute('id', 'rest-thumb');
-	parent.appendChild(newElem);
-
-	newElem = document.createElement('a');
-	parent = document.getElementById('rest-thumb');
-	newElem.setAttribute('id', 'image-link');
-	newElem.setAttribute('href', '#');
-	parent.appendChild(newElem);
-
-  // add event listener to each search result
-  // click to call initRestaurant() for this restaurant
-  newElem.addEventListener('click', function(e) {
-    sendRef(reference);
-    initRestaurant();
-  })
-
-	newElem = document.createElement('img');
-	parent = document.getElementById('image-link');
-	newElem.setAttribute('class', 'media-object');
-	newElem.setAttribute('src', image);
-	newElem.setAttribute('alt', 'image');
-	parent.appendChild(newElem);
-
-	newElem = document.createElement('div');
-	parent = document.getElementById('rest-box');
-	newElem.setAttribute('class', 'media-body');
-	newElem.setAttribute('id', 'rest-body');
-	parent.appendChild(newElem);
-
-	newElem = document.createElement('h4');
-	newText = document.createTextNode(name);
-	parent = document.getElementById('rest-body');
-	newElem.setAttribute('class', 'media-header');
-  newElem.className += ' inline';
-	newElem.setAttribute('id', 'rest-name');
-	newElem.appendChild(newText);
-	parent.appendChild(newElem);
-
-  // user can also click on restaurant name
-  newElem.addEventListener('click', function(e) {
-    sendRef(reference);
-    initRestaurant();
-  })
-
+  var list = document.getElementById('query-list');
+  var panel = document.createElement('div');
+  var body = document.createElement('div');
+  var media = document.createElement('div');
+  var imageDiv = document.createElement('div');
+  var imageLink = document.createElement('a');
+  var mediaImage = document.createElement('img');
+  var content = document.createElement('div');
+  var header = document.createElement('h4');
+	var headerText = document.createTextNode(name);
+  var goodFor = document.createElement('p');
+  var goodText = document.createTextNode(good);
+  var br = document.createElement('br');
+  var revCount = document.createTextNode('Reviews: ' + count);
+  var description = document.createElement('p');
+	var descText = document.createTextNode(desc);
+  // panel
+	panel.setAttribute('class', 'panel');
+  panel.className += ' panel-default';
+	panel.setAttribute('id', 'result-panel');
+	list.appendChild(panel);
+	body.setAttribute('class', 'panel-body');
+	body.setAttribute('id', 'result-body');
+	panel.appendChild(body);
+	media.setAttribute('class', 'media');
+	media.setAttribute('id', 'rest-box');
+	body.appendChild(media);
+  // image
+	imageDiv.setAttribute('class', 'media-left');
+	imageDiv.setAttribute('id', 'rest-thumb');
+	media.appendChild(imageDiv);
+	imageLink.setAttribute('id', 'image-link');
+	imageLink.setAttribute('href', '#');
+	imageDiv.appendChild(imageLink);
+  mediaImage.setAttribute('class', 'media-object');
+	mediaImage.setAttribute('src', image);
+	mediaImage.setAttribute('alt', 'image');
+	imageLink.appendChild(mediaImage);
+  // content
+	content.setAttribute('class', 'media-body');
+	content.setAttribute('id', 'rest-body');
+	media.appendChild(content);
+	header.setAttribute('class', 'media-header');
+  header.className += ' inline';
+	header.setAttribute('id', 'rest-name');
+	header.appendChild(headerText);
+	content.appendChild(header);
   // convert and display ratings to stars
   findStars(reference, 'rest-body');
-
-  newElem = document.createElement('p');
-  newText = document.createTextNode(good);
-  parent = document.getElementById('rest-body');
-  newElem.setAttribute('id', 'tags');
-  newElem.appendChild(newText);
-  var newBreak = document.createElement('br');
-  newElem.appendChild(newBreak);
-  newText = document.createTextNode('Reviews: ' + count);
-  newElem.appendChild(newText);
-  parent.appendChild(newElem);
-
-	newElem = document.createElement('p');
-	newText = document.createTextNode(desc);
-	parent = document.getElementById('rest-body');
-	newElem.setAttribute('class', 'description');
-	newElem.appendChild(newText);
-	parent.appendChild(newElem);
-
+  // content text
+  goodFor.setAttribute('id', 'tags');
+  goodFor.appendChild(goodText);
+  goodFor.appendChild(br);
+  goodFor.appendChild(revCount);
+  content.appendChild(goodFor);
+	description.setAttribute('class', 'description');
+	description.appendChild(descText);
+	content.appendChild(description);
+  // click image to call initRestaurant() for this restaurant
+  imageLink.addEventListener('click', function(e) {
+    sendRef(reference);
+    initRestaurant();
+  })
+  // click header to call initRestaurant() for this restaurant
+  header.addEventListener('click', function(e) {
+    sendRef(reference);
+    initRestaurant();
+  })
 	// remove IDs for next iteration
-	document.getElementById('rest-name').removeAttribute('id');
-	document.getElementById('rest-body').removeAttribute('id');
-	document.getElementById('rest-thumb').removeAttribute('id');
-	document.getElementById('rest-box').removeAttribute('id');
-	document.getElementById('image-link').removeAttribute('id');
-	document.getElementById('result-panel').removeAttribute('id');
-	document.getElementById('result-body').removeAttribute('id');
+  panel.removeAttribute('id');
+  body.removeAttribute('id');
+  media.removeAttribute('id');
+  imageDiv.removeAttribute('id');
+  imageLink.removeAttribute('id');
+  content.removeAttribute('id');
+	header.removeAttribute('id');
 }
 
 // splice out lowest rating into sorted array
