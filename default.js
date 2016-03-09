@@ -971,194 +971,155 @@ var thisReview = '';
 function showRestaurant() {
 	var anchor = document.getElementById('anchor');
 	var query = document.getElementById('query-list');
+  var row = document.createElement('div');
+	var restaurant = document.getElementById('restaurant-content');
+  var panel = document.createElement('div');
+  var body = document.createElement('div');
+  var header = document.createElement('div');
+  var heading = document.createElement('h4');
+  var headingText = document.createTextNode(name);
+  var tag = document.createElement('p');
+  var tagLabel = document.createTextNode('tags: ');
+  var tagValues = document.createTextNode(good);
+  var addy = document.createElement('p');
+	var streetText = document.createTextNode(street);
+  var addyBr = document.createElement('br');
+  var cityText = document.createTextNode(city);
+  var teleBr = document.createElement('br');
+  var teleText = document.createTextNode(telephone);
+  var button = document.createElement('button');
+  var buttonText = document.createTextNode('Write a Review');
+  var images = document.createElement('div');
+  var imageOne = document.createElement('img');
+  var imageTwo = document.createElement('img');
+  var imageThree = document.createElement('img');
+  var content = document.createElement('div');
+  var hours = document.createElement('div');
+  var hoursPanel = document.createElement('div');
+  var hoursBody = document.createElement('div');
+  var monday = document.createElement('p');
+  var monLabel = document.createTextNode('Mon: ');
+  var monValue = document.createTextNode(mon);
+  var tuesday = document.createElement('p');
+  var tueLabel = document.createTextNode('Tue: ');
+  var tueValue = document.createTextNode(tue);
+  var wednesday = document.createElement('p');
+  var wedLabel = document.createTextNode('Wed: ');
+  var wedText = document.createTextNode(wed);
+  var thursday = document.createElement('p');
+  var thuLabel = document.createTextNode('Thu: ');
+  var thuText = document.createTextNode(thu);
+  var friday = document.createElement('p');
+  var friLabel = document.createTextNode('Fri: ');
+  var friText = document.createTextNode(fri);
+  var saturday = document.createElement('p');
+  var satLabel = document.createTextNode('Sat: ');
+  var satText = document.createTextNode(sat);
+  var sund = document.createElement('p');
+  var sunLabel = document.createTextNode('Sun: ');
+  var sunText = document.createTextNode(sunday);
+  var reviews = document.createElement('div');
 	// set query-list to hidden
 	query.setAttribute('class', 'hidden');
-
-	// create skeleton for review section
-  var newElem = document.createElement('div');
-	var parent = document.getElementById('restaurant-content');
-	newElem.setAttribute('class', 'row');
-	newElem.setAttribute('id', 'rest-row');
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('div');
-	parent = document.getElementById('rest-row');
-	newElem.setAttribute('class', 'panel');
-  newElem.className += ' panel-default';
-	newElem.setAttribute('id', 'rest-panel');
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('div');
-	parent = document.getElementById('rest-panel');
-	newElem.setAttribute('class', 'panel-body');
-	newElem.setAttribute('id', 'rest-header');
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('div');
-	parent = document.getElementById('rest-header');
-	newElem.setAttribute('class', 'col-md-3');
-	newElem.setAttribute('id', 'rest-heading');
-	parent.appendChild(newElem);
-
-	newElem = document.createElement('h4');
-	parent = document.getElementById('rest-heading');
-  var newText = document.createTextNode(name);
-	newElem.setAttribute('class', 'media-heading');
-	newElem.setAttribute('id', 'rest-name');
-  newElem.appendChild(newText)
-	parent.appendChild(newElem);
-
-  // note: making button to write reviews here for now
+	row.setAttribute('class', 'row');
+	row.setAttribute('id', 'rest-row');
+	restaurant.appendChild(row);
+  // panel
+	panel.setAttribute('class', 'panel');
+  panel.className += ' panel-default';
+	panel.setAttribute('id', 'rest-panel');
+	row.appendChild(panel);
+	body.setAttribute('class', 'panel-body');
+	body.setAttribute('id', 'rest-header');
+	panel.appendChild(body);
+  // restaurant info
+	header.setAttribute('class', 'col-md-3');
+	header.setAttribute('id', 'rest-heading');
+	body.appendChild(header);
+	heading.setAttribute('class', 'media-heading');
+	heading.setAttribute('id', 'rest-name');
+  heading.appendChild(headingText)
+	header.appendChild(heading);
   findStars (storeRef, 'rest-heading');
-
-	newElem = document.createElement('p');
-  newText = document.createTextNode('tags: ');
-	newElem.appendChild(newText);
-	newText = document.createTextNode(good);
-	newElem.appendChild(newText);
-	parent.appendChild(newElem);
-
-	newElem = document.createElement('p');
-	newText = document.createTextNode(street);
-	parent = document.getElementById('rest-heading');
-	newElem.appendChild(newText);
-	parent.appendChild(newElem);
-
-	var newBreak = document.createElement('br');
-  newElem.appendChild(newBreak);
-	newText = document.createTextNode(city);
-	newElem.appendChild(newText);
-
-	newBreak = document.createElement('br');
-  newElem.appendChild(newBreak);
-	newText = document.createTextNode(telephone);
-	newElem.appendChild(newText);
-
+	tag.appendChild(tagLabel);
+	tag.appendChild(tagValues);
+	header.appendChild(tag);
+	addy.appendChild(streetText);
+  addy.appendChild(addyBr);
+	addy.appendChild(cityText);
+  addy.appendChild(teleBr);
+	addy.appendChild(teleText);
+  header.appendChild(addy);
   // write review button
-  newElem = document.createElement('button');
-  newText = document.createTextNode('Write a Review');
-  parent = document.getElementById('rest-heading');
-  newElem.setAttribute('type', 'submit');
-  newElem.setAttribute('class', 'btn');
-  newElem.className += ' btn-default';
-  newElem.setAttribute('id', 'write-review');
-  newElem.appendChild(newText);
-  parent.appendChild(newElem);
+  button.setAttribute('type', 'submit');
+  button.setAttribute('class', 'btn');
+  button.className += ' btn-default';
+  button.setAttribute('id', 'write-review');
+  button.appendChild(buttonText);
+  header.appendChild(button);
+  // restaurant images
+	images.setAttribute('class', 'col-md-9');
+	images.setAttribute('id', 'rest-img');
+	body.appendChild(images);
+	imageOne.setAttribute('class', 'img-thumbnail');
+  imageOne.className += ' review-img float-right';
+	imageOne.setAttribute('src', picThree);
+	imageOne.setAttribute('alt', 'image');
+	images.appendChild(imageOne);
+  imageTwo.setAttribute('class', 'img-thumbnail');
+  imageTwo.className += ' review-img float-right';
+  imageTwo.setAttribute('src', picTwo);
+  imageTwo.setAttribute('alt', 'image');
+  images.appendChild(imageTwo);
+  imageThree.setAttribute('class', 'img-thumbnail');
+  imageThree.className += ' review-img float-right';
+  imageThree.setAttribute('src', picOne);
+  imageThree.setAttribute('alt', 'image');
+  images.appendChild(imageThree);
+  // reviews and hours (lower fold)
+	content.setAttribute('class', 'reviews');
+	content.setAttribute('id', 'review-box');
+	restaurant.appendChild(content);
+  // hours
+	hours.setAttribute('class', 'col-md-3');
+  hours.className += ' col-xs-4 float-right';
+	hours.setAttribute('id', 'hours-box');
+	content.appendChild(hours);
+	hoursPanel.setAttribute('class', 'panel');
+  hoursPanel.className += ' panel-default';
+	hoursPanel.setAttribute('id', 'hours-panel');
+	hours.appendChild(hoursPanel);
+	hoursBody.setAttribute('class', 'panel-body');
+	hoursBody.setAttribute('id', 'hours-body');
+	hoursPanel.appendChild(hoursBody);
+	monday.appendChild(monLabel);
+  monday.appendChild(monValue);
+	hoursBody.appendChild(monday);
+  tuesday.appendChild(tueLabel);
+	tuesday.appendChild(tueValue);
+	hoursBody.appendChild(tuesday);
+  wednesday.appendChild(wedLabel);
+	wednesday.appendChild(wedText);
+	hoursBody.appendChild(wednesday);
+  thursday.appendChild(thuLabel);
+  thursday.appendChild(thuText);
+  hoursBody.appendChild(thursday);
+  friday.appendChild(friLabel);
+  friday.appendChild(friText);
+  hoursBody.appendChild(friday);
+  saturday.appendChild(satLabel);
+  saturday.appendChild(satText);
+  hoursBody.appendChild(saturday);
+  sund.appendChild(sunLabel);
+  sund.appendChild(sunText);
+  hoursBody.appendChild(sund);
+  // reviews
+  reviews.setAttribute('class', 'col-md-9');
+  reviews.className += ' col-xs-8 float-left';
+  reviews.setAttribute('id', 'review-list');
+  restaurant.appendChild(reviews);
 
-  // show review form
-  var write = document.getElementById('write-review')
-  write.addEventListener('click', writeReview);
-
-	newElem = document.createElement('div');
-	parent = document.getElementById('rest-header');
-	newElem.setAttribute('class', 'col-md-9');
-	newElem.setAttribute('id', 'rest-img');
-	parent.appendChild(newElem);
-
-	newElem = document.createElement('img');
-	parent = document.getElementById('rest-img');
-	newElem.setAttribute('class', 'img-thumbnail');
-  newElem.className += ' review-img float-right';
-	newElem.setAttribute('src', picThree);
-	newElem.setAttribute('alt', 'image');
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('img');
-  newElem.setAttribute('class', 'img-thumbnail');
-  newElem.className += ' review-img float-right';
-  newElem.setAttribute('src', picTwo);
-  newElem.setAttribute('alt', 'image');
-  parent.appendChild(newElem);
-
-  newElem = document.createElement('img');
-  newElem.setAttribute('class', 'img-thumbnail');
-  newElem.className += ' review-img float-right';
-  newElem.setAttribute('src', picOne);
-  newElem.setAttribute('alt', 'image');
-  parent.appendChild(newElem);
-
-	newElem = document.createElement('div');
-	parent = document.getElementById('restaurant-content');
-	newElem.setAttribute('class', 'reviews');
-	newElem.setAttribute('id', 'review-box');
-	parent.appendChild(newElem);
-
-	newElem = document.createElement('div');
-	parent = document.getElementById('review-box');
-	newElem.setAttribute('class', 'col-md-3');
-  newElem.className += ' col-xs-4 float-right';
-	newElem.setAttribute('id', 'hours-box');
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('div');
-	parent = document.getElementById('hours-box');
-	newElem.setAttribute('class', 'panel');
-  newElem.className += ' panel-default';
-	newElem.setAttribute('id', 'hours-panel');
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('div');
-	parent = document.getElementById('hours-panel');
-	newElem.setAttribute('class', 'panel-body');
-	newElem.setAttribute('id', 'hours-body');
-	parent.appendChild(newElem);
-
-	newElem = document.createElement('p');
-	parent = document.getElementById('hours-body');
-  newText = document.createTextNode('Mon: ')
-	newElem.appendChild(newText);
-	newText = document.createTextNode(mon);
-  newElem.appendChild(newText);
-	parent.appendChild(newElem);
-
-	newElem = document.createElement('p');
-  newText = document.createTextNode('Tue: ')
-  newElem.appendChild(newText);
-	newText = document.createTextNode(tue);
-	newElem.appendChild(newText);
-	parent.appendChild(newElem);
-
-	newElem = document.createElement('p');
-  newText = document.createTextNode('Wed: ')
-  newElem.appendChild(newText);
-	newText = document.createTextNode(wed);
-	newElem.appendChild(newText);
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('p');
-  newText = document.createTextNode('Thu: ')
-  newElem.appendChild(newText);
-  newText = document.createTextNode(thu);
-  newElem.appendChild(newText);
-  parent.appendChild(newElem);
-
-  newElem = document.createElement('p');
-  newText = document.createTextNode('Fri: ')
-  newElem.appendChild(newText);
-  newText = document.createTextNode(fri);
-  newElem.appendChild(newText);
-  parent.appendChild(newElem);
-
-  newElem = document.createElement('p');
-  newText = document.createTextNode('Sat: ')
-  newElem.appendChild(newText);
-  newText = document.createTextNode(sat);
-  newElem.appendChild(newText);
-  parent.appendChild(newElem);
-
-  newElem = document.createElement('p');
-  newText = document.createTextNode('Sun: ')
-  newElem.appendChild(newText);
-  newText = document.createTextNode(sunday);
-  newElem.appendChild(newText);
-  parent.appendChild(newElem);
-
-  newElem = document.createElement('div');
-  parent = document.getElementById('restaurant-content');
-  newElem.setAttribute('class', 'col-md-9');
-  newElem.className += ' col-xs-8 float-left';
-  newElem.setAttribute('id', 'review-list');
-  parent.appendChild(newElem);
+  button.addEventListener('click', writeReview);
 }
 
 // not currently used, for generating review sort bar
