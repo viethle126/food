@@ -1922,44 +1922,25 @@ function addForm() {
 function locationAdded(name) {
   clearPage();
   // clear page and create panel
-  var newElem = document.createElement('div');
-	var parent = document.getElementById('query-list');
-	newElem.setAttribute('class', 'col-md-12');
-	newElem.setAttribute('id', 'submit-panel');
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('div');
-	parent = document.getElementById('submit-panel');
-	newElem.setAttribute('class', 'panel');
-  newElem.className += ' panel-default';
-	newElem.setAttribute('id', 'submit-default');
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('div');
-	parent = document.getElementById('submit-default');
-	newElem.setAttribute('class', 'panel-body');
-	newElem.setAttribute('id', 'submit-body');
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('h3');
-	parent = document.getElementById('submit-body');
-  var newText = document.createTextNode(name + ' has been added!');
-  newElem.appendChild(newText)
-	parent.appendChild(newElem);
-
+	var list = document.getElementById('query-list');
+  var panel = document.createElement('div');
+  var body = document.createElement('div');
+  var header = document.createElement('h3');
+  var headerText = document.createTextNode(name + ' has been added!');
+  var image = document.createElement('img');
+  // panel
+	panel.setAttribute('class', 'panel');
+  panel.className += ' panel-default';
+	list.appendChild(panel);
+	body.setAttribute('class', 'panel-body');
+	panel.appendChild(body);
+  header.appendChild(headerText)
+	body.appendChild(header);
   // image
-  var newElem = document.createElement('div');
-	var parent = document.getElementById('query-list');
-	newElem.setAttribute('class', 'col-md-12');
-	newElem.setAttribute('id', 'submit-img');
-	parent.appendChild(newElem);
-
-  var newElem = document.createElement('img');
-	var parent = document.getElementById('submit-img');
-	newElem.setAttribute('src', 'images/submitted.jpg');
-	newElem.setAttribute('class', 'img-responsive');
-	newElem.setAttribute('alt', 'image');
-	parent.appendChild(newElem);
+	image.setAttribute('src', 'images/submitted.jpg');
+	image.setAttribute('class', 'img-responsive');
+	image.setAttribute('alt', 'image');
+	list.appendChild(image);
 }
 
 // create new restaurant object for new location
