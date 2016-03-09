@@ -1207,57 +1207,66 @@ function reviewSorter() {
 // loop function for every entry in object review
 // create separate div container for each review
 function showReviews(reviewer, date, review, ref) {
-	var newElem = document.createElement('div');
-	var parent = document.getElementById('review-list');
-	newElem.setAttribute('class', 'row');
-	newElem.setAttribute('id', 'review-row');
-	parent.appendChild(newElem);
+	var reviewRow = document.createElement('div');
+	var reviews = document.getElementById('review-list');
+  var panel = document.createElement('div');
+  var body = document.createElement('div');
+  var user = document.createElement('p');
+	var userName = document.createTextNode(reviewer);
+  var nameBreak = document.createElement('br');
+  var userDate = document.createTextNode(date);
+  var userReview = document.createElement('p');
+  var reviewText = document.createTextNode(review);
+  var usefulButton = document.createElement('button');
+  var usefulText = document.createTextNode('useful');
+  var funnyButton = document.createElement('button');
+  var funnyText = document.createTextNode('funny');
+  var coolButton = document.createElement('button');
+  var coolText = document.createTextNode('cool');
 
-	newElem = document.createElement('div');
-	parent = document.getElementById('review-row');
-	newElem.setAttribute('class', 'panel');
-  newElem.className += ' panel-default';
-	newElem.setAttribute('id', 'review-panel');
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('div');
-	parent = document.getElementById('review-panel');
-	newElem.setAttribute('class', 'panel-body');
-	newElem.setAttribute('id', 'review-body');
-	parent.appendChild(newElem);
-
-  // add individual reviewer rating
+	reviewRow.setAttribute('class', 'row');
+	reviewRow.setAttribute('id', 'review-row');
+	reviews.appendChild(reviewRow);
+	panel.setAttribute('class', 'panel');
+  panel.className += ' panel-default';
+	panel.setAttribute('id', 'review-panel');
+	reviewRow.appendChild(panel);
+	body.setAttribute('class', 'panel-body');
+	body.setAttribute('id', 'review-body');
+	panel.appendChild(body);
   calcStars(rate, 'review-body');
-
-	newElem = document.createElement('p');
-	var newText = document.createTextNode(reviewer);
-	parent = document.getElementById('review-body');
-	newElem.appendChild(newText);
-  var newBreak = document.createElement('br');
-  newElem.appendChild(newBreak);
-  newText = document.createTextNode(date);
-	newElem.appendChild(newText);
-  parent.appendChild(newElem);
-
-	newElem = document.createElement('p');
-  newText = document.createTextNode(review);
-	newElem.appendChild(newText);
-  parent.appendChild(newElem);
-
+	user.appendChild(userName);
+  user.appendChild(nameBreak);
+	user.appendChild(userDate);
+  body.appendChild(user);
+	userReview.appendChild(reviewText);
+  body.appendChild(userReview);
   // add useful badge
-  newElem = document.createElement('button');
-  newText = document.createTextNode('useful');
-  parent = document.getElementById('review-body');
-  newElem.setAttribute('class', 'btn');
-  newElem.className += ' btn-default useful-badge inline';
-  newElem.setAttribute('type', 'button');
-  newElem.setAttribute('data-useful', ref.useful);
-  newElem.setAttribute('data-clicked', ref.plusUseful);
-  newElem.appendChild(newText);
-  parent.appendChild(newElem);
-
+  usefulButton.setAttribute('class', 'btn');
+  usefulButton.className += ' btn-default useful-badge inline';
+  usefulButton.setAttribute('type', 'button');
+  usefulButton.setAttribute('data-useful', ref.useful);
+  usefulButton.setAttribute('data-clicked', ref.plusUseful);
+  usefulButton.appendChild(usefulText);
+  body.appendChild(usefulButton);
+  // add funny badge
+  funnyButton.setAttribute('class', 'btn');
+  funnyButton.className += ' btn-default funny-badge inline';
+  funnyButton.setAttribute('type', 'button');
+  funnyButton.setAttribute('data-funny', ref.funny);
+  funnyButton.setAttribute('data-clicked', ref.plusFunny);
+  funnyButton.appendChild(funnyText);
+  body.appendChild(funnyButton);
+  // add cool badge
+  coolButton.setAttribute('class', 'btn');
+  coolButton.className += ' btn-default cool-badge inline';
+  coolButton.setAttribute('type', 'button');
+  coolButton.setAttribute('data-cool', ref.cool);
+  coolButton.setAttribute('data-clicked', ref.plusCool);
+  coolButton.appendChild(coolText);
+  body.appendChild(coolButton);
   // add useful badge event listener
-  newElem.addEventListener('click', function(e) {
+  usefulButton.addEventListener('click', function(e) {
     if (event.currentTarget.getAttribute('data-clicked') == 0) {
       // check if user has already upvoted badge
       // add +1 to badge score and displayed data attribute
@@ -1273,21 +1282,8 @@ function showReviews(reviewer, date, review, ref) {
       event.currentTarget.setAttribute('data-clicked', 0);
     }
   })
-
-  // add funny badge
-  newElem = document.createElement('button');
-  newText = document.createTextNode('funny');
-  parent = document.getElementById('review-body');
-  newElem.setAttribute('class', 'btn');
-  newElem.className += ' btn-default funny-badge inline';
-  newElem.setAttribute('type', 'button');
-  newElem.setAttribute('data-funny', ref.funny);
-  newElem.setAttribute('data-clicked', ref.plusFunny);
-  newElem.appendChild(newText);
-  parent.appendChild(newElem);
-
   // add funny badge event listener
-  newElem.addEventListener('click', function(e) {
+  funnyButton.addEventListener('click', function(e) {
     if (event.currentTarget.getAttribute('data-clicked') == 0) {
       // check if user has already upvoted badge
       // add +1 to badge score and displayed data attribute
@@ -1303,21 +1299,8 @@ function showReviews(reviewer, date, review, ref) {
       event.currentTarget.setAttribute('data-clicked', 0);
     }
   })
-
-  // add cool badge
-  newElem = document.createElement('button');
-  newText = document.createTextNode('cool');
-  parent = document.getElementById('review-body');
-  newElem.setAttribute('class', 'btn');
-  newElem.className += ' btn-default cool-badge inline';
-  newElem.setAttribute('type', 'button');
-  newElem.setAttribute('data-cool', ref.cool);
-  newElem.setAttribute('data-clicked', ref.plusCool);
-  newElem.appendChild(newText);
-  parent.appendChild(newElem);
-
   // add cool badge event listener
-  newElem.addEventListener('click', function(e) {
+  coolButton.addEventListener('click', function(e) {
     if (event.currentTarget.getAttribute('data-clicked') == 0) {
       // check if user has already upvoted badge
       // add +1 to badge score and displayed data attribute
@@ -1333,11 +1316,10 @@ function showReviews(reviewer, date, review, ref) {
       event.currentTarget.setAttribute('data-clicked', 0);
     }
   })
-
 	// remove IDs for next iteration
-	document.getElementById('review-row').removeAttribute('id');
-	document.getElementById('review-panel').removeAttribute('id');
-	document.getElementById('review-body').removeAttribute('id');
+	reviewRow.removeAttribute('id');
+	panel.removeAttribute('id');
+	body.removeAttribute('id');
 }
 
 // store reference ID to be used in initRestaurant()
