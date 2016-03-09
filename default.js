@@ -2166,11 +2166,12 @@ function addLocation() {
   var tags = document.getElementById('add-tags').value;
   var stripped = tags.toLowerCase().replace(/["'-_=+,.]+/g, '');
   var tagArray = intoArray(stripped);
+  var good = threeTags(tagArray);
   // pushing default tag 'food' into new restaurant
   // removing empty tag if no tags were entered
   tagArray.push('food');
-  tagArray.splice(tagArray.indexOf(''), 1);
-  var good = threeTags(tagArray);
+  if (tagArray[0] === '') { tagArray.splice(tagArray[0], 1) }
+
   if (name === '') { name = 'Untitled' }
   if (reference === '') { reference = 'untitled' }
   if (number === '') { number = 'Phone Number' }
