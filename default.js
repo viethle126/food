@@ -1759,239 +1759,163 @@ function threeTags(array) {
 function addForm() {
   clearPage();
   // clear page and create columns
-  var newElem = document.createElement('div');
-	var parent = document.getElementById('query-list');
-	newElem.setAttribute('class', 'row');
-	newElem.setAttribute('id', 'add-row');
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('div');
-	parent = document.getElementById('add-row');
-	newElem.setAttribute('class', 'col-md-6');
-	newElem.setAttribute('id', 'form-col');
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('form');
-	parent = document.getElementById('form-col');
-  newElem.setAttribute('onSubmit', 'return false');
-	newElem.setAttribute('id', 'add-form');
-	parent.appendChild(newElem);
-
+  var row = document.createElement('div');
+	var list = document.getElementById('query-list');
+  var formCol = document.createElement('div');
+  var form = document.createElement('form');
+  var nameDiv = document.createElement('div');
+  var nameLabel = document.createElement('label');
+  var nameText = document.createTextNode('Restaurant Name');
+  var nameInput = document.createElement('input');
+  var streetDiv = document.createElement('div');
+  var streetLabel = document.createElement('label');
+  var streetText = document.createTextNode('Address');
+  var streetInput = document.createElement('input');
+  var cityDiv = document.createElement('div');
+  var cityLabel = document.createElement('label');
+  var cityText = document.createTextNode('City');
+  var cityInput = document.createElement('input');
+  var stateDiv = document.createElement('div');
+  var stateLabel = document.createElement('label');
+  var stateText = document.createTextNode('State');
+  var stateInput = document.createElement('input');
+  var zipDiv = document.createElement('div');
+  var zipLabel = document.createElement('label');
+  var zipText = document.createTextNode('Zip Code');
+  var zipInput = document.createElement('input');
+  var phoneDiv = document.createElement('div');
+  var phoneLabel = document.createElement('label');
+  var phoneText = document.createTextNode('Phone Number');
+  var phoneInput = document.createElement('input');
+  var cateDiv = document.createElement('div');
+  var cateLabel = document.createElement('label');
+  var cateText = document.createTextNode('Categories');
+  var cateHelp = document.createElement('p');
+  var helpText = document.createTextNode('Select up to 3 categories. The more specific the better.');
+  var cateInput = document.createElement('input');
+  var descDiv = document.createElement('div');
+  var descLabel = document.createElement('label');
+  var descText = document.createTextNode('Tell us about this restaurant');
+  var descInput = document.createElement('textarea');
+  var buttonDiv = document.createElement('div');
+  var button = document.createElement('button');
+  var buttonText = document.createTextNode('Add location');
+  var imageCol = document.createElement('div');
+  var image = document.createElement('img');
+	row.setAttribute('class', 'row');
+	list.appendChild(row);
+	formCol.setAttribute('class', 'col-md-6');
+	row.appendChild(formCol);
+  form.setAttribute('onSubmit', 'return false');
+	formCol.appendChild(form);
   // restaurant name
-  newElem = document.createElement('div');
-	parent = document.getElementById('add-form');
-	newElem.setAttribute('class', 'form-group');
-	newElem.setAttribute('id', 'form-parent');
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('label');
-	parent = document.getElementById('form-parent');
-  var newText = document.createTextNode('Restaurant Name');
-	newElem.setAttribute('for', 'add-name');
-  newElem.appendChild(newText);
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('input');
-	newElem.setAttribute('type', 'text');
-  newElem.setAttribute('class', 'form-control');
-  newElem.setAttribute('id', 'add-name');
-	newElem.setAttribute('placeholder', 'Hipster\'s Delight');
-  newElem.required = true;
-	parent.appendChild(newElem);
-  parent.removeAttribute('id');
-
+	nameDiv.setAttribute('class', 'form-group');
+	form.appendChild(nameDiv);
+	nameLabel.setAttribute('for', 'add-name');
+  nameLabel.appendChild(nameText);
+	nameDiv.appendChild(nameLabel);
+	nameInput.setAttribute('type', 'text');
+  nameInput.setAttribute('class', 'form-control');
+  nameInput.setAttribute('id', 'add-name');
+	nameInput.setAttribute('placeholder', 'Hipster\'s Delight');
+	nameDiv.appendChild(nameInput);
   // address
-  newElem = document.createElement('div');
-	parent = document.getElementById('add-form');
-	newElem.setAttribute('class', 'form-group');
-	newElem.setAttribute('id', 'form-parent');
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('label');
-	parent = document.getElementById('form-parent');
-  newText = document.createTextNode('Address');
-	newElem.setAttribute('for', 'add-street');
-  newElem.appendChild(newText);
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('input');
-	newElem.setAttribute('type', 'text');
-  newElem.setAttribute('class', 'form-control');
-  newElem.setAttribute('id', 'add-street');
-	newElem.setAttribute('placeholder', '24 Main Street');
-	parent.appendChild(newElem);
-  parent.removeAttribute('id');
-
+	streetDiv.setAttribute('class', 'form-group');
+	form.appendChild(streetDiv);
+	streetLabel.setAttribute('for', 'add-street');
+  streetLabel.appendChild(streetText);
+	streetDiv.appendChild(streetLabel);
+	streetInput.setAttribute('type', 'text');
+  streetInput.setAttribute('class', 'form-control');
+  streetInput.setAttribute('id', 'add-street');
+	streetInput.setAttribute('placeholder', '24 Main Street');
+	streetDiv.appendChild(streetInput);
   // city
-  newElem = document.createElement('div');
-	parent = document.getElementById('add-form');
-	newElem.setAttribute('class', 'form-group');
-	newElem.setAttribute('id', 'form-parent');
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('label');
-	parent = document.getElementById('form-parent');
-  newText = document.createTextNode('City');
-	newElem.setAttribute('for', 'add-city');
-  newElem.appendChild(newText);
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('input');
-	newElem.setAttribute('type', 'text');
-  newElem.setAttribute('class', 'form-control');
-  newElem.setAttribute('id', 'add-city');
-	newElem.setAttribute('placeholder', 'Tustin');
-	parent.appendChild(newElem);
-  parent.removeAttribute('id');
-
+	cityDiv.setAttribute('class', 'form-group');
+	form.appendChild(cityDiv);
+	cityLabel.setAttribute('for', 'add-city');
+  cityLabel.appendChild(cityText);
+	cityDiv.appendChild(cityLabel);
+	cityInput.setAttribute('type', 'text');
+  cityInput.setAttribute('class', 'form-control');
+  cityInput.setAttribute('id', 'add-city');
+	cityInput.setAttribute('placeholder', 'Tustin');
+	cityDiv.appendChild(cityInput);
   // state
-  newElem = document.createElement('div');
-	parent = document.getElementById('add-form');
-	newElem.setAttribute('class', 'form-group');
-	newElem.setAttribute('id', 'form-parent');
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('label');
-	parent = document.getElementById('form-parent');
-  newText = document.createTextNode('State');
-	newElem.setAttribute('for', 'add-state');
-  newElem.appendChild(newText);
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('input');
-	newElem.setAttribute('type', 'text');
-  newElem.setAttribute('class', 'form-control');
-  newElem.setAttribute('id', 'add-state');
-	newElem.setAttribute('placeholder', 'CA');
-	parent.appendChild(newElem);
-  parent.removeAttribute('id');
-
+	stateDiv.setAttribute('class', 'form-group');
+	form.appendChild(stateDiv);
+	stateLabel.setAttribute('for', 'add-state');
+  stateLabel.appendChild(stateText);
+	stateDiv.appendChild(stateLabel);
+	stateInput.setAttribute('type', 'text');
+  stateInput.setAttribute('class', 'form-control');
+  stateInput.setAttribute('id', 'add-state');
+	stateInput.setAttribute('placeholder', 'CA');
+	stateDiv.appendChild(stateInput);
   // zip code
-  newElem = document.createElement('div');
-	parent = document.getElementById('add-form');
-	newElem.setAttribute('class', 'form-group');
-	newElem.setAttribute('id', 'form-parent');
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('label');
-	parent = document.getElementById('form-parent');
-  newText = document.createTextNode('Zip Code');
-	newElem.setAttribute('for', 'add-zip');
-  newElem.appendChild(newText);
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('input');
-	newElem.setAttribute('type', 'text');
-  newElem.setAttribute('class', 'form-control');
-  newElem.setAttribute('id', 'add-zip');
-	newElem.setAttribute('placeholder', '92780');
-	parent.appendChild(newElem);
-  parent.removeAttribute('id');
-
+	zipDiv.setAttribute('class', 'form-group');
+	form.appendChild(zipDiv);
+	zipLabel.setAttribute('for', 'add-zip');
+  zipLabel.appendChild(zipText);
+	zipDiv.appendChild(zipLabel);
+	zipInput.setAttribute('type', 'text');
+  zipInput.setAttribute('class', 'form-control');
+  zipInput.setAttribute('id', 'add-zip');
+	zipInput.setAttribute('placeholder', '92780');
+	zipDiv.appendChild(zipInput);
   // phone number
-  newElem = document.createElement('div');
-	parent = document.getElementById('add-form');
-	newElem.setAttribute('class', 'form-group');
-	newElem.setAttribute('id', 'form-parent');
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('label');
-	parent = document.getElementById('form-parent');
-  newText = document.createTextNode('Phone Number');
-	newElem.setAttribute('for', 'add-tele');
-  newElem.appendChild(newText);
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('input');
-	newElem.setAttribute('type', 'text');
-  newElem.setAttribute('class', 'form-control');
-  newElem.setAttribute('id', 'add-tele');
-	newElem.setAttribute('placeholder', '714-144-1441');
-	parent.appendChild(newElem);
-  parent.removeAttribute('id');
-
+	phoneDiv.setAttribute('class', 'form-group');
+	form.appendChild(phoneDiv);
+	phoneLabel.setAttribute('for', 'add-tele');
+  phoneLabel.appendChild(phoneText);
+	phoneDiv.appendChild(phoneLabel);
+	phoneInput.setAttribute('type', 'text');
+  phoneInput.setAttribute('class', 'form-control');
+  phoneInput.setAttribute('id', 'add-tele');
+	phoneInput.setAttribute('placeholder', '714-144-1441');
+	phoneDiv.appendChild(phoneInput);
   // categories
-  newElem = document.createElement('div');
-	parent = document.getElementById('add-form');
-	newElem.setAttribute('class', 'form-group');
-	newElem.setAttribute('id', 'form-parent');
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('label');
-	parent = document.getElementById('form-parent');
-  newText = document.createTextNode('Categories');
-	newElem.setAttribute('for', 'add-tags');
-  newElem.appendChild(newText);
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('p');
-  newText = document.createTextNode('Select up to 3 categories. The more specific the better.');
-  newElem.setAttribute('class', 'help-block');
-  newElem.appendChild(newText);
-  parent.appendChild(newElem);
-
-  newElem = document.createElement('input');
-	newElem.setAttribute('type', 'text');
-  newElem.setAttribute('class', 'form-control');
-  newElem.setAttribute('id', 'add-tags');
-	newElem.setAttribute('placeholder', 'Japanese, sushi');
-	parent.appendChild(newElem);
-  parent.removeAttribute('id');
-
+	cateDiv.setAttribute('class', 'form-group');
+	form.appendChild(cateDiv);
+	cateLabel.setAttribute('for', 'add-tags');
+  cateLabel.appendChild(cateText);
+	cateDiv.appendChild(cateLabel);
+  cateHelp.setAttribute('class', 'help-block');
+  cateHelp.appendChild(helpText);
+  cateDiv.appendChild(cateHelp);
+	cateInput.setAttribute('type', 'text');
+  cateInput.setAttribute('class', 'form-control');
+  cateInput.setAttribute('id', 'add-tags');
+	cateInput.setAttribute('placeholder', 'Japanese, sushi');
+	cateDiv.appendChild(cateInput);
   // description
-  newElem = document.createElement('div');
-	parent = document.getElementById('add-form');
-	newElem.setAttribute('class', 'form-group');
-	newElem.setAttribute('id', 'form-parent');
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('label');
-	parent = document.getElementById('form-parent');
-  newText = document.createTextNode('Tell us about this restaurant');
-	newElem.setAttribute('for', 'add-desc');
-  newElem.appendChild(newText);
-	parent.appendChild(newElem);
-
-  newElem = document.createElement('textarea');
-  newElem.setAttribute('class', 'form-control');
-  newElem.setAttribute('id', 'add-desc');
-	newElem.setAttribute('rows', '10');
-	parent.appendChild(newElem);
-  parent.removeAttribute('id');
-
+	descDiv.setAttribute('class', 'form-group');
+	form.appendChild(descDiv);
+	descLabel.setAttribute('for', 'add-desc');
+  descLabel.appendChild(descText);
+	descDiv.appendChild(descLabel);
+  descInput.setAttribute('class', 'form-control');
+  descInput.setAttribute('id', 'add-desc');
+	descInput.setAttribute('rows', '10');
+	descDiv.appendChild(descInput);
   // add location button
-  newElem = document.createElement('div');
-	parent = document.getElementById('add-form');
-	newElem.setAttribute('class', 'form-group');
-	newElem.setAttribute('id', 'form-parent');
-	parent.appendChild(newElem);
+	buttonDiv.setAttribute('class', 'form-group');
+	form.appendChild(buttonDiv);
+  button.setAttribute('class', 'btn');
+  button.className += ' btn-default';
+  button.setAttribute('id', 'add-button');
+	button.setAttribute('type', 'submit');
+  button.appendChild(buttonText);
+	buttonDiv.appendChild(button);
+  // image
+  imageCol.setAttribute('class', 'col-md-6');
+  row.appendChild(imageCol);
+  image.setAttribute('src', 'images/add.jpg');
+  image.setAttribute('class', 'img-responsive');
+  image.setAttribute('alt', 'image');
+  imageCol.appendChild(image);
 
-  newElem = document.createElement('button');
-	parent = document.getElementById('form-parent');
-  newText = document.createTextNode('Add location');
-  newElem.setAttribute('class', 'btn');
-  newElem.className += ' btn-default';
-  newElem.setAttribute('id', 'add-button');
-	newElem.setAttribute('type', 'submit');
-  newElem.appendChild(newText);
-	parent.appendChild(newElem);
-  parent.removeAttribute('id');
-
-  newElem.addEventListener('click', addLocation);
-
-  // side image
-  newElem = document.createElement('div');
-  parent = document.getElementById('add-row');
-  newElem.setAttribute('class', 'col-md-6');
-  newElem.setAttribute('id', 'form-img');
-  parent.appendChild(newElem);
-
-  newElem = document.createElement('img');
-  parent = document.getElementById('form-img');
-  newElem.setAttribute('src', 'images/add.jpg');
-  newElem.setAttribute('class', 'img-responsive');
-  newElem.setAttribute('alt', 'image');
-  parent.appendChild(newElem);
+  button.addEventListener('click', addLocation);
 }
 
 // display location added message
