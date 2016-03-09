@@ -1388,159 +1388,126 @@ var year = dateObj.getUTCFullYear();
 // create review form when corresponding button is clicked
 function writeReview() {
   clearReviews();
-  document.getElementById('hours-box').className += " hidden";
   saveFill = 0;
-  var parent = document.getElementById('restaurant-content');
-  var newElem = document.createElement('div');
-  newElem.setAttribute('class', 'row');
-  newElem.setAttribute('id', 'add-row');
-  parent.appendChild(newElem);
 
-  newElem = document.createElement('div');
-  parent = document.getElementById('add-row');
-  newElem.setAttribute('class', 'col-md-6');
-  newElem.setAttribute('id', 'form-col');
-  parent.appendChild(newElem);
-
-  newElem = document.createElement('div');
-  parent = document.getElementById('form-col');
-  newElem.setAttribute('class', 'panel');
-  newElem.className += ' panel-default';
-  newElem.setAttribute('id', 'add-panel');
-  parent.appendChild(newElem);
-
-  newElem = document.createElement('div');
-  parent = document.getElementById('add-panel');
-  newElem.setAttribute('class', 'panel-body');
-  newElem.setAttribute('id', 'add-body');
-  parent.appendChild(newElem);
-
-  newElem = document.createElement('form');
-  parent = document.getElementById('add-body');
-  newElem.setAttribute('id', 'write-form');
-  newElem.setAttribute('onSubmit', 'return false');
-  parent.appendChild(newElem);
-
-  newElem = document.createElement('div');
-  parent = document.getElementById('write-form');
-  newElem.setAttribute('class', 'form-group');
-  newElem.setAttribute('id', 'form-parent')
-  parent.appendChild(newElem);
-
-  newElem = document.createElement('label');
-  parent = document.getElementById('form-parent');
-  var newText = document.createTextNode('Name');
-  newElem.setAttribute('for', 'username');
-  newElem.appendChild(newText);
-  parent.appendChild(newElem);
-
-  newElem = document.createElement('input');
-  newElem.setAttribute('type', 'text');
-  newElem.setAttribute('class', 'form-control');
-  newElem.setAttribute('id', 'username');
-  parent.appendChild(newElem);
-
-  newElem = document.createElement('label');
-  parent = document.getElementById('write-form')
-  newText = document.createTextNode('Rating');
-  newElem.setAttribute('for', 'rating');
-  newElem.appendChild(newText);
-  parent.appendChild(newElem);
-
-  var newBreak = document.createElement('br');
-  parent.appendChild(newBreak);
+  document.getElementById('hours-box').className += " hidden";
+  var content = document.getElementById('restaurant-content');
+  var row = document.createElement('div');
+  var reviewCol = document.createElement('div');
+  var panel = document.createElement('div');
+  var body = document.createElement('div');
+  var form = document.createElement('form');
+  var userDiv = document.createElement('div');
+  var nameLabel = document.createElement('label');
+  var nameText = document.createTextNode('Name');
+  var nameInput = document.createElement('input');
+  var ratingLabel = document.createElement('label');
+  var ratingText = document.createTextNode('Rating');
+  var ratingBreak = document.createElement('br');
+  var starSpan = document.createElement('span');
+  var starOne = document.createElement('i');
+  var starTwo = document.createElement('i');
+  var starThree = document.createElement('i');
+  var starFour = document.createElement('i');
+  var starFive = document.createElement('i');
+  var starBreak = document.createElement('br');
+  var reviewDiv = document.createElement('div');
+  var reviewLabel = document.createElement('label');
+  var reviewText = document.createTextNode('Review');
+  var reviewInput = document.createElement('textarea');
+  var button = document.createElement('button');
+  var buttonText = document.createTextNode('Submit');
+  var imageCol = document.createElement('div');
+  var image = document.createElement('img');
+  // row
+  row.setAttribute('class', 'row');
+  row.setAttribute('id', 'add-row');
+  content.appendChild(row);
+  // form column
+  reviewCol.setAttribute('class', 'col-md-6');
+  reviewCol.setAttribute('id', 'form-col');
+  row.appendChild(reviewCol);
+  // form panel
+  panel.setAttribute('class', 'panel');
+  panel.className += ' panel-default';
+  panel.setAttribute('id', 'add-panel');
+  reviewCol.appendChild(panel);
+  body.setAttribute('class', 'panel-body');
+  body.setAttribute('id', 'add-body');
+  panel.appendChild(body);
+  // form
+  form.setAttribute('id', 'write-form');
+  form.setAttribute('onSubmit', 'return false');
+  body.appendChild(form);
+  userDiv.setAttribute('class', 'form-group');
+  userDiv.setAttribute('id', 'form-parent')
+  form.appendChild(userDiv);
+  nameLabel.setAttribute('for', 'username');
+  nameLabel.appendChild(nameText);
+  userDiv.appendChild(nameLabel);
+  nameInput.setAttribute('type', 'text');
+  nameInput.setAttribute('class', 'form-control');
+  nameInput.setAttribute('id', 'username');
+  userDiv.appendChild(nameInput);
+  ratingLabel.setAttribute('for', 'rating');
+  ratingLabel.appendChild(ratingText);
+  form.appendChild(ratingLabel);
+  form.appendChild(ratingBreak);
   // add star icons
-  newElem = document.createElement('span');
-  newElem.setAttribute('id', 'rating');
-  parent.appendChild(newElem);
-  // star 1
-  newElem = document.createElement('i');
-  parent = document.getElementById('rating');
-  newElem.setAttribute('class', 'fa');
-  newElem.className += ' fa-star-o fa-3x';
-  newElem.setAttribute('data-count', 1);
-  parent.appendChild(newElem);
-  // star 2
-  newElem = document.createElement('i');
-  newElem.setAttribute('class', 'fa');
-  newElem.className += ' fa-star-o fa-3x';
-  newElem.setAttribute('data-count', 2);
-  parent.appendChild(newElem);
-  // star 3
-  newElem = document.createElement('i');
-  newElem.setAttribute('class', 'fa');
-  newElem.className += ' fa-star-o fa-3x';
-  newElem.setAttribute('data-count', 3);
-  parent.appendChild(newElem);
-  // star 4
-  newElem = document.createElement('i');
-  newElem.setAttribute('class', 'fa');
-  newElem.className += ' fa-star-o fa-3x';
-  newElem.setAttribute('data-count', 4);
-  parent.appendChild(newElem);
-  // star 5
-  newElem = document.createElement('i');
-  newElem.setAttribute('class', 'fa');
-  newElem.className += ' fa-star-o fa-3x';
-  newElem.setAttribute('data-count', 5);
-  parent.appendChild(newElem);
-
-  newBreak = document.createElement('br');
-  parent = document.getElementById('write-form')
-  parent.appendChild(newBreak);
+  starSpan.setAttribute('id', 'rating');
+  form.appendChild(starSpan);
+  starOne.setAttribute('class', 'fa');
+  starOne.className += ' fa-star-o fa-3x';
+  starOne.setAttribute('data-count', 1);
+  starSpan.appendChild(starOne);
+  starTwo.setAttribute('class', 'fa');
+  starTwo.className += ' fa-star-o fa-3x';
+  starTwo.setAttribute('data-count', 2);
+  starSpan.appendChild(starTwo);
+  starThree.setAttribute('class', 'fa');
+  starThree.className += ' fa-star-o fa-3x';
+  starThree.setAttribute('data-count', 3);
+  starSpan.appendChild(starThree);
+  starFour.setAttribute('class', 'fa');
+  starFour.className += ' fa-star-o fa-3x';
+  starFour.setAttribute('data-count', 4);
+  starSpan.appendChild(starFour);
+  starFive.setAttribute('class', 'fa');
+  starFive.className += ' fa-star-o fa-3x';
+  starFive.setAttribute('data-count', 5);
+  starSpan.appendChild(starFive);
+  form.appendChild(starBreak);
 
   stars = document.querySelectorAll('[data-count]');
   shiftStar();
-
-  newElem = document.createElement('div');
-  newElem.setAttribute('class', 'form-group');
-  newElem.setAttribute('id', 'add-review');
-  parent.appendChild(newElem);
-
-  newElem = document.createElement('label');
-  parent = document.getElementById('add-review');
-  newText = document.createTextNode('Review');
-  newElem.setAttribute('for', 'review');
-  newElem.appendChild(newText);
-  parent.appendChild(newElem);
-
-  newElem = document.createElement('textarea');
-  newElem.setAttribute('class', 'form-control');
-  newElem.setAttribute('id', 'review');
-  newElem.setAttribute('rows', '6');
-  parent.appendChild(newElem);
-
-  newElem = document.createElement('div');
-  parent = document.getElementById('write-form');
-  newElem.setAttribute('class', 'form-group');
-  newElem.setAttribute('id', 'add-button');
-  parent.appendChild(newElem);
-
-  newElem = document.createElement('button');
-  newText = document.createTextNode('Submit');
-  newElem.setAttribute('type', 'submit');
-  newElem.setAttribute('class', 'btn');
-  newElem.className += ' btn-default';
-  newElem.setAttribute('id' ,'submit-button');
-  newElem.appendChild(newText);
-  parent.appendChild(newElem);
+  // continue form
+  reviewDiv.setAttribute('class', 'form-group');
+  reviewDiv.setAttribute('id', 'add-review');
+  form.appendChild(reviewDiv);
+  reviewLabel.setAttribute('for', 'review');
+  reviewLabel.appendChild(reviewText);
+  reviewDiv.appendChild(reviewLabel);
+  reviewInput.setAttribute('class', 'form-control');
+  reviewInput.setAttribute('id', 'review');
+  reviewInput.setAttribute('rows', '6');
+  reviewDiv.appendChild(reviewInput);
+  button.setAttribute('type', 'submit');
+  button.setAttribute('class', 'btn');
+  button.className += ' btn-default';
+  button.setAttribute('id' ,'submit-button');
+  button.appendChild(buttonText);
+  form.appendChild(button);
+  // image column
+  imageCol.setAttribute('class', 'col-md-6');
+  imageCol.setAttribute('id', 'write-img');
+  row.appendChild(imageCol);
+  image.setAttribute('src', 'images/write.jpg');
+  image.setAttribute('class', 'img-responsive');
+  image.setAttribute('alt', 'image');
+  imageCol.appendChild(image);
 
   // event listener to push review
-  var submit = document.getElementById('submit-button');
-  submit.addEventListener('click', submitReview);
-
-  newElem = document.createElement('div');
-  parent = document.getElementById('add-row');
-  newElem.setAttribute('class', 'col-md-6');
-  newElem.setAttribute('id', 'write-img');
-  parent.appendChild(newElem);
-
-  newElem = document.createElement('img');
-  parent = document.getElementById('write-img');
-  newElem.setAttribute('src', 'images/write.jpg');
-  newElem.setAttribute('class', 'img-responsive');
-  newElem.setAttribute('alt', 'image');
-  parent.appendChild(newElem);
+  button.addEventListener('click', submitReview);
 }
 
 // clear review form after pushing to review array
