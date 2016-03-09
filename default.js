@@ -161,10 +161,10 @@ var restaurant = {
         plusCool: 0
       },
       {
-        username: 'Andy Min',
+        username: 'Andy M',
         date: '2/2/2016',
 				rating: 4,
-        review: 'The reviewer below me is an idiot. How are you gonna go and eat a tray of hash browns on a low carb diet. Seriously though, get the breakfast burrito. It can be your breakfast, lunch and dinner.',
+        review: 'Get the breakfast burrito. Ham, sausage, bacon, three eggs, cheese and a tray of hash browns. It can be your breakfast, lunch and dinner. Seriously',
         useful: 1,
         funny: 4,
         cool: 0,
@@ -326,7 +326,7 @@ var restaurant = {
         username: 'codeMonkey',
         date: '2/18/2016',
 				rating: 5,
-        review: 'Fantastic food. Get the chicken and waffles. You won\'t regret it! Crunchy on the outside and fluffy in the middle. Chicken is well seasoned and moist. Guy below me is on crack.',
+        review: 'Fantastic food. Get the chicken and waffles. You won\'t regret it! Crunchy on the outside and fluffy in the middle. Chicken is well seasoned and moist.',
         useful: 0,
         funny: 5,
         cool: 1,
@@ -418,125 +418,94 @@ var removed = [];
 // create search header
 function searchHeader(search) {
   var landing = document.getElementById('landing');
+  var list = document.getElementById('query-list');
+  var panel = document.createElement('div');
+  var heading = document.createElement('div');
+  var query = document.createElement('i');
+  var queryText = document.createTextNode('showing results for: ' + search);
+  var body = document.createElement('div');
+  var sort = document.createElement('span');
+  var alphaAsc = document.createElement('button');
+  var ascIcon = document.createElement('i');
+  var alphaDesc = document.createElement('button');
+  var descIcon = document.createElement('i');
+  var high = document.createElement('button');
+  var highIcon = document.createElement('i');
+  var low = document.createElement('button');
+  var lowIcon = document.createElement('i');
+  var add = document.createElement('button');
+  var addText = document.createTextNode('Add location');
+
   landing.setAttribute('class', 'hidden');
-
   // panel
-  var newElem = document.createElement('div');
-  var parent = document.getElementById('query-list');
-  newElem.setAttribute('class', 'panel');
-  newElem.className += ' panel-default text-center';
-  newElem.setAttribute('id', 'search-panel');
-  parent.appendChild(newElem);
-
-  // panel heading
-  newElem = document.createElement('div');
-  parent = document.getElementById('search-panel');
-  newElem.setAttribute('class', 'panel-heading');
-  newElem.setAttribute('id', 'search-heading');
-  parent.appendChild(newElem);
-
-  newElem = document.createElement('i');
-  parent = document.getElementById('search-heading');
-  var newText = document.createTextNode('showing results for: ' + search);
-  newElem.appendChild(newText);
-  parent.appendChild(newElem);
-
-  // panel body
-  newElem = document.createElement('div');
-  parent = document.getElementById('search-panel');
-  newElem.setAttribute('class', 'panel-body');
-  newElem.setAttribute('id', 'search-body');
-  parent.appendChild(newElem);
-
-  newElem = document.createElement('span');
-  parent = document.getElementById('search-body');
-  newElem.setAttribute('id', 'sort');
-  parent.appendChild(newElem);
-
+  panel.setAttribute('class', 'panel');
+  panel.className += ' panel-default text-center';
+  panel.setAttribute('id', 'search-panel');
+  list.appendChild(panel);
+  heading.setAttribute('class', 'panel-heading');
+  heading.setAttribute('id', 'search-heading');
+  panel.appendChild(heading);
+  query.appendChild(queryText);
+  heading.appendChild(query);
+  body.setAttribute('class', 'panel-body');
+  body.setAttribute('id', 'search-body');
+  panel.appendChild(body);
+  // sort buttons
+  sort.setAttribute('id', 'sort');
+  body.appendChild(sort);
   // sort alpha asc
-  newElem = document.createElement('button');
-  parent = document.getElementById('sort');
-  newElem.setAttribute('class', 'btn');
-  newElem.className += ' btn-default spacing';
-  newElem.setAttribute('type', 'submit');
-  newElem.setAttribute('id', 'alpha-asc');
-  newElem.setAttribute('data-sort', 0);
-  parent.appendChild(newElem);
-
-  newElem.addEventListener('click', arrangeAZ);
-
-  newElem = document.createElement('i');
-  parent = document.getElementById('alpha-asc');
-  newElem.setAttribute('class', 'fa');
-  newElem.className += ' fa-sort-alpha-asc fa-2x';
-  parent.appendChild(newElem);
-
+  alphaAsc.setAttribute('class', 'btn');
+  alphaAsc.className += ' btn-default spacing';
+  alphaAsc.setAttribute('type', 'submit');
+  alphaAsc.setAttribute('id', 'alpha-asc');
+  alphaAsc.setAttribute('data-sort', 0);
+  sort.appendChild(alphaAsc);
+  ascIcon.setAttribute('class', 'fa');
+  ascIcon.className += ' fa-sort-alpha-asc fa-2x';
+  alphaAsc.appendChild(ascIcon);
   // sort alpha desc
-  newElem = document.createElement('button');
-  parent = document.getElementById('sort');
-  newElem.setAttribute('class', 'btn');
-  newElem.className += ' btn-default spacing';
-  newElem.setAttribute('type', 'submit');
-  newElem.setAttribute('id', 'alpha-desc');
-  newElem.setAttribute('data-sort', 0);
-  parent.appendChild(newElem);
-
-  newElem.addEventListener('click', arrangeZA);
-
-  newElem = document.createElement('i');
-  parent = document.getElementById('alpha-desc');
-  newElem.setAttribute('class', 'fa');
-  newElem.className += ' fa-sort-alpha-desc fa-2x';
-  parent.appendChild(newElem);
-
+  alphaDesc.setAttribute('class', 'btn');
+  alphaDesc.className += ' btn-default spacing';
+  alphaDesc.setAttribute('type', 'submit');
+  alphaDesc.setAttribute('id', 'alpha-desc');
+  alphaDesc.setAttribute('data-sort', 0);
+  sort.appendChild(alphaDesc);
+  descIcon.setAttribute('class', 'fa');
+  descIcon.className += ' fa-sort-alpha-desc fa-2x';
+  alphaDesc.appendChild(descIcon);
   // sort high
-  newElem = document.createElement('button');
-  parent = document.getElementById('sort');
-  newElem.setAttribute('class', 'btn');
-  newElem.className += ' btn-default spacing';
-  newElem.setAttribute('type', 'submit');
-  newElem.setAttribute('id', 'high');
-  newElem.setAttribute('data-sort', 0);
-  parent.appendChild(newElem);
-
-  newElem.addEventListener('click', arrangeHigh);
-
-  newElem = document.createElement('i');
-  parent = document.getElementById('high');
-  newElem.setAttribute('class', 'fa');
-  newElem.className += ' fa-sort-amount-desc fa-2x';
-  parent.appendChild(newElem);
-
+  high.setAttribute('class', 'btn');
+  high.className += ' btn-default spacing';
+  high.setAttribute('type', 'submit');
+  high.setAttribute('id', 'high');
+  high.setAttribute('data-sort', 0);
+  sort.appendChild(high);
+  highIcon.setAttribute('class', 'fa');
+  highIcon.className += ' fa-sort-amount-desc fa-2x';
+  high.appendChild(highIcon);
   // sort low
-  newElem = document.createElement('button');
-  parent = document.getElementById('sort');
-  newElem.setAttribute('class', 'btn');
-  newElem.className += ' btn-default spacing';
-  newElem.setAttribute('type', 'submit');
-  newElem.setAttribute('id', 'low');
-  newElem.setAttribute('data-sort', 0);
-  parent.appendChild(newElem);
-
-  newElem.addEventListener('click', arrangeLow);
-
-  newElem = document.createElement('i');
-  parent = document.getElementById('low');
-  newElem.setAttribute('class', 'fa');
-  newElem.className += ' fa-sort-amount-asc fa-2x';
-  parent.appendChild(newElem);
-
+  low.setAttribute('class', 'btn');
+  low.className += ' btn-default spacing';
+  low.setAttribute('type', 'submit');
+  low.setAttribute('id', 'low');
+  low.setAttribute('data-sort', 0);
+  sort.appendChild(low);
+  lowIcon.setAttribute('class', 'fa');
+  lowIcon.className += ' fa-sort-amount-asc fa-2x';
+  low.appendChild(lowIcon);
   // add location button
-  newElem = document.createElement('button');
-  parent = document.getElementById('sort');
-  newText = document.createTextNode('Add location');
-  newElem.setAttribute('class', 'btn');
-  newElem.className += ' btn-default spacing';
-  newElem.setAttribute('type', 'submit');
-  newElem.setAttribute('id', 'add-location');
-  newElem.appendChild(newText);
-  parent.appendChild(newElem);
-
-  newElem.addEventListener('click', addForm);
+  add.setAttribute('class', 'btn');
+  add.className += ' btn-default spacing';
+  add.setAttribute('type', 'submit');
+  add.setAttribute('id', 'add-location');
+  add.appendChild(addText);
+  sort.appendChild(add);
+  // event listeners
+  alphaAsc.addEventListener('click', arrangeAZ);
+  alphaDesc.addEventListener('click', arrangeZA);
+  high.addEventListener('click', arrangeHigh);
+  low.addEventListener('click', arrangeLow);
+  add.addEventListener('click', addForm);
 }
 
 // convert search input to array
