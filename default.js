@@ -1979,7 +1979,7 @@ function addLocation() {
   var good = threeTags(tagArray);
   // pushing default tag 'food' into new restaurant
   // removing empty tag if no tags were entered
-  tagArray.push('food');
+  if (tagArray.indexOf('food') === -1) { tagArray.push('food') }
   if (tagArray[0] === '') { tagArray.splice(tagArray[0], 1) }
 
   if (name === '') { name = 'Untitled' }
