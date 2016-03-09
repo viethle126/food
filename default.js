@@ -1125,107 +1125,83 @@ function showRestaurant() {
 // not currently used, for generating review sort bar
 function reviewSorter() {
   // row
-  var newElem = document.createElement('div');
-  var parent = document.getElementById('review-list');
-  newElem.setAttribute('class', 'row');
-  newElem.setAttribute('id', 'sort-row');
-  parent.appendChild(newElem);
+  var sortRow = document.createElement('div');
+  var reviews = document.getElementById('review-list');
+  var panel = document.createElement('div');
+  var body = document.createElement('div');
+  var buttons = document.createElement('span');
+  var newest = document.createElement('button');
+  var newIcon = document.createElement('i');
+  var newText = document.createTextNode(' date');
+  var oldest = document.createElement('button');
+  var oldIcon = document.createElement('i');
+  var oldText = document.createTextNode(' date');
+  var high = document.createElement('button');
+  var highIcon = document.createElement('i');
+  var low = document.createElement('button');
+  var lowIcon = document.createElement('i');
 
+  sortRow.setAttribute('class', 'row');
+  sortRow.setAttribute('id', 'sort-row');
+  reviews.appendChild(sortRow);
   // panel
-  newElem = document.createElement('div');
-  parent = document.getElementById('sort-row');
-  newElem.setAttribute('class', 'panel');
-  newElem.className += ' panel-default text-center';
-  newElem.setAttribute('id', 'sort-panel');
-  parent.appendChild(newElem);
-
-  // panel body
-  newElem = document.createElement('div');
-  parent = document.getElementById('sort-panel');
-  newElem.setAttribute('class', 'panel-body');
-  newElem.setAttribute('id', 'sort-body');
-  parent.appendChild(newElem);
-
-  newElem = document.createElement('span');
-  parent = document.getElementById('sort-body');
-  newElem.setAttribute('id', 'sort-reviews');
-  parent.appendChild(newElem);
-
+  panel.setAttribute('class', 'panel');
+  panel.className += ' panel-default text-center';
+  panel.setAttribute('id', 'sort-panel');
+  sortRow.appendChild(panel);
+  body.setAttribute('class', 'panel-body');
+  body.setAttribute('id', 'sort-body');
+  panel.appendChild(body);
+  // sort buttons
+  buttons.setAttribute('id', 'sort-reviews');
+  body.appendChild(buttons);
   // sort date desc
-  newElem = document.createElement('button');
-  parent = document.getElementById('sort-reviews');
-  newElem.setAttribute('class', 'btn');
-  newElem.className += ' btn-default spacing';
-  newElem.setAttribute('type', 'submit');
-  newElem.setAttribute('id', 'date-desc');
-  newElem.setAttribute('data-review', 0);
-  parent.appendChild(newElem);
-
-  newElem.addEventListener('click', reviewNew);
-
-  newElem = document.createElement('i');
-  var newText = document.createTextNode(' date')
-  parent = document.getElementById('date-desc');
-  newElem.setAttribute('class', 'fa');
-  newElem.className += ' fa-arrow-circle-down fa-2x';
-  newElem.appendChild(newText);
-  parent.appendChild(newElem);
-
+  newest.setAttribute('class', 'btn');
+  newest.className += ' btn-default spacing';
+  newest.setAttribute('type', 'submit');
+  newest.setAttribute('id', 'date-desc');
+  newest.setAttribute('data-review', 0);
+  buttons.appendChild(newest);
+  newIcon.setAttribute('class', 'fa');
+  newIcon.className += ' fa-arrow-circle-down fa-2x';
+  newIcon.appendChild(newText);
+  newest.appendChild(newIcon);
   // sort date asc
-  newElem = document.createElement('button');
-  parent = document.getElementById('sort-reviews');
-  newElem.setAttribute('class', 'btn');
-  newElem.className += ' btn-default spacing';
-  newElem.setAttribute('type', 'submit');
-  newElem.setAttribute('id', 'date-asc');
-  newElem.setAttribute('data-review', 0);
-  parent.appendChild(newElem);
-
-  newElem.addEventListener('click', reviewOld);
-
-  newElem = document.createElement('i');
-  newText = document.createTextNode(' date')
-  parent = document.getElementById('date-asc');
-  newElem.setAttribute('class', 'fa');
-  newElem.className += ' fa-arrow-circle-up fa-2x';
-  newElem.appendChild(newText);
-  parent.appendChild(newElem);
-
+  oldest.setAttribute('class', 'btn');
+  oldest.className += ' btn-default spacing';
+  oldest.setAttribute('type', 'submit');
+  oldest.setAttribute('id', 'date-asc');
+  oldest.setAttribute('data-review', 0);
+  buttons.appendChild(oldest);
+  oldIcon.setAttribute('class', 'fa');
+  oldIcon.className += ' fa-arrow-circle-up fa-2x';
+  oldIcon.appendChild(oldText);
+  oldest.appendChild(oldIcon);
   // sort high
-  newElem = document.createElement('button');
-  parent = document.getElementById('sort-reviews');
-  newElem.setAttribute('class', 'btn');
-  newElem.className += ' btn-default spacing';
-  newElem.setAttribute('type', 'submit');
-  newElem.setAttribute('id', 'rev-high');
-  newElem.setAttribute('data-review', 0);
-  parent.appendChild(newElem);
-
-  newElem.addEventListener('click', reviewHigh);
-
-  newElem = document.createElement('i');
-  parent = document.getElementById('rev-high');
-  newElem.setAttribute('class', 'fa');
-  newElem.className += ' fa-sort-amount-desc fa-2x';
-  parent.appendChild(newElem);
-
+  high.setAttribute('class', 'btn');
+  high.className += ' btn-default spacing';
+  high.setAttribute('type', 'submit');
+  high.setAttribute('id', 'rev-high');
+  high.setAttribute('data-review', 0);
+  buttons.appendChild(high);
+  highIcon.setAttribute('class', 'fa');
+  highIcon.className += ' fa-sort-amount-desc fa-2x';
+  high.appendChild(highIcon);
   // sort low
-  newElem = document.createElement('button');
-  parent = document.getElementById('sort-reviews');
-  newElem.setAttribute('class', 'btn');
-  newElem.className += ' btn-default spacing';
-  newElem.setAttribute('type', 'submit');
-  newElem.setAttribute('id', 'rev-low');
-  newElem.setAttribute('data-review', 0);
-  parent.appendChild(newElem);
+  low.setAttribute('class', 'btn');
+  low.className += ' btn-default spacing';
+  low.setAttribute('type', 'submit');
+  low.setAttribute('id', 'rev-low');
+  low.setAttribute('data-review', 0);
+  buttons.appendChild(low);
+  lowIcon.setAttribute('class', 'fa');
+  lowIcon.className += ' fa-sort-amount-asc fa-2x';
+  low.appendChild(lowIcon);
 
-  newElem.addEventListener('click', reviewLow);
-
-  newElem = document.createElement('i');
-  parent = document.getElementById('rev-low');
-  newElem.setAttribute('class', 'fa');
-  newElem.className += ' fa-sort-amount-asc fa-2x';
-  parent.appendChild(newElem);
+  newest.addEventListener('click', reviewNew);
+  oldest.addEventListener('click', reviewOld);
+  high.addEventListener('click', reviewHigh);
+  low.addEventListener('click', reviewLow);
 }
 
 // loop function for every entry in object review
