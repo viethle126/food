@@ -1931,6 +1931,8 @@ function addLocation() {
   var stripped = tags.toLowerCase().replace(/["'-_=+,.]+/g, '');
   var tagArray = intoArray(stripped);
   var good = threeTags(tagArray);
+  var addName = intoArray(name.toLowerCase());
+  tagArray = tagArray.concat(addName);
   // pushing default tag 'food' into new restaurant
   // removing empty tag if no tags were entered
   if (tagArray.indexOf('food') === -1) { tagArray.push('food') }
@@ -1966,7 +1968,6 @@ function addLocation() {
     description: desc,
     reviews: []
   }
-
   // create location added message
   locationAdded(name);
 }
