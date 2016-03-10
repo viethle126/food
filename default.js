@@ -440,18 +440,14 @@ function searchHeader(search) {
   // panel
   panel.setAttribute('class', 'panel');
   panel.className += ' panel-default text-center';
-  panel.setAttribute('id', 'search-panel');
   list.appendChild(panel);
   heading.setAttribute('class', 'panel-heading');
-  heading.setAttribute('id', 'search-heading');
   panel.appendChild(heading);
   query.appendChild(queryText);
   heading.appendChild(query);
   body.setAttribute('class', 'panel-body');
-  body.setAttribute('id', 'search-body');
   panel.appendChild(body);
-  // sort buttons
-  sort.setAttribute('id', 'sort');
+  // buttons
   body.appendChild(sort);
   // sort alpha asc
   alphaAsc.setAttribute('class', 'btn');
@@ -593,19 +589,14 @@ function populate(reference, name, image, good, count, desc) {
   // panel
 	panel.setAttribute('class', 'panel');
   panel.className += ' panel-default';
-	panel.setAttribute('id', 'result-panel');
 	list.appendChild(panel);
 	body.setAttribute('class', 'panel-body');
-	body.setAttribute('id', 'result-body');
 	panel.appendChild(body);
 	media.setAttribute('class', 'media');
-	media.setAttribute('id', 'rest-box');
 	body.appendChild(media);
   // image
 	imageDiv.setAttribute('class', 'media-left');
-	imageDiv.setAttribute('id', 'rest-thumb');
 	media.appendChild(imageDiv);
-	imageLink.setAttribute('id', 'image-link');
 	imageLink.setAttribute('href', '#');
 	imageDiv.appendChild(imageLink);
   mediaImage.setAttribute('class', 'media-object');
@@ -614,17 +605,15 @@ function populate(reference, name, image, good, count, desc) {
 	imageLink.appendChild(mediaImage);
   // content
 	content.setAttribute('class', 'media-body');
-	content.setAttribute('id', 'rest-body');
+	content.setAttribute('id', 'stars-here');
 	media.appendChild(content);
 	header.setAttribute('class', 'media-header');
   header.className += ' inline';
-	header.setAttribute('id', 'rest-name');
 	header.appendChild(headerText);
 	content.appendChild(header);
   // convert and display ratings to stars
-  findStars(reference, 'rest-body');
+  findStars(reference, 'stars-here');
   // content text
-  goodFor.setAttribute('id', 'tags');
   goodFor.appendChild(goodText);
   goodFor.appendChild(br);
   goodFor.appendChild(revCount);
@@ -642,14 +631,8 @@ function populate(reference, name, image, good, count, desc) {
     sendRef(reference);
     initRestaurant();
   })
-	// remove IDs for next iteration
-  panel.removeAttribute('id');
-  body.removeAttribute('id');
-  media.removeAttribute('id');
-  imageDiv.removeAttribute('id');
-  imageLink.removeAttribute('id');
+	// remove ID for next iteration
   content.removeAttribute('id');
-	header.removeAttribute('id');
 }
 
 // splice out lowest rating into sorted array
