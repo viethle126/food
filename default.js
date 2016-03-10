@@ -999,25 +999,21 @@ function showRestaurant() {
 	// set query-list to hidden
 	query.setAttribute('class', 'hidden');
 	row.setAttribute('class', 'row');
-	row.setAttribute('id', 'rest-row');
 	restaurant.appendChild(row);
   // panel
 	panel.setAttribute('class', 'panel');
   panel.className += ' panel-default';
-	panel.setAttribute('id', 'rest-panel');
 	row.appendChild(panel);
 	body.setAttribute('class', 'panel-body');
-	body.setAttribute('id', 'rest-header');
 	panel.appendChild(body);
   // restaurant info
 	header.setAttribute('class', 'col-md-3');
-	header.setAttribute('id', 'rest-heading');
+	header.setAttribute('id', 'stars-here');
 	body.appendChild(header);
 	heading.setAttribute('class', 'media-heading');
-	heading.setAttribute('id', 'rest-name');
   heading.appendChild(headingText)
 	header.appendChild(heading);
-  findStars (storeRef, 'rest-heading');
+  findStars (storeRef, 'stars-here');
 	tag.appendChild(tagLabel);
 	tag.appendChild(tagValues);
 	header.appendChild(tag);
@@ -1036,7 +1032,6 @@ function showRestaurant() {
   header.appendChild(button);
   // restaurant images
 	images.setAttribute('class', 'col-md-9');
-	images.setAttribute('id', 'rest-img');
 	body.appendChild(images);
 	imageOne.setAttribute('class', 'img-thumbnail');
   imageOne.className += ' review-img float-right';
@@ -1060,10 +1055,8 @@ function showRestaurant() {
 	restaurant.appendChild(hours);
 	hoursPanel.setAttribute('class', 'panel');
   hoursPanel.className += ' panel-default';
-	hoursPanel.setAttribute('id', 'hours-panel');
 	hours.appendChild(hoursPanel);
 	hoursBody.setAttribute('class', 'panel-body');
-	hoursBody.setAttribute('id', 'hours-body');
 	hoursPanel.appendChild(hoursBody);
 	monday.appendChild(monLabel);
   monday.appendChild(monValue);
@@ -1092,6 +1085,7 @@ function showRestaurant() {
   reviews.setAttribute('id', 'review-list');
   restaurant.appendChild(reviews);
 
+  header.removeAttribute('id');
   button.addEventListener('click', writeReview);
 }
 
@@ -1115,18 +1109,14 @@ function reviewSorter() {
   var lowIcon = document.createElement('i');
 
   sortRow.setAttribute('class', 'row');
-  sortRow.setAttribute('id', 'sort-row');
   reviews.appendChild(sortRow);
   // panel
   panel.setAttribute('class', 'panel');
   panel.className += ' panel-default text-center';
-  panel.setAttribute('id', 'sort-panel');
   sortRow.appendChild(panel);
   body.setAttribute('class', 'panel-body');
-  body.setAttribute('id', 'sort-body');
   panel.appendChild(body);
   // sort buttons
-  buttons.setAttribute('id', 'sort-reviews');
   body.appendChild(buttons);
   // sort date desc
   newest.setAttribute('class', 'btn');
@@ -1198,16 +1188,14 @@ function showReviews(reviewer, date, review, ref) {
   var coolText = document.createTextNode('cool');
 
 	reviewRow.setAttribute('class', 'row');
-	reviewRow.setAttribute('id', 'review-row');
 	reviews.appendChild(reviewRow);
 	panel.setAttribute('class', 'panel');
   panel.className += ' panel-default';
-	panel.setAttribute('id', 'review-panel');
 	reviewRow.appendChild(panel);
 	body.setAttribute('class', 'panel-body');
-	body.setAttribute('id', 'review-body');
+	body.setAttribute('id', 'stars-here');
 	panel.appendChild(body);
-  calcStars(rate, 'review-body');
+  calcStars(rate, 'stars-here');
 	user.appendChild(userName);
   user.appendChild(nameBreak);
 	user.appendChild(userDate);
@@ -1290,8 +1278,6 @@ function showReviews(reviewer, date, review, ref) {
     }
   })
 	// remove IDs for next iteration
-	reviewRow.removeAttribute('id');
-	panel.removeAttribute('id');
 	body.removeAttribute('id');
 }
 
@@ -1394,26 +1380,20 @@ function writeReview() {
   var image = document.createElement('img');
   // row
   row.setAttribute('class', 'row');
-  row.setAttribute('id', 'add-row');
   content.appendChild(row);
   // form column
   reviewCol.setAttribute('class', 'col-md-6');
-  reviewCol.setAttribute('id', 'form-col');
   row.appendChild(reviewCol);
   // form panel
   panel.setAttribute('class', 'panel');
   panel.className += ' panel-default';
-  panel.setAttribute('id', 'add-panel');
   reviewCol.appendChild(panel);
   body.setAttribute('class', 'panel-body');
-  body.setAttribute('id', 'add-body');
   panel.appendChild(body);
   // form
-  form.setAttribute('id', 'write-form');
   form.setAttribute('onSubmit', 'return false');
   body.appendChild(form);
   userDiv.setAttribute('class', 'form-group');
-  userDiv.setAttribute('id', 'form-parent')
   form.appendChild(userDiv);
   nameLabel.setAttribute('for', 'username');
   nameLabel.appendChild(nameText);
@@ -1455,7 +1435,6 @@ function writeReview() {
   shiftStar();
   // continue form
   reviewDiv.setAttribute('class', 'form-group');
-  reviewDiv.setAttribute('id', 'add-review');
   form.appendChild(reviewDiv);
   reviewLabel.setAttribute('for', 'review');
   reviewLabel.appendChild(reviewText);
@@ -1472,7 +1451,6 @@ function writeReview() {
   form.appendChild(button);
   // image column
   imageCol.setAttribute('class', 'col-md-6');
-  imageCol.setAttribute('id', 'write-img');
   row.appendChild(imageCol);
   image.setAttribute('src', 'images/write.jpg');
   image.setAttribute('class', 'img-responsive');
