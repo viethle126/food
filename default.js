@@ -1537,31 +1537,31 @@ function submitReview() {
 // add star to span id = 'stars'
 function giveStar(number) {
   for (var i = 0; i < number; i++){
-    var newElem = document.createElement('i');
+    var newStar = document.createElement('i');
     var parent = document.getElementById('stars');
-    newElem.setAttribute('class', 'fa');
-    newElem.className += ' fa-star fa-2x';
-    parent.appendChild(newElem);
+    newStar.setAttribute('class', 'fa');
+    newStar.className += ' fa-star fa-2x';
+    parent.appendChild(newStar);
   }
 }
 
 // add half star to span id = 'stars'
 function giveHalfStar() {
-  var newElem = document.createElement('i');
+  var newStar = document.createElement('i');
   var parent = document.getElementById('stars');
-  newElem.setAttribute('class', 'fa');
-  newElem.className += ' fa-star-half-o fa-2x';
-  parent.appendChild(newElem);
+  newStar.setAttribute('class', 'fa');
+  newStar.className += ' fa-star-half-o fa-2x';
+  parent.appendChild(newStar);
 }
 
 // add empty star to span id = 'stars'
 function giveEmptyStar(number) {
   for (var i = 0; i < number; i++){
-    var newElem = document.createElement('i');
+    var newStar = document.createElement('i');
     var parent = document.getElementById('stars');
-    newElem.setAttribute('class', 'fa');
-    newElem.className += ' fa-star-o fa-2x';
-    parent.appendChild(newElem);
+    newStar.setAttribute('class', 'fa');
+    newStar.className += ' fa-star-o fa-2x';
+    parent.appendChild(newStar);
   }
 }
 
@@ -1571,10 +1571,10 @@ function createStars(stars, half, toId) {
   var emptyStar = '';
 
   // 5 stars total; empty star = count - (stars + half)
-  var newElem = document.createElement('span');
+  var group = document.createElement('span');
   var parent = document.getElementById(toId);
-  newElem.setAttribute('id', 'stars');
-  parent.appendChild(newElem);
+  group.setAttribute('id', 'stars');
+  parent.appendChild(group);
 
   giveStar(stars);
   // create half star if true, create empty to fill
@@ -1588,7 +1588,7 @@ function createStars(stars, half, toId) {
     giveEmptyStar(emptyStar);
   }
   // removing id for next span
-  newElem.removeAttribute('id');
+  group.removeAttribute('id');
 }
 
 // find the average of an array containing numbers
