@@ -16,7 +16,7 @@ var restaurant = {
       sunday: ['10:00 am - 4:00 pm']
     },
     good: 'mexican, burritos, tacos',
-    tags: ['mogi','lunch','burritos','burrito','tacos','taco','food'],
+    tags: ['mogi','lunch','mexican','burritos','burrito','tacos','taco','food'],
     images: ['images/mogitacos/img001.jpg','images/mogitacos/img002.jpg','images/mogitacos/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
     reviews: [
@@ -74,7 +74,7 @@ var restaurant = {
       sunday: ['Closed']
     },
     good: 'mexican, burritos, tacos',
-    tags: ['santana','lunch','burritos','burrito','tacos','taco','food'],
+    tags: ['santana','lunch','mexican','burritos','burrito','tacos','taco','food'],
     images: ['images/santana/img001.jpg','images/santana/img002.jpg','images/santana/img003.jpg'],
 		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
     reviews: [
@@ -384,7 +384,7 @@ var restaurant = {
         username: 'Joyce Y',
         date: '1/28/2016',
 				rating: 4,
-        review: 'The decor is nice and homey, slightly pretentious, but not enough to feel intimidated. They bring out all their cuts on a platter to show you difference in marbling. They even let us take a picture with the platter! John got the Japanese wagyu and I got the lamb chops. Instant regret.',
+        review: 'The decor is nice and homey, slightly pretentious, but not enough to feel intimidated. They bring out all their cuts on a platter to show you the difference in marbling. They even let us take a picture with the platter! John got the Japanese wagyu and I got the lamb chops. Instant regret.',
         useful: 4,
         funny: 3,
         cool: 2,
@@ -510,7 +510,6 @@ function intoArray(string) {
 }
 
 // modified from findStars() to sort queries
-// will combine later
 function avgRating(reference) {
   var ratings = [];
   var average = ''
@@ -527,7 +526,6 @@ function avgRating(reference) {
 }
 
 // loop through each restaurant's tags against search array
-// call function populate for all matches
 function matchTags(obj, array) {
 	var dupe = [];
   var reference = '';
@@ -538,7 +536,6 @@ function matchTags(obj, array) {
   var count = '';
   var desc = '';
   saveQuery = [];
-	// dupe array used to check for duplicate entries (multiple tag matches)
   for (var prop in obj) {
     // loop through each restaurant
     for (var i = 0; i < obj[prop].tags.length; i++) {
@@ -641,7 +638,6 @@ function minRating(array) {
   var lowest = 6;
   var alpha = 'zzz'
   for (var i = 0; i < array.length; i++) {
-    // loop through array, splice out lowest rating
     // if ratings are equal, sort by alpha
     if (array[i][2] === lowest && array[i][0] < alpha) {
       lowest = array[i][2];
@@ -661,7 +657,6 @@ function minRating(array) {
 function sortLow(array) {
   sorted = [];
   removed = [];
-  // run loop (splice lowest rating) until length = 0
   while (array.length > 0) {
     minRating(array);
   }
@@ -687,7 +682,6 @@ function minAlpha(array) {
 function sortAlpha(array) {
   sorted = [];
   removed = [];
-  // run loop (splice lowest alpha) until length = 0
   while (array.length > 0) {
     minAlpha(array);
   }
@@ -763,7 +757,6 @@ function arrangeHigh() {
 function revLow(array) {
   sorted = [];
   removed = [];
-  // run loop (splice lowest rating) until length = 0
   while (array.length > 0) {
     minRating(array);
   }
@@ -784,7 +777,6 @@ function reviewNew() {
     funny = saveRev[i][5];
     cool = saveRev[i][6];
     thisReview = saveRev[i][7];
-    // call showReviews() for each review
     showReviews(reviewer, date, review, thisReview);
   }
   // indicate sort option
@@ -808,7 +800,6 @@ function reviewOld() {
     funny = saveRev[i][5];
     cool = saveRev[i][6];
     thisReview = saveRev[i][7];
-    // call showReviews() for each review
     showReviews(reviewer, date, review, thisReview);
   }
   // indicate sort option
@@ -818,7 +809,7 @@ function reviewOld() {
   document.getElementById('rev-low').setAttribute('data-sort', 0);
 }
 
-// sort by oldest reviews
+// sort by highest rated reviews
 function reviewHigh() {
   clearReviews();
   reviewSorter();
@@ -832,7 +823,6 @@ function reviewHigh() {
     funny = lowRev[i][5];
     cool = lowRev[i][6];
     thisReview = lowRev[i][7];
-    // call showReviews() for each review
     showReviews(reviewer, date, review, thisReview);
   }
   // indicate sort option
@@ -842,7 +832,7 @@ function reviewHigh() {
   document.getElementById('rev-low').setAttribute('data-sort', 0);
 }
 
-// sort by oldest reviews
+// sort by lowest rated reviews
 function reviewLow() {
   clearReviews();
   reviewSorter();
@@ -856,7 +846,6 @@ function reviewLow() {
     funny = lowRev[i][5];
     cool = lowRev[i][6];
     thisReview = lowRev[i][7];
-    // call showReviews() for each review
     showReviews(reviewer, date, review, thisReview);
   }
   // indicate sort option
@@ -896,13 +885,6 @@ function clearReviews() {
   newList.className += ' col-xs-8 float-left';
   newList.setAttribute('id', 'review-list');
   content.appendChild(newList);
-}
-
-// not currently using, leaving code to preserve
-function clearForm() {
-  var list = document.getElementById('review-list');
-  var form = document.getElementById('review-form');
-  list.removeChild(form);
 }
 
 // convert search input into an array by calling function intoArray;
@@ -1091,7 +1073,7 @@ function showRestaurant() {
   button.addEventListener('click', writeReview);
 }
 
-// not currently used, for generating review sort bar
+// generate review sort bar
 function reviewSorter() {
   // row
   var sortRow = document.createElement('div');
