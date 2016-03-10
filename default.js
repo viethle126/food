@@ -888,7 +888,9 @@ function clearReviews() {
   // remove list of reviews
   var content = document.getElementById('restaurant-content');
   var list = document.getElementById('review-list');
+  var row = document.getElementById('write-row');
   var newList = document.createElement('div');
+  if (row) { content.removeChild(row) }
   content.removeChild(list);
   newList.setAttribute('class', 'col-md-9');
   newList.className += ' col-xs-8 float-left';
@@ -1348,7 +1350,6 @@ var year = dateObj.getUTCFullYear();
 function writeReview() {
   clearReviews();
   saveFill = 0;
-
   document.getElementById('hours-box').className += " hidden";
   var content = document.getElementById('restaurant-content');
   var row = document.createElement('div');
@@ -1380,6 +1381,7 @@ function writeReview() {
   var image = document.createElement('img');
   // row
   row.setAttribute('class', 'row');
+  row.setAttribute('id', 'write-row');
   content.appendChild(row);
   // form column
   reviewCol.setAttribute('class', 'col-md-6');
