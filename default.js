@@ -867,45 +867,40 @@ function reviewLow() {
 }
 
 // clear current results and/or restaurant content
-// remove parent div containers
-// create empty query container and restaurant container
 function clearPage() {
-	var toAnchor = document.getElementById('anchor');
-	var toQueryList = document.getElementById('query-list');
-  var toRestaurant = document.getElementById('restaurant-content');
-	toAnchor.removeChild(toQueryList);
-  toAnchor.removeChild(toRestaurant);
-	// remove current ontainers, create new containers
-	var newElem = document.createElement('div');
-	newElem.setAttribute('class', 'col-md-12');
-	newElem.setAttribute('id', 'query-list');
-	toAnchor.appendChild(newElem);
-  newElem = document.createElement('div');
-  newElem.setAttribute('class', 'col-md-12');
-  newElem.setAttribute('id', 'restaurant-content');
-  toAnchor.appendChild(newElem);
+	var anchor = document.getElementById('anchor');
+	var list = document.getElementById('query-list');
+  var content = document.getElementById('restaurant-content');
+  var newContent = document.createElement('div');
+	var newList = document.createElement('div');
+	anchor.removeChild(list);
+  anchor.removeChild(content);
+	newList.setAttribute('class', 'col-md-12');
+	newList.setAttribute('id', 'query-list');
+	anchor.appendChild(newList);
+  newContent.setAttribute('class', 'col-md-12');
+  newContent.setAttribute('id', 'restaurant-content');
+  anchor.appendChild(newContent);
 }
 
 // clear review section
 function clearReviews() {
   // remove list of reviews
-  var toContent = document.getElementById('restaurant-content');
-  var toList = document.getElementById('review-list');
-  toContent.removeChild(toList);
-  newElem = document.createElement('div');
-  parent = document.getElementById('restaurant-content');
-  newElem.setAttribute('class', 'col-md-9');
-  newElem.className += ' col-xs-8 float-left';
-  newElem.setAttribute('id', 'review-list');
-  parent.appendChild(newElem);
+  var content = document.getElementById('restaurant-content');
+  var list = document.getElementById('review-list');
+  var newList = document.createElement('div');
+  content.removeChild(list);
+  newList.setAttribute('class', 'col-md-9');
+  newList.className += ' col-xs-8 float-left';
+  newList.setAttribute('id', 'review-list');
+  content.appendChild(newList);
 }
 
-// remove form after submitting
 // not currently using, leaving code to preserve
 function clearForm() {
-  var toReviewBox = document.getElementById('review-list');
-  var toForm = document.getElementById('review-form');
-  toReviewBox.removeChild(toForm);
+  var list = document.getElementById('review-list');
+  var form = document.getElementById('review-form');
+  list.removeChild(form);
 }
 
 // convert search input into an array by calling function intoArray;
@@ -976,7 +971,6 @@ function showRestaurant() {
   var imageOne = document.createElement('img');
   var imageTwo = document.createElement('img');
   var imageThree = document.createElement('img');
-  var content = document.createElement('div');
   var hours = document.createElement('div');
   var hoursPanel = document.createElement('div');
   var hoursBody = document.createElement('div');
@@ -1059,15 +1053,11 @@ function showRestaurant() {
   imageThree.setAttribute('src', picOne);
   imageThree.setAttribute('alt', 'image');
   images.appendChild(imageThree);
-  // reviews and hours (lower fold)
-	content.setAttribute('class', 'reviews');
-	content.setAttribute('id', 'review-box');
-	restaurant.appendChild(content);
   // hours
 	hours.setAttribute('class', 'col-md-3');
   hours.className += ' col-xs-4 float-right';
 	hours.setAttribute('id', 'hours-box');
-	content.appendChild(hours);
+	restaurant.appendChild(hours);
 	hoursPanel.setAttribute('class', 'panel');
   hoursPanel.className += ' panel-default';
 	hoursPanel.setAttribute('id', 'hours-panel');
