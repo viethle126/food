@@ -56,7 +56,8 @@ var restaurant = {
         plusFunny: 0,
         plusCool: 0
       }
-    ]
+    ],
+    popularity: 0
   },
 	// add restaurant Santana
   santana: {
@@ -114,7 +115,8 @@ var restaurant = {
         plusFunny: 0,
         plusCool: 0
       }
-    ]
+    ],
+    popularity: 0
   },
   // add restaurant Jupiter Cafe
   jupitercafe: {
@@ -172,7 +174,8 @@ var restaurant = {
         plusFunny: 0,
         plusCool: 0
       }
-    ]
+    ],
+    popularity: 0
   },
 	// add restaurant Burger Bar
   burgerbar: {
@@ -230,7 +233,8 @@ var restaurant = {
         plusFunny: 0,
         plusCool: 0
       }
-    ]
+    ],
+    popularity: 0
   },
 	// add restaurant Average Burgers
   averageburgers: {
@@ -288,7 +292,8 @@ var restaurant = {
         plusFunny: 0,
         plusCool: 0
       }
-    ]
+    ],
+    popularity: 0
   },
 	// add restaurant County
   county: {
@@ -346,7 +351,8 @@ var restaurant = {
         plusFunny: 0,
         plusCool: 0
       }
-    ]
+    ],
+    popularity: 0
   },
 	// add restaurant Stone and Marble
   stoneandmarble: {
@@ -404,9 +410,16 @@ var restaurant = {
         plusFunny: 0,
         plusCool: 0
       }
-    ]
+    ],
+    popularity: 0
   }
 };
+//Set initial popularity
+(function setPopularity() {
+  for (key in restaurant) {
+    restaurant[key].popularity = restaurant[key].reviews.length;
+  }
+})();
 
 // variables for sorting
 var saveQuery = [];
@@ -425,6 +438,8 @@ function searchHeader(search) {
   var queryText = document.createTextNode('showing results for: ' + search);
   var body = document.createElement('div');
   var sort = document.createElement('span');
+  var popular = document.createElement('button');
+  var popularIcon = document.createElement('i');
   var alphaAsc = document.createElement('button');
   var ascIcon = document.createElement('i');
   var alphaDesc = document.createElement('button');
@@ -449,6 +464,16 @@ function searchHeader(search) {
   panel.appendChild(body);
   // buttons
   body.appendChild(sort);
+  // sort popular
+  popular.setAttribute('class','btn');
+  popular.className += ' btn-default spacing';
+  popular.setAttribute('type','submit');
+  popular.setAttribute('id','popular');
+  popular.setAttribute('data-sort', 0);
+  sort.appendChild(popular);
+  popularIcon.setAttribute('class','fa');
+  popularIcon.className += ' fa-fire fa-2x';
+  popular.appendChild(popularIcon);
   // sort alpha asc
   alphaAsc.setAttribute('class', 'btn');
   alphaAsc.className += ' btn-default spacing';
@@ -497,6 +522,7 @@ function searchHeader(search) {
   add.appendChild(addText);
   sort.appendChild(add);
   // event listeners
+  popular.addEventListener('click', arrangePopular);
   alphaAsc.addEventListener('click', arrangeAZ);
   alphaDesc.addEventListener('click', arrangeZA);
   high.addEventListener('click', arrangeHigh);
@@ -535,6 +561,7 @@ function matchTags(obj, array) {
   var good = '';
   var count = '';
   var desc = '';
+  var pop = '';
   saveQuery = [];
   for (var prop in obj) {
     // loop through each restaurant
@@ -554,8 +581,10 @@ function matchTags(obj, array) {
           good = obj[prop].good;
           count = obj[prop].reviews.length;
           desc = obj[prop].description;
+          pop = obj[prop].popularity;
+          restaurant[prop].popularity += 1;
           // push into saveQuery for sorting manipulation
-          saveQuery.push([reference, name, rating, image, good, count, desc]);
+          saveQuery.push([reference, name, rating, image, good, count, desc, pop]);
           populate(reference, name, image, good, count, desc);
 					// push matching restaurant to dupe array before repeating loop
           dupe.push(obj[prop].name);
@@ -652,6 +681,16 @@ function minRating(array) {
   removed = array.splice(cut, 1);
   sorted = sorted.concat(removed);
 }
+// loop splice function until array length = 0
+function sortPopular(array) {
+  sorted = [];
+  removed = [];
+  while (array.length > 0) {
+    mostPopular(array);
+  }
+  saveQuery = sorted;
+}
+
 
 // loop splice function until array length = 0
 function sortLow(array) {
@@ -677,6 +716,20 @@ function minAlpha(array) {
   removed = array.splice(cut, 1);
   sorted = sorted.concat(removed);
 }
+// splice out most popular
+function mostPopular(array) {
+  var cut = 0;
+  var most = array[0][7];
+  for (var i = 0; i < array.length; i++) {
+    // loop through array, splice out lowest alpha
+    if (array[i][7] > most) {
+      most = array[i][7];
+      cut = i;
+    }
+  }
+  removed = array.splice(cut, 1);
+  sorted = sorted.concat(removed);
+}
 
 // loop splice function until array length = 0
 function sortAlpha(array) {
@@ -686,6 +739,22 @@ function sortAlpha(array) {
     minAlpha(array);
   }
   saveQuery = sorted;
+}
+// arrange search results by popularity
+function arrangePopular() {
+  clearPage();
+  searchHeader(searchInput.value);
+  sortPopular(saveQuery);
+  // sort saveQuery and loop array through populate function
+  for (var i = 0; i < saveQuery.length; i++) {
+    populate(saveQuery[i][0], saveQuery[i][1], saveQuery[i][3],
+      saveQuery[i][4], saveQuery[i][5], saveQuery[i][6]);
+  }
+  document.getElementById('popular').setAttribute('data-sort', 1);
+  document.getElementById('alpha-asc').setAttribute('data-sort', 0);
+  document.getElementById('alpha-desc').setAttribute('data-sort', 0);
+  document.getElementById('low').setAttribute('data-sort', 0);
+  document.getElementById('high').setAttribute('data-sort', 0);
 }
 
 // arrange search results AZ
@@ -702,6 +771,7 @@ function arrangeAZ() {
   document.getElementById('alpha-desc').setAttribute('data-sort', 0);
   document.getElementById('low').setAttribute('data-sort', 0);
   document.getElementById('high').setAttribute('data-sort', 0);
+  document.getElementById('popular').setAttribute('data-sort', 0);
 }
 
 // arrange search results ZA
@@ -718,6 +788,7 @@ function arrangeZA() {
   document.getElementById('alpha-desc').setAttribute('data-sort', 1);
   document.getElementById('low').setAttribute('data-sort', 0);
   document.getElementById('high').setAttribute('data-sort', 0);
+  document.getElementById('popular').setAttribute('data-sort', 0);
 }
 
 // arrange search results low to high rating
@@ -734,6 +805,7 @@ function arrangeLow() {
   document.getElementById('alpha-desc').setAttribute('data-sort', 0);
   document.getElementById('low').setAttribute('data-sort', 1);
   document.getElementById('high').setAttribute('data-sort', 0);
+  document.getElementById('popular').setAttribute('data-sort', 0);
 }
 
 // arrange search results high to low rating
@@ -750,6 +822,7 @@ function arrangeHigh() {
   document.getElementById('alpha-desc').setAttribute('data-sort', 0);
   document.getElementById('low').setAttribute('data-sort', 0);
   document.getElementById('high').setAttribute('data-sort', 1);
+  document.getElementById('popular').setAttribute('data-sort', 0);
 }
 
 // loop splice function until array length = 0
@@ -1281,6 +1354,7 @@ function initRestaurant() {
 		if (restaurant[prop].reference === storeRef) {
 			// match reference from search result
       // pass matching restaurant details to variables
+      restaurant[prop].popularity += 1;
       name = restaurant[prop].name;
       good = restaurant[prop].good;
       street = restaurant[prop].address[0];
@@ -1490,6 +1564,7 @@ function submitReview() {
   for (var prop in restaurant) {
     if (restaurant[prop].reference === storeRef) {
       restaurant[prop].reviews.push(newReview);
+      restaurant[prop].popularity += 1;
     }
   }
   document.getElementById('hours-box').className -= " hidden";
