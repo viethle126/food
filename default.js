@@ -2028,3 +2028,7 @@ function onScroll() {
 }
 
 window.document.addEventListener('scroll', onScroll);
+document.getElementsByClassName('content-header')[0].addEventListener('click', function(e) {
+  clearPage();
+  document.getElementById('landing').className -= 'hidden';
+})
