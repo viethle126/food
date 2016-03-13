@@ -414,7 +414,8 @@ var restaurant = {
     popularity: 0
   }
 };
-//Set initial popularity
+
+// set initial popularity
 (function setPopularity() {
   for (key in restaurant) {
     restaurant[key].popularity = restaurant[key].reviews.length;
@@ -563,6 +564,7 @@ function matchTags(obj, array) {
   var desc = '';
   var pop = '';
   saveQuery = [];
+  if (array[0] === '') { array.push('food') }
   for (var prop in obj) {
     // loop through each restaurant
     for (var i = 0; i < obj[prop].tags.length; i++) {
@@ -681,6 +683,7 @@ function minRating(array) {
   removed = array.splice(cut, 1);
   sorted = sorted.concat(removed);
 }
+
 // loop splice function until array length = 0
 function sortPopular(array) {
   sorted = [];
@@ -690,7 +693,6 @@ function sortPopular(array) {
   }
   saveQuery = sorted;
 }
-
 
 // loop splice function until array length = 0
 function sortLow(array) {
@@ -716,6 +718,7 @@ function minAlpha(array) {
   removed = array.splice(cut, 1);
   sorted = sorted.concat(removed);
 }
+
 // splice out most popular
 function mostPopular(array) {
   var cut = 0;
@@ -740,6 +743,7 @@ function sortAlpha(array) {
   }
   saveQuery = sorted;
 }
+
 // arrange search results by popularity
 function arrangePopular() {
   clearPage();
