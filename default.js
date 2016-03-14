@@ -554,7 +554,7 @@ function avgRating(reference) {
 
 // loop through each restaurant's tags against search array
 function matchTags(obj, array) {
-	var dupe = [];
+  var next = false;
   var reference = '';
   var name = '';
   var rating = '';
@@ -566,30 +566,29 @@ function matchTags(obj, array) {
   saveQuery = [];
   if (array[0] === '') { array.push('food') }
   for (var prop in obj) {
+    next = false;
     // loop through each restaurant
     for (var i = 0; i < obj[prop].tags.length; i++) {
-      // loop through each restaurant's tags
-      for (var j = 0; j < array.length; j++) {
-        // loop all search array values against each restaurant tag
-        if (obj[prop].tags[i] === array[j]
-					&& obj[prop].name !== dupe[dupe.length - 1]) {
-					// check to see if tag value === search array value
-					// && check if current iteration is the same as the last iteration (duplicate)
-					// prevent 'lunch tacos' search returning the same restaurant twice ('tacos' and 'lunch' tag)
-					reference = obj[prop].reference;
-          name = obj[prop].name;
-          rating = avgRating(reference);
-          image = obj[prop].images[0];
-          good = obj[prop].good;
-          count = obj[prop].reviews.length;
-          desc = obj[prop].description;
-          pop = obj[prop].popularity;
-          restaurant[prop].popularity += 1;
-          // push into saveQuery for sorting manipulation
-          saveQuery.push([reference, name, rating, image, good, count, desc, pop]);
-          populate(reference, name, image, good, count, desc);
-					// push matching restaurant to dupe array before repeating loop
-          dupe.push(obj[prop].name);
+      // loop through each restaurant's tags until match is found
+      if (!next) {
+        for (var j = 0; j < array.length; j++) {
+          // loop all search array values against each restaurant tag
+          if (obj[prop].tags[i] === array[j]) {
+            // check to see if tag value === search array value
+            reference = obj[prop].reference;
+            name = obj[prop].name;
+            rating = avgRating(reference);
+            image = obj[prop].images[0];
+            good = obj[prop].good;
+            count = obj[prop].reviews.length;
+            desc = obj[prop].description;
+            pop = obj[prop].popularity;
+            restaurant[prop].popularity += 1;
+            // push into saveQuery for sorting manipulation
+            saveQuery.push([reference, name, rating, image, good, count, desc, pop]);
+            populate(reference, name, image, good, count, desc);
+            next = true;
+          }
         }
       }
     }
