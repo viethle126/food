@@ -582,7 +582,7 @@ function matchTags(obj, array) {
       if (!next) {
         for (var j = 0; j < array.length; j++) {
           // loop all search array values against each restaurant tag
-          if (obj[prop].tags[i] === array[j]) {
+          if (obj[prop].tags[i] === array[j] && !next) {
             // check to see if tag value === search array value
             restaurant[prop].popularity += 1;
             saveQuery.push(obj[prop]);
