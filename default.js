@@ -1,4 +1,3 @@
-// each restaurant is created as an object within the object restaurant
 var restaurant = {
   // add restaurant Mogi Tacos
   mogitacos: {
@@ -23,7 +22,7 @@ var restaurant = {
 			{
       	username: 'Fat Joe',
         date: '2/10/2016',
-				rating: 5,
+				rating: 3,
         review: 'They have the best tacos in the OC! Try the short rib tacos or the spicy pork wet burrito. You might have to take a nap after but it\'s worth it!',
         useful: 3,
         funny: 3,
@@ -106,7 +105,7 @@ var restaurant = {
       {
         username: 'sweetguy2201',
         date: '2/2/2016',
-				rating: 4,
+				rating: 2,
         review: 'Fantastic food. Place was packed when we walked in but the wait wasn\'t bad. Tom, who took our order, was really helpful! He explained the menu and gave us his recommendations. I got the carne asada burrito and I couldn\'t even finish it! I\'m going to have to make a few trips to try all of the other stuff!',
         useful: 0,
         funny: 0,
@@ -141,7 +140,7 @@ var restaurant = {
       {
         username: 'Salty Chicken',
         date: '1/13/2016',
-				rating: 4,
+				rating: 3,
         review: 'Yo, the breakfast burritos here are the size of your head! I\'d trade my first-born for a burrito and a cherry coke any day. ANY.',
         useful: 0,
         funny: 1,
@@ -165,7 +164,7 @@ var restaurant = {
       {
         username: 'Andy M',
         date: '2/2/2016',
-				rating: 4,
+				rating: 5,
         review: 'Get the breakfast burrito. Ham, sausage, bacon, three eggs, cheese and a tray of hash browns. It can be your breakfast, lunch and dinner. Seriously',
         useful: 1,
         funny: 4,
@@ -212,7 +211,7 @@ var restaurant = {
       {
         username: 'Matt B',
         date: '2/16/2016',
-				rating: 5,
+				rating: 4,
         review: 'The pastrami burger is ridiculous. If that\'s too much, get a classic burger. It comes with avocado, bacon and cheese. Seriously, if this isn\'t the best burger you\'ve ever had, go back to Average Burgers.',
         useful: 3,
         funny: 3,
@@ -283,7 +282,7 @@ var restaurant = {
       {
         username: 'Princess',
         date: '2/12/2016',
-				rating: 4,
+				rating: 2,
         review: 'So my boyfriend of ten years took me here for our anniversary. I was skeptical at first, but after walking in and being greeted by the acne-faced boy at the counter, all of my worries were laid to rest. My boyfriend got the special "Average Burger" and I just got a cheeseburger. I wanted the "Average Burger" too but my boyfriend said it\'d be better if we got different things so we would have more variety. The food was okay but the service was top-notch. They gave us table markers and brought the food to our table as soon as it was prepared. I think we\'ll come back again for special occasions.',
         useful: 1,
         funny: 0,
@@ -318,7 +317,7 @@ var restaurant = {
       {
         username: 'i luv buffets',
         date: '1/14/2016',
-				rating: 2,
+				rating: 3,
         review: 'I guess this is the new thing. Charge an arm and a leg for a plate with a tiny piece of meat, some sauce puddles and a few sprigs of crap I think they found in some guy\'s backyard. Sorry but I\'m sticking to Hometown Buffet.',
         useful: 0,
         funny: 1,
@@ -389,7 +388,7 @@ var restaurant = {
       {
         username: 'Joyce Y',
         date: '1/28/2016',
-				rating: 4,
+				rating: 5,
         review: 'The decor is nice and homey, slightly pretentious, but not enough to feel intimidated. They bring out all their cuts on a platter to show you the difference in marbling. They even let us take a picture with the platter! John got the Japanese wagyu and I got the lamb chops. Instant regret.',
         useful: 4,
         funny: 3,
@@ -422,12 +421,30 @@ var restaurant = {
   }
 })();
 
+document.getElementsByClassName('content-header')[0].addEventListener('click', function(e) {
+  clearPage();
+  document.getElementById('landing').className -= 'hidden';
+})
+var storeRef = '';
 // variables for sorting
 var saveQuery = [];
-var saveRev = [];
-var lowRev = [];
+var saveReview = [];
+var saveRatings = [];
 var sorted = [];
 var removed = [];
+// variables for passing current date to review array
+var dateObj = new Date();
+var month = dateObj.getUTCMonth() + 1;
+var day = dateObj.getUTCDate();
+var year = dateObj.getUTCFullYear();
+// variables for filling in stars
+var stars = '';
+var fill = 0;
+var saveFill = 0;
+var starsClicked = false
+// search event listener
+var searchInput = document.getElementById('search-input');
+document.getElementById('search-button').addEventListener('click', searchFood);
 
 // create search header
 function searchHeader(search) {
@@ -523,11 +540,11 @@ function searchHeader(search) {
   add.appendChild(addText);
   sort.appendChild(add);
   // event listeners
-  popular.addEventListener('click', arrangePopular);
-  alphaAsc.addEventListener('click', arrangeAZ);
-  alphaDesc.addEventListener('click', arrangeZA);
-  high.addEventListener('click', arrangeHigh);
-  low.addEventListener('click', arrangeLow);
+  popular.addEventListener('click', function(){sortResults(1)});
+  alphaAsc.addEventListener('click', function(){sortResults(2)});
+  alphaDesc.addEventListener('click', function(){sortResults(3)});
+  high.addEventListener('click', function(){sortResults(4)});
+  low.addEventListener('click', function(){sortResults(5)});
   add.addEventListener('click', addForm);
 }
 
@@ -555,14 +572,6 @@ function avgRating(reference) {
 // loop through each restaurant's tags against search array
 function matchTags(obj, array) {
   var next = false;
-  var reference = '';
-  var name = '';
-  var rating = '';
-  var image = '';
-  var good = '';
-  var count = '';
-  var desc = '';
-  var pop = '';
   saveQuery = [];
   if (array[0] === '') { array.push('food') }
   for (var prop in obj) {
@@ -575,18 +584,9 @@ function matchTags(obj, array) {
           // loop all search array values against each restaurant tag
           if (obj[prop].tags[i] === array[j]) {
             // check to see if tag value === search array value
-            reference = obj[prop].reference;
-            name = obj[prop].name;
-            rating = avgRating(reference);
-            image = obj[prop].images[0];
-            good = obj[prop].good;
-            count = obj[prop].reviews.length;
-            desc = obj[prop].description;
-            pop = obj[prop].popularity;
             restaurant[prop].popularity += 1;
-            // push into saveQuery for sorting manipulation
-            saveQuery.push([reference, name, rating, image, good, count, desc, pop]);
-            populate(reference, name, image, good, count, desc);
+            saveQuery.push(obj[prop]);
+            populate(obj[prop]);
             next = true;
           }
         }
@@ -596,7 +596,7 @@ function matchTags(obj, array) {
 }
 
 // populate function will create and append media boxes per query result
-function populate(reference, name, image, good, count, desc) {
+function populate(object) {
   var list = document.getElementById('query-list');
   var panel = document.createElement('div');
   var body = document.createElement('div');
@@ -606,13 +606,13 @@ function populate(reference, name, image, good, count, desc) {
   var mediaImage = document.createElement('img');
   var content = document.createElement('div');
   var header = document.createElement('h4');
-	var headerText = document.createTextNode(name);
+	var headerText = document.createTextNode(object.name);
   var goodFor = document.createElement('p');
-  var goodText = document.createTextNode(good);
+  var goodText = document.createTextNode(object.good);
   var br = document.createElement('br');
-  var revCount = document.createTextNode('Reviews: ' + count);
+  var revCount = document.createTextNode('Reviews: ' + object.reviews.length);
   var description = document.createElement('p');
-	var descText = document.createTextNode(desc);
+	var descText = document.createTextNode(object.description);
   // panel
 	panel.setAttribute('class', 'panel');
   panel.className += ' panel-default';
@@ -627,7 +627,7 @@ function populate(reference, name, image, good, count, desc) {
 	imageLink.setAttribute('href', '#');
 	imageDiv.appendChild(imageLink);
   mediaImage.setAttribute('class', 'media-object');
-	mediaImage.setAttribute('src', image);
+	mediaImage.setAttribute('src', object.images[0]);
 	mediaImage.setAttribute('alt', 'image');
 	imageLink.appendChild(mediaImage);
   // content
@@ -639,7 +639,7 @@ function populate(reference, name, image, good, count, desc) {
 	header.appendChild(headerText);
 	content.appendChild(header);
   // convert and display ratings to stars
-  findStars(reference, 'stars-here');
+  findStars(object.reference, 'stars-here');
   // content text
   goodFor.appendChild(goodText);
   goodFor.appendChild(br);
@@ -648,34 +648,61 @@ function populate(reference, name, image, good, count, desc) {
 	description.setAttribute('class', 'description');
 	description.appendChild(descText);
 	content.appendChild(description);
-  // click image to call initRestaurant() for this restaurant
+  // click image to show this restaurant
   imageLink.addEventListener('click', function(e) {
-    sendRef(reference);
+    storeRef = object.reference;
     initRestaurant();
   })
-  // click header to call initRestaurant() for this restaurant
+  // click header to show this restaurant
   header.addEventListener('click', function(e) {
-    sendRef(reference);
+    storeRef = object.reference;
     initRestaurant();
   })
 	// remove ID for next iteration
   content.removeAttribute('id');
 }
 
-// splice out lowest rating into sorted array
+// splice out most popular
+function mostPopular(array) {
+  var cut = 0;
+  var most = array[0].popularity;
+  for (var i = 0; i < array.length; i++) {
+    if (array[i].popularity > most) {
+      most = array[i].popularity;
+      cut = i;
+    }
+  }
+  removed = array.splice(cut, 1);
+  sorted = sorted.concat(removed);
+}
+
+// splice out lowest alphabetically
+function minAlpha(array) {
+  var cut = 0;
+  var lowest = 'zzz'
+  for (var i = 0; i < array.length; i++) {
+    if (array[i].reference < lowest) {
+      lowest = array[i].reference;
+      cut = i;
+    }
+  }
+  removed = array.splice(cut, 1);
+  sorted = sorted.concat(removed);
+}
+
+// splice out lowest by rating
 function minRating(array) {
   var cut = 0;
   var lowest = 6;
   var alpha = 'zzz'
   for (var i = 0; i < array.length; i++) {
     // if ratings are equal, sort by alpha
-    if (array[i][2] === lowest && array[i][0] < alpha) {
-      lowest = array[i][2];
-      alpha = array[i][0];
+    if (avgRating(array[i].reference) === lowest && array[i].reference < alpha) {
+      lowest = avgRating(array[i].reference);
+      alpha = array[i].reference;
       cut = i;
-    } else if (array[i][2] < lowest) {
-      lowest = array[i][2];
-      alpha = array[i][0];
+    } else if (avgRating(array[i].reference) < lowest) {
+      lowest = avgRating(array[i].reference);
       cut = i;
       }
     }
@@ -684,251 +711,101 @@ function minRating(array) {
 }
 
 // loop splice function until array length = 0
-function sortPopular(array) {
+function sortArray(array, option) {
   sorted = [];
   removed = [];
   while (array.length > 0) {
-    mostPopular(array);
+    if (option === 1) { mostPopular(array) }
+    if (option === 2) { minAlpha(array) }
+    if (option === 3) { minRating(array) }
+    if (option === 4) { minRating(array) }
   }
-  saveQuery = sorted;
+  if (option !== 4) { saveQuery = sorted }
+  if (option === 4) { saveRatings = sorted }
 }
 
-// loop splice function until array length = 0
-function sortLow(array) {
-  sorted = [];
-  removed = [];
-  while (array.length > 0) {
-    minRating(array);
-  }
-  saveQuery = sorted;
-}
+// sort search results
+function sortResults(option) {
+  clearPage();
+  searchHeader(searchInput.value);
+  document.getElementById('popular').setAttribute('data-sort', 0);
+  document.getElementById('alpha-asc').setAttribute('data-sort', 0);
+  document.getElementById('alpha-desc').setAttribute('data-sort', 0);
+  document.getElementById('low').setAttribute('data-sort', 0);
+  document.getElementById('high').setAttribute('data-sort', 0);
 
-// splice out lowest alpha into sorted array
-function minAlpha(array) {
-  var cut = 0;
-  var lowest = 'zzz'
-  for (var i = 0; i < array.length; i++) {
-    // loop through array, splice out lowest alpha
-    if (array[i][0] < lowest) {
-      lowest = array[i][0];
-      cut = i;
+  if (option === 1) {
+    sortArray(saveQuery, 1);
+    for (var i = 0; i < saveQuery.length; i++) {
+      populate(saveQuery[i]);
     }
+    document.getElementById('popular').setAttribute('data-sort', 1);
   }
-  removed = array.splice(cut, 1);
-  sorted = sorted.concat(removed);
-}
-
-// splice out most popular
-function mostPopular(array) {
-  var cut = 0;
-  var most = array[0][7];
-  for (var i = 0; i < array.length; i++) {
-    // loop through array, splice out lowest alpha
-    if (array[i][7] > most) {
-      most = array[i][7];
-      cut = i;
+  if (option === 2) {
+    sortArray(saveQuery, 2);
+    for (var i = 0; i < saveQuery.length; i++) {
+      populate(saveQuery[i]);
     }
+    document.getElementById('alpha-asc').setAttribute('data-sort', 1);
   }
-  removed = array.splice(cut, 1);
-  sorted = sorted.concat(removed);
+  if (option === 3) {
+    sortArray(saveQuery, 2);
+    for (var i = saveQuery.length - 1; i > -1; i--) {
+      populate(saveQuery[i]);
+    }
+    document.getElementById('alpha-desc').setAttribute('data-sort', 1);
+  }
+  if (option === 4) {
+    sortArray(saveQuery, 3);
+    for (var i = saveQuery.length - 1; i > -1; i--) {
+      populate(saveQuery[i]);
+    }
+    document.getElementById('high').setAttribute('data-sort', 1);
+  }
+  if (option === 5) {
+    sortArray(saveQuery, 3);
+    for (var i = 0; i < saveQuery.length; i++) {
+      populate(saveQuery[i]);
+    }
+    document.getElementById('low').setAttribute('data-sort', 1);
+  }
 }
 
-// loop splice function until array length = 0
-function sortAlpha(array) {
+// sort reviews
+function sortReviews(option) {
   sorted = [];
   removed = [];
-  while (array.length > 0) {
-    minAlpha(array);
-  }
-  saveQuery = sorted;
-}
-
-// arrange search results by popularity
-function arrangePopular() {
-  clearPage();
-  searchHeader(searchInput.value);
-  sortPopular(saveQuery);
-  // sort saveQuery and loop array through populate function
-  for (var i = 0; i < saveQuery.length; i++) {
-    populate(saveQuery[i][0], saveQuery[i][1], saveQuery[i][3],
-      saveQuery[i][4], saveQuery[i][5], saveQuery[i][6]);
-  }
-  document.getElementById('popular').setAttribute('data-sort', 1);
-  document.getElementById('alpha-asc').setAttribute('data-sort', 0);
-  document.getElementById('alpha-desc').setAttribute('data-sort', 0);
-  document.getElementById('low').setAttribute('data-sort', 0);
-  document.getElementById('high').setAttribute('data-sort', 0);
-}
-
-// arrange search results AZ
-function arrangeAZ() {
-  clearPage();
-  searchHeader(searchInput.value);
-  sortAlpha(saveQuery);
-  // sort saveQuery and loop array through populate function
-  for (var i = 0; i < saveQuery.length; i++) {
-    populate(saveQuery[i][0], saveQuery[i][1], saveQuery[i][3],
-      saveQuery[i][4], saveQuery[i][5], saveQuery[i][6]);
-  }
-  document.getElementById('alpha-asc').setAttribute('data-sort', 1);
-  document.getElementById('alpha-desc').setAttribute('data-sort', 0);
-  document.getElementById('low').setAttribute('data-sort', 0);
-  document.getElementById('high').setAttribute('data-sort', 0);
-  document.getElementById('popular').setAttribute('data-sort', 0);
-}
-
-// arrange search results ZA
-function arrangeZA() {
-  clearPage();
-  searchHeader(searchInput.value);
-  sortAlpha(saveQuery);
-  // sort saveQuery and loop backwards (minAlpha sorts AZ)
-  for (var i = saveQuery.length - 1; i > -1; i--) {
-    populate(saveQuery[i][0], saveQuery[i][1], saveQuery[i][3],
-      saveQuery[i][4], saveQuery[i][5], saveQuery[i][6]);
-  }
-  document.getElementById('alpha-asc').setAttribute('data-sort', 0);
-  document.getElementById('alpha-desc').setAttribute('data-sort', 1);
-  document.getElementById('low').setAttribute('data-sort', 0);
-  document.getElementById('high').setAttribute('data-sort', 0);
-  document.getElementById('popular').setAttribute('data-sort', 0);
-}
-
-// arrange search results low to high rating
-function arrangeLow() {
-  clearPage();
-  searchHeader(searchInput.value);
-  sortLow(saveQuery);
-  // sort saveQuery and loop array through populate function
-  for (var i = 0; i < saveQuery.length; i++) {
-    populate(saveQuery[i][0], saveQuery[i][1], saveQuery[i][3],
-      saveQuery[i][4], saveQuery[i][5], saveQuery[i][6]);
-  }
-  document.getElementById('alpha-asc').setAttribute('data-sort', 0);
-  document.getElementById('alpha-desc').setAttribute('data-sort', 0);
-  document.getElementById('low').setAttribute('data-sort', 1);
-  document.getElementById('high').setAttribute('data-sort', 0);
-  document.getElementById('popular').setAttribute('data-sort', 0);
-}
-
-// arrange search results high to low rating
-function arrangeHigh() {
-  clearPage();
-  searchHeader(searchInput.value);
-  sortLow(saveQuery);
-  // sort saveQuery and loop backwards (minRating sorts low to high)
-  for (var i = saveQuery.length - 1; i > -1; i--) {
-    populate(saveQuery[i][0], saveQuery[i][1], saveQuery[i][3],
-      saveQuery[i][4], saveQuery[i][5], saveQuery[i][6]);
-  }
-  document.getElementById('alpha-asc').setAttribute('data-sort', 0);
-  document.getElementById('alpha-desc').setAttribute('data-sort', 0);
-  document.getElementById('low').setAttribute('data-sort', 0);
-  document.getElementById('high').setAttribute('data-sort', 1);
-  document.getElementById('popular').setAttribute('data-sort', 0);
-}
-
-// loop splice function until array length = 0
-// for sorting reviews
-function revLow(array) {
-  sorted = [];
-  removed = [];
-  while (array.length > 0) {
-    minRating(array);
-  }
-  lowRev = sorted;
-}
-
-// sort by newest reviews
-function reviewNew() {
   clearReviews();
-  reviewSorter();
-  // loop saved array through populate function
-  for (var i = 0; i < saveRev.length; i++) {
-    reviewer = saveRev[i][0];
-    date = saveRev[i][1];
-    rate = saveRev[i][2];
-    review = saveRev[i][3];
-    useful = saveRev[i][4];
-    funny = saveRev[i][5];
-    cool = saveRev[i][6];
-    thisReview = saveRev[i][7];
-    showReviews(reviewer, date, review, thisReview);
-  }
-  // indicate sort option
-  document.getElementById('date-desc').setAttribute('data-sort', 1);
-  document.getElementById('date-asc').setAttribute('data-sort', 0);
-  document.getElementById('rev-high').setAttribute('data-sort', 0);
-  document.getElementById('rev-low').setAttribute('data-sort', 0);
-}
-
-// sort by oldest reviews
-function reviewOld() {
-  clearReviews();
-  reviewSorter();
-  // loop saved array through populate function
-  for (var i = saveRev.length - 1; i > -1; i--) {
-    reviewer = saveRev[i][0];
-    date = saveRev[i][1];
-    rate = saveRev[i][2];
-    review = saveRev[i][3];
-    useful = saveRev[i][4];
-    funny = saveRev[i][5];
-    cool = saveRev[i][6];
-    thisReview = saveRev[i][7];
-    showReviews(reviewer, date, review, thisReview);
-  }
-  // indicate sort option
-  document.getElementById('date-desc').setAttribute('data-sort', 0);
-  document.getElementById('date-asc').setAttribute('data-sort', 1);
-  document.getElementById('rev-high').setAttribute('data-sort', 0);
-  document.getElementById('rev-low').setAttribute('data-sort', 0);
-}
-
-// sort by highest rated reviews
-function reviewHigh() {
-  clearReviews();
-  reviewSorter();
-  // loop saved array through populate function
-  for (var i = lowRev.length - 1; i > -1; i--) {
-    reviewer = lowRev[i][0];
-    date = lowRev[i][1];
-    rate = lowRev[i][2];
-    review = lowRev[i][3];
-    useful = lowRev[i][4];
-    funny = lowRev[i][5];
-    cool = lowRev[i][6];
-    thisReview = lowRev[i][7];
-    showReviews(reviewer, date, review, thisReview);
-  }
-  // indicate sort option
-  document.getElementById('date-desc').setAttribute('data-sort', 0);
-  document.getElementById('date-asc').setAttribute('data-sort', 0);
-  document.getElementById('rev-high').setAttribute('data-sort', 1);
-  document.getElementById('rev-low').setAttribute('data-sort', 0);
-}
-
-// sort by lowest rated reviews
-function reviewLow() {
-  clearReviews();
-  reviewSorter();
-  // loop saved array through populate function
-  for (var i = 0; i < lowRev.length; i++) {
-    reviewer = lowRev[i][0];
-    date = lowRev[i][1];
-    rate = lowRev[i][2];
-    review = lowRev[i][3];
-    useful = lowRev[i][4];
-    funny = lowRev[i][5];
-    cool = lowRev[i][6];
-    thisReview = lowRev[i][7];
-    showReviews(reviewer, date, review, thisReview);
-  }
-  // indicate sort option
+  reviewHeader();
   document.getElementById('date-desc').setAttribute('data-sort', 0);
   document.getElementById('date-asc').setAttribute('data-sort', 0);
   document.getElementById('rev-high').setAttribute('data-sort', 0);
-  document.getElementById('rev-low').setAttribute('data-sort', 1);
+  document.getElementById('rev-low').setAttribute('data-sort', 0);
+
+  if (option === 1) {
+    for (var i = 0; i < saveReview.length; i++) {
+      showReviews(saveReview[i]);
+    }
+    document.getElementById('date-desc').setAttribute('data-sort', 1);
+  }
+  if (option === 2) {
+    for (var i = saveReview.length - 1; i > -1; i--) {
+      showReviews(saveReview[i]);
+    }
+    document.getElementById('date-asc').setAttribute('data-sort', 1);
+  }
+  if (option === 3) {
+    for (var i = saveRatings.length - 1; i > -1; i--) {
+      showReviews(saveRatings[i]);
+    }
+    document.getElementById('rev-high').setAttribute('data-sort', 1);
+  }
+  if (option === 4) {
+    for (var i = 0; i < saveRatings.length; i++) {
+      showReviews(saveReview[i]);
+    }
+    document.getElementById('rev-low').setAttribute('data-sort', 1);
+  }
 }
 
 // clear current results and/or restaurant content
@@ -963,50 +840,17 @@ function clearReviews() {
   content.appendChild(newList);
 }
 
-// convert search input into an array by calling function intoArray;
 // loop through each restaurant's tags against the search array;
 // return any matches and appends them via function populate;
 function searchFood() {
 	clearPage();
   searchHeader(searchInput.value);
-	return matchTags(restaurant, intoArray(searchInput.value.toLowerCase()));
+	matchTags(restaurant, intoArray(searchInput.value.toLowerCase()));
+  sortResults(4);
 }
 
-// search event listener
-var search = document.getElementById('search-button');
-var searchInput = document.getElementById('search-input');
-search.addEventListener('click', searchFood);
-
-// variables for generating restaurant page
-// assign values in initRestaurant(), use in showRestaurant() and showReviews()
-var storeRef = '';
-var name = '';
-var good = '';
-var tags = '';
-var street = '';
-var city = '';
-var telephone = '';
-var picOne = '';
-var picTwo = '';
-var picThree = '';
-var mon = '';
-var tue = '';
-var wed = '';
-var thu = '';
-var fri = '';
-var sat = '';
-var sunday = '';
-var reviewer = '';
-var date = '';
-var rate = '';
-var review = '';
-var useful = 0;
-var funny = 0;
-var cool = 0;
-var thisReview = '';
-
 // set up restaurant page (info, photos) and create container for reviews
-function showRestaurant() {
+function showRestaurant(object) {
 	var anchor = document.getElementById('anchor');
 	var query = document.getElementById('query-list');
   var row = document.createElement('div');
@@ -1015,16 +859,16 @@ function showRestaurant() {
   var body = document.createElement('div');
   var header = document.createElement('div');
   var heading = document.createElement('h4');
-  var headingText = document.createTextNode(name);
+  var headingText = document.createTextNode(object.name);
   var tag = document.createElement('p');
   var tagLabel = document.createTextNode('tags: ');
-  var tagValues = document.createTextNode(good);
+  var tagValues = document.createTextNode(object.good);
   var addy = document.createElement('p');
-	var streetText = document.createTextNode(street);
+	var streetText = document.createTextNode(object.address[0]);
   var addyBr = document.createElement('br');
-  var cityText = document.createTextNode(city);
+  var cityText = document.createTextNode(object.address[1] + ', ' + object.address[2] + ' ' + object.address[3]);
   var teleBr = document.createElement('br');
-  var teleText = document.createTextNode(telephone);
+  var teleText = document.createTextNode(object.number);
   var button = document.createElement('button');
   var buttonText = document.createTextNode('Write a Review');
   var images = document.createElement('div');
@@ -1036,25 +880,25 @@ function showRestaurant() {
   var hoursBody = document.createElement('div');
   var monday = document.createElement('p');
   var monLabel = document.createTextNode('Mon: ');
-  var monValue = document.createTextNode(mon);
+  var monValue = document.createTextNode(object.hours.monday.join(', '));
   var tuesday = document.createElement('p');
   var tueLabel = document.createTextNode('Tue: ');
-  var tueValue = document.createTextNode(tue);
+  var tueValue = document.createTextNode(object.hours.tuesday.join(', '));
   var wednesday = document.createElement('p');
   var wedLabel = document.createTextNode('Wed: ');
-  var wedText = document.createTextNode(wed);
+  var wedText = document.createTextNode(object.hours.wednesday.join(', '));
   var thursday = document.createElement('p');
   var thuLabel = document.createTextNode('Thu: ');
-  var thuText = document.createTextNode(thu);
+  var thuText = document.createTextNode(object.hours.thursday.join(', '));
   var friday = document.createElement('p');
   var friLabel = document.createTextNode('Fri: ');
-  var friText = document.createTextNode(fri);
+  var friText = document.createTextNode(object.hours.friday.join(', '));
   var saturday = document.createElement('p');
   var satLabel = document.createTextNode('Sat: ');
-  var satText = document.createTextNode(sat);
+  var satText = document.createTextNode(object.hours.saturday.join(', '));
   var sund = document.createElement('p');
   var sunLabel = document.createTextNode('Sun: ');
-  var sunText = document.createTextNode(sunday);
+  var sunText = document.createTextNode(object.hours.sunday.join(', '));
   var reviews = document.createElement('div');
 	// set query-list to hidden
 	query.setAttribute('class', 'hidden');
@@ -1095,17 +939,17 @@ function showRestaurant() {
 	body.appendChild(images);
 	imageOne.setAttribute('class', 'img-thumbnail');
   imageOne.className += ' review-img float-right';
-	imageOne.setAttribute('src', picThree);
+	imageOne.setAttribute('src', object.images[2]);
 	imageOne.setAttribute('alt', 'image');
 	images.appendChild(imageOne);
   imageTwo.setAttribute('class', 'img-thumbnail');
   imageTwo.className += ' review-img float-right';
-  imageTwo.setAttribute('src', picTwo);
+  imageTwo.setAttribute('src', object.images[1]);
   imageTwo.setAttribute('alt', 'image');
   images.appendChild(imageTwo);
   imageThree.setAttribute('class', 'img-thumbnail');
   imageThree.className += ' review-img float-right';
-  imageThree.setAttribute('src', picOne);
+  imageThree.setAttribute('src', object.images[0]);
   imageThree.setAttribute('alt', 'image');
   images.appendChild(imageThree);
   // hours
@@ -1150,7 +994,7 @@ function showRestaurant() {
 }
 
 // generate review sort bar
-function reviewSorter() {
+function reviewHeader() {
   // row
   var sortRow = document.createElement('div');
   var reviews = document.getElementById('review-list');
@@ -1221,25 +1065,25 @@ function reviewSorter() {
   lowIcon.className += ' fa-sort-amount-asc fa-2x';
   low.appendChild(lowIcon);
 
-  newest.addEventListener('click', reviewNew);
-  oldest.addEventListener('click', reviewOld);
-  high.addEventListener('click', reviewHigh);
-  low.addEventListener('click', reviewLow);
+  newest.addEventListener('click', function() {sortReviews(1)});
+  oldest.addEventListener('click', function() {sortReviews(2)});
+  high.addEventListener('click', function() {sortReviews(3)});
+  low.addEventListener('click', function() {sortReviews(4)});
 }
 
 // loop function for every entry in object review
 // create separate div container for each review
-function showReviews(reviewer, date, review, ref) {
+function showReviews(object) {
 	var reviewRow = document.createElement('div');
 	var reviews = document.getElementById('review-list');
   var panel = document.createElement('div');
   var body = document.createElement('div');
   var user = document.createElement('p');
-	var userName = document.createTextNode(reviewer);
+	var userName = document.createTextNode(object.username);
   var nameBreak = document.createElement('br');
-  var userDate = document.createTextNode(date);
+  var userDate = document.createTextNode(object.date);
   var userReview = document.createElement('p');
-  var reviewText = document.createTextNode(review);
+  var reviewText = document.createTextNode(object.review);
   var usefulButton = document.createElement('button');
   var usefulText = document.createTextNode('useful');
   var funnyButton = document.createElement('button');
@@ -1255,7 +1099,7 @@ function showReviews(reviewer, date, review, ref) {
 	body.setAttribute('class', 'panel-body');
 	body.setAttribute('id', 'stars-here');
 	panel.appendChild(body);
-  calcStars(rate, 'stars-here');
+  calcStars(object.rating, 'stars-here');
 	user.appendChild(userName);
   user.appendChild(nameBreak);
 	user.appendChild(userDate);
@@ -1266,24 +1110,24 @@ function showReviews(reviewer, date, review, ref) {
   usefulButton.setAttribute('class', 'btn');
   usefulButton.className += ' btn-default useful-badge inline';
   usefulButton.setAttribute('type', 'button');
-  usefulButton.setAttribute('data-useful', ref.useful);
-  usefulButton.setAttribute('data-clicked', ref.plusUseful);
+  usefulButton.setAttribute('data-useful', object.useful);
+  usefulButton.setAttribute('data-clicked', object.plusUseful);
   usefulButton.appendChild(usefulText);
   body.appendChild(usefulButton);
   // add funny badge
   funnyButton.setAttribute('class', 'btn');
   funnyButton.className += ' btn-default funny-badge inline';
   funnyButton.setAttribute('type', 'button');
-  funnyButton.setAttribute('data-funny', ref.funny);
-  funnyButton.setAttribute('data-clicked', ref.plusFunny);
+  funnyButton.setAttribute('data-funny', object.funny);
+  funnyButton.setAttribute('data-clicked', object.plusFunny);
   funnyButton.appendChild(funnyText);
   body.appendChild(funnyButton);
   // add cool badge
   coolButton.setAttribute('class', 'btn');
   coolButton.className += ' btn-default cool-badge inline';
   coolButton.setAttribute('type', 'button');
-  coolButton.setAttribute('data-cool', ref.cool);
-  coolButton.setAttribute('data-clicked', ref.plusCool);
+  coolButton.setAttribute('data-cool', object.cool);
+  coolButton.setAttribute('data-clicked', object.plusCool);
   coolButton.appendChild(coolText);
   body.appendChild(coolButton);
   // add useful badge event listener
@@ -1291,15 +1135,15 @@ function showReviews(reviewer, date, review, ref) {
     if (event.currentTarget.getAttribute('data-clicked') == 0) {
       // check if user has already upvoted badge
       // add +1 to badge score and displayed data attribute
-      ref.useful += 1;
-      ref.plusUseful = 1;
-      event.currentTarget.setAttribute('data-useful', ref.useful);
+      object.useful += 1;
+      object.plusUseful = 1;
+      event.currentTarget.setAttribute('data-useful', object.useful);
       event.currentTarget.setAttribute('data-clicked', 1);
     } else if (event.currentTarget.getAttribute('data-clicked') == 1) {
       // retract user upvote
-      ref.useful -= 1;
-      ref.plusUseful = 0;
-      event.currentTarget.setAttribute('data-useful', ref.useful);
+      object.useful -= 1;
+      object.plusUseful = 0;
+      event.currentTarget.setAttribute('data-useful', object.useful);
       event.currentTarget.setAttribute('data-clicked', 0);
     }
   })
@@ -1308,15 +1152,15 @@ function showReviews(reviewer, date, review, ref) {
     if (event.currentTarget.getAttribute('data-clicked') == 0) {
       // check if user has already upvoted badge
       // add +1 to badge score and displayed data attribute
-      ref.funny += 1;
-      ref.plusFunny = 1;
-      event.currentTarget.setAttribute('data-funny', ref.funny);
+      object.funny += 1;
+      object.plusFunny = 1;
+      event.currentTarget.setAttribute('data-funny', object.funny);
       event.currentTarget.setAttribute('data-clicked', 1);
     } else if (event.currentTarget.getAttribute('data-clicked') == 1) {
       // retract user upvate
-      ref.funny -= 1;
-      ref.plusFunny = 0;
-      event.currentTarget.setAttribute('data-funny', ref.funny);
+      object.funny -= 1;
+      object.plusFunny = 0;
+      event.currentTarget.setAttribute('data-funny', object.funny);
       event.currentTarget.setAttribute('data-clicked', 0);
     }
   })
@@ -1325,15 +1169,15 @@ function showReviews(reviewer, date, review, ref) {
     if (event.currentTarget.getAttribute('data-clicked') == 0) {
       // check if user has already upvoted badge
       // add +1 to badge score and displayed data attribute
-      ref.cool += 1;
-      ref.plusCool = 1;
-      event.currentTarget.setAttribute('data-cool', ref.cool);
+      object.cool += 1;
+      object.plusCool = 1;
+      event.currentTarget.setAttribute('data-cool', object.cool);
       event.currentTarget.setAttribute('data-clicked', 1);
     } else if (event.currentTarget.getAttribute('data-clicked') == 1) {
       // retract user upvote
-      ref.cool -= 1;
-      ref.plusCool = 0;
-      event.currentTarget.setAttribute('data-cool', ref.cool);
+      object.cool -= 1;
+      object.plusCool = 0;
+      event.currentTarget.setAttribute('data-cool', object.cool);
       event.currentTarget.setAttribute('data-clicked', 0);
     }
   })
@@ -1341,69 +1185,30 @@ function showReviews(reviewer, date, review, ref) {
 	body.removeAttribute('id');
 }
 
-// store reference ID to be used in initRestaurant()
-function sendRef(reference) {
-  storeRef = reference;
-}
-
-// match variable storeRef to unique restaurant
-// call showRestaurant() and showReviews()
+// hide search query, create restaurant page and show reviews
 function initRestaurant() {
   clearPage();
-  saveRev = [];
-  lowRev = [];
+  saveReview = [];
+  saveRatings = [];
 	for (var prop in restaurant) {
 		// loop through each restaurant
 		if (restaurant[prop].reference === storeRef) {
 			// match reference from search result
-      // pass matching restaurant details to variables
       restaurant[prop].popularity += 1;
-      name = restaurant[prop].name;
-      good = restaurant[prop].good;
-      street = restaurant[prop].address[0];
-      city = restaurant[prop].address[1] + ', ' + restaurant[prop].address[2] + ' ' + restaurant[prop].address[3];
-      telephone = restaurant[prop].number;
-      picOne = restaurant[prop].images[0];
-      picTwo = restaurant[prop].images[1];
-      picThree = restaurant[prop].images[2];
-      // join hours for restaurants that close between lunch and dinner
-      mon = restaurant[prop].hours.monday.join(', ');
-      tue = restaurant[prop].hours.tuesday.join(', ');
-      wed = restaurant[prop].hours.wednesday.join(', ');
-      thu = restaurant[prop].hours.thursday.join(', ');
-      fri = restaurant[prop].hours.friday.join(', ');
-      sat = restaurant[prop].hours.saturday.join(', ');
-      sunday = restaurant[prop].hours.sunday.join(', ');
-      // set up restaurant html structure
-      showRestaurant();
-      reviewSorter();
+      showRestaurant(restaurant[prop]);
+      reviewHeader();
       // loop through reviews backwards to show most recent reviews first
       for (var i = restaurant[prop].reviews.length - 1; i >= 0; i--) {
-        reviewer = restaurant[prop].reviews[i].username;
-        date = restaurant[prop].reviews[i].date;
-        rate = restaurant[prop].reviews[i].rating;
-        review = restaurant[prop].reviews[i].review;
-        useful = restaurant[prop].reviews[i].useful;
-        funny = restaurant[prop].reviews[i].funny;
-        cool = restaurant[prop].reviews[i].cool;
-        thisReview = restaurant[prop].reviews[i];
-        // push into saveRev for sorting manipulation
-        saveRev.push([reviewer, date, rate, review, useful, funny, cool, thisReview]);
-        lowRev.push([reviewer, date, rate, review, useful, funny, cool, thisReview]);
-        // call showReviews() for each review
-        showReviews(reviewer, date, review, thisReview);
+        // push into saveReview for sorting manipulation
+        saveReview.push(restaurant[prop].reviews[i]);
+        saveRatings.push(restaurant[prop].reviews[i]);
+        showReviews(restaurant[prop].reviews[i]);
       }
 		}
 	}
-  revLow(lowRev);
+  sortArray(saveRatings, 4);
   document.getElementById('date-desc').setAttribute('data-review', 1);
 }
-
-// variables for passing current date to review array
-var dateObj = new Date();
-var month = dateObj.getUTCMonth() + 1;
-var day = dateObj.getUTCDate();
-var year = dateObj.getUTCFullYear();
 
 // create review form when corresponding button is clicked
 function writeReview() {
@@ -1522,26 +1327,6 @@ function writeReview() {
   button.addEventListener('click', submitReview);
 }
 
-// clear review form after pushing to review array
-// create updated list of reviews
-function updateReviews() {
-  clearPage();
-  for (var prop in restaurant) {
-    // loop through each restaurant
-    if (restaurant[prop].reference === storeRef) {
-      // match reference from search result
-      // loop through reviews backwards to show most recent reviews first
-      for (var i = restaurant[prop].reviews.length - 1; i >= 0; i--) {
-        reviewer = restaurant[prop].reviews[i].username;
-        date = restaurant[prop].reviews[i].date;
-        review = restaurant[prop].reviews[i].review;
-        // call showReviews() for each review
-        initRestaurant();
-      }
-    }
-  }
-}
-
 // push new review object into review array
 function submitReview() {
   // pull values from review form and assign to variables
@@ -1570,8 +1355,7 @@ function submitReview() {
       restaurant[prop].popularity += 1;
     }
   }
-  document.getElementById('hours-box').className -= " hidden";
-  updateReviews();
+  initRestaurant();
 }
 
 // add star to span id = 'stars'
@@ -1606,13 +1390,13 @@ function giveEmptyStar(number) {
 }
 
 // create star html components
-function createStars(stars, half, toId) {
+function createStars(stars, half, id) {
   var count = 5;
   var emptyStar = '';
 
   // 5 stars total; empty star = count - (stars + half)
   var group = document.createElement('span');
-  var parent = document.getElementById(toId);
+  var parent = document.getElementById(id);
   group.setAttribute('id', 'stars');
   parent.appendChild(group);
 
@@ -1643,7 +1427,7 @@ function avgArray(array) {
 }
 
 // determine how many stars are displayed
-function calcStars(rating, toId) {
+function calcStars(rating, id) {
   var times = ''
   var half = ''
   // times = number of stars, if half = true, give half star
@@ -1679,11 +1463,11 @@ function calcStars(rating, toId) {
     half = false;
   }
   // console.log for testing, will call another function
-  createStars(times, half, toId);
+  createStars(times, half, id);
 }
 
 // determine how many stars to create for a restaurant
-function findStars(name, toId) {
+function findStars(name, id) {
   var ratings = [];
   var average = ''
   for (var prop in restaurant) {
@@ -1696,14 +1480,8 @@ function findStars(name, toId) {
   }
   // calculate average of array and quantity of stars
   average = avgArray(ratings);
-  return calcStars(average, toId);
+  return calcStars(average, id);
 }
-
-// variables for filling in stars
-var stars = '';
-var fill = 0;
-var saveFill = 0;
-var starsClicked = false
 
 // apply event listeners to make stars interactive
 function shiftStar() {
@@ -2025,9 +1803,4 @@ function onScroll() {
     scroll.setAttribute('class', 'hidden');
   }
 }
-
 window.document.addEventListener('scroll', onScroll);
-document.getElementsByClassName('content-header')[0].addEventListener('click', function(e) {
-  clearPage();
-  document.getElementById('landing').className -= 'hidden';
-})
