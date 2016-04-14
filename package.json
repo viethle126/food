@@ -1,0 +1,22 @@
+{
+  "name": "food",
+  "version": "1.0.0",
+  "description": "<img width=\"1280\" alt=\"food\" src=\"https://cloud.githubusercontent.com/assets/16697731/14448503/14c4b534-001e-11e6-9d31-d3c1f2631c25.png\">",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/viethle126/food.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/viethle126/food/issues"
+  },
+  "homepage": "https://github.com/viethle126/food#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}

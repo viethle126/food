@@ -1,0 +1,263 @@
+.hidden {
+  display: none;
+}
+
+.centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.inline {
+  display: inline;
+  margin-right: 15px;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.spacing {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.main {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: 1200px;
+}
+
+.header {
+  top: 0;
+  z-index: 1;
+  margin: 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 100%;
+  background-color: #fff;
+  opacity: .9;
+}
+
+.header-container {
+  max-width: 600px;
+}
+
+.input-group-addon {
+  background-color: #fff;
+}
+
+.content-header {
+  margin-bottom: 34px;
+  height: 65px;
+  font-family: Courier New, monospace;
+  font-size: 30px;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #111111;
+}
+
+.header-text {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+}
+
+.subtitle {
+  font-family: Helvetica, Arial, sans-serif;
+  text-align: right;
+}
+
+.landing-img {
+  width: 100%;
+}
+
+.media-object {
+  height: 200px;
+  width: 200px;
+}
+
+.review-img {
+  height: auto;
+  width:  33%;
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+h4:hover {
+  cursor: pointer;
+}
+
+span {
+  margin-bottom: 10px;
+}
+
+.useful-badge:hover, .useful-badge[data-clicked='1'] {
+  color: #fff !important;
+  background-color: #f89d15 !important;
+}
+
+.useful-badge:focus {
+  color: #fff !important;
+  background-color: #f89d15 !important;
+}
+
+.useful-badge[data-clicked='1']:focus {
+  color: #fff !important;
+  background-color: #f89d15 !important;
+}
+
+.useful-badge::after {
+  content: '+' attr(data-useful);
+  margin-left: 10px;
+  margin-right: -5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #fff;
+  background-color: #f89d15;
+  border-radius: 10px;
+}
+
+.useful-badge[data-useful='0']::after {
+  content: '';
+  background-color: #fff;
+}
+
+.useful-badge[data-useful='0']:hover::after,
+.useful-badge[data-useful='0']:focus::after {
+  content: '';
+  background-color: #f89d15 !important;
+}
+
+.funny-badge:hover, .funny-badge[data-clicked='1'] {
+  color: #fff !important;
+  background-color: #a8b250 !important;
+}
+
+.funny-badge:focus {
+  color: #fff !important;
+  background-color: #a8b250 !important;
+}
+
+.funny-badge[data-clicked='1']:focus {
+  color: #fff !important;
+  background-color: #a8b250 !important;
+}
+
+.funny-badge::after {
+  content: '+' attr(data-funny);
+  margin-left: 10px;
+  margin-right: -5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #ffffff;
+  background-color: #a8b250;
+  border-radius: 10px;
+}
+
+.funny-badge[data-funny='0']::after {
+  content: '';
+  background-color: #fff;
+}
+
+.funny-badge[data-funny='0']:hover::after,
+.funny-badge[data-funny='0']:focus::after {
+  content: '';
+  background-color: #a8b250 !important;
+}
+
+.cool-badge:hover, .cool-badge[data-clicked='1'] {
+  color: #fff !important;
+  background-color: #4c73ab !important;
+}
+
+.cool-badge:focus {
+  color: #fff !important;
+  background-color: #4c73ab !important;
+}
+
+.cool-badge[data-clicked='1']:focus {
+  color: #fff !important;
+  background-color: #4c73ab !important;
+}
+
+.cool-badge::after {
+  content: '+' attr(data-cool);
+  margin-left: 10px;
+  margin-right: -5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #ffffff;
+  background-color: #4c73ab;
+  border-radius: 10px;
+}
+
+.cool-badge[data-cool='0']::after {
+  content: '';
+  background-color: #fff;
+}
+
+.cool-badge[data-cool='0']:hover::after,
+.cool-badge[data-cool='0']:focus::after {
+  content: '';
+  background-color: #4c73ab !important;
+}
+
+button[data-sort='1'] {
+  color: #fff !important;
+  background-color: #b70000 !important;
+}
+
+button[data-review='1'] {
+  color: #fff !important;
+  background-color: #b70000 !important;
+}
+
+#add-location {
+  height: 42px;
+  font-weight: 400;
+  color: #fff;
+  background-color: #b70000;
+}
+
+#write-review {
+  margin-top: 10px;
+  height: 42px;
+  font-weight: 400;
+  color: #fff;
+  background-color: #b70000;
+}
+
+.fa-star, .fa-star-half-o, .fa-star-o {
+  color: #d42b2e;
+}
+
+#scroll {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  z-index: 1;
+  color: black;
+  text-decoration: none;
+  opacity: 0.1;
+}
+
+#sort-panel {
+  width: auto;
+}
